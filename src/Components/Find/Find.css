@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+
+.findBox{
+    background-color: white;
+    width: 40%;
+    height:50%;
+    text-align: center;
+    border: 1px solid black;
+    margin: 0px auto;
+    border-radius: 30px;
+    padding-bottom: 60px;
+}
+
+#innerbox{
+    margin-left: 13%;
+}
+
+.findtitle{
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-family: 'Noto Sans KR', Times, serif;
+    color: rgb(92, 92, 92);
+    margin-bottom: 5px;
+}
+
+.findpara{
+    font-size: 0.9rem;
+    font-family: 'Noto Sans KR', Times, serif;
+    font-weight: 700;
+    color: rgb(92, 92, 92);
+    margin-top: 0;
+}
+
+#findLogo{
+    color: black;
+    font-family: 'Rock Salt', Courier, monospace;
+    font-size: 3.0rem;
+    margin-bottom: 0;
+}
+
+#findid, #findpw{
+    width: 80%;
+    display: inline-block;
+    text-align: left;
+    padding-left: 120px;
+    padding-right: 50px;
+}
+
+#id_find, #pw_find, #findpw_email{
+    border-radius: 10px;
+    height: 30px;
+}
+
+#pw_find{
+    margin-bottom: 0;
+}
+
+#findid_sendemail, #findpw_checkid, #findpw_sendemail{
+    font-family: 'Montserrat', Courier, monospace;
+    color: black;
+    background-color: white;
+    font-size: 1.0rem;
+    font-weight: 700;
+    border: 1px solid white;
+    border-radius: 20px;
+    box-shadow: 1px 1px 4px rgb(165, 165, 165);
+    margin-left: 10px;
+    padding: 8px 15px 8px 15px;
+    height: 41px;
+}
+
+#findid_sendemail:hover, #findpw_checkid:hover, #findpw_sendemail:hover{
+    background-color: rgb(212, 212, 212);
+    cursor: pointer;
+}
+
+#checkidpara{
+    color: black;
+    font-family: 'Noto Sans KR', Times, serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+#sepPara{
+    color:rgb(236, 236, 236);
+    font-weight: 700;
+    text-align: left;
+    padding-left: 100px;
+}

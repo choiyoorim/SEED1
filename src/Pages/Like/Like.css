@@ -1,0 +1,108 @@
+@import url("../../Components/color.css");
+body{
+    margin: 0; padding: 0;
+    background-color: var(--seed-backgroundColor);
+    color:var(--seed-main-color);
+}
+.Like_wrapper{
+    display: block;
+    position: relative;
+    /* margin: 120px 30px 10px 30px; */
+    margin: 140px 140px 10px 140px;
+}
+#h3like{
+    margin-bottom: 0;
+}
+#h4f, #h4s{
+    display: inline-block;
+    width: 100px;
+    padding-left: 10px;
+}
+#h4f{
+    padding-left: 10px;
+}
+#h4s{
+    margin-left: 532px;
+}
+.likes, .subscribes{
+    height: 460px;
+    width: 1240px;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+}
+/* .likes_container, .subscribes_container{
+    width: 100%;
+} */
+.likes_container button{
+    margin: 10px 0 16px 0px;
+}
+#short_btn{
+    margin-left: 20px;
+}
+#like {
+    display: inline-block;
+    height: 400px;
+    width: 48%;
+    border: 2px solid var(--seed-backCover);
+    color: var(--seed-main-color);
+    overflow-y: scroll;
+}
+#like2 {
+    display: inline-block;
+    height: 400px;
+    width: 48%;
+    margin-left: 40px;
+    border: 2px solid var(--seed-backCover);
+    color: var(--seed-main-color);
+    overflow-y: scroll;
+}
+#subs {
+    display: inline-block;
+    height: 400px;
+    width: 16%;
+    border: 2px solid var(--seed-backCover);
+    color: var(--seed-main-color);
+    overflow-y: scroll;
+}
+#subs2{
+    display: inline-block;
+    height: 400px;
+    width: 80%;
+    margin-left: 40px;
+    border: 2px solid var(--seed-backCover);
+    color: var(--seed-main-color);
+    overflow-y: scroll;
+}
+#like::-webkit-scrollbar, #like2::-webkit-scrollbar, #subs::-webkit-scrollbar, #subs2::-webkit-scrollbar{
+    width: 5px;
+}
+#like::-webkit-scrollbar-thumb, #like2::-webkit-scrollbar-thumb, #subs::-webkit-scrollbar-thumb, #subs2::-webkit-scrollbar-thumb {
+    background-color: var(--seed-yelow);
+}
+#like::-webkit-scrollbar-track, #like2::-webkit-scrollbar-track, #subs::-webkit-scrollbar-track, #subs2::-webkit-scrollbar-track{
+    background-color: var(--seed-backCover);
+}
+#like li {
+    height: 80px;
+    margin: 5px 5px;
+    border-bottom: 1px solid var(--seed-main-color);
+    list-style: none;
+}
+#like2 li {
+    height: 80px;
+    margin: 5px 5px;
+    border-bottom: 1px solid var(--seed-main-color);
+    list-style: none;
+}
+#subs li {
+    height: 50px;
+    margin: 5px 5px;
+    border-bottom: 1px solid var(--seed-main-color);
+    list-style: none;
+}
+#subs2 li {
+    height: 80px;
+    margin: 5px 5px;
+    border-bottom: 1px solid var(--seed-main-color);
+    list-style: none;
+}

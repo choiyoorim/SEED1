@@ -1,0 +1,71 @@
+@import url("../../Components/color.css");
+
+.setting{
+    display: block;
+    position: relative;
+    height: 60px;
+    margin: 150px 140px 10px 140px; 
+    border: none;
+    border-bottom: 1px solid var(--seed-yelow);
+    color: var(--seed-main-color);
+}
+#mypage_user_img{
+    float: left;
+    border-radius: 50%;
+    margin: 0 10px;
+}
+#mypage_username{
+    float: left;
+    padding-top: 20px;
+}
+.setting_icon{
+    float: right;
+    margin: 0 10px 0 20px;
+    padding-top: 24px;
+}
+
+
+.user_write{
+    width: 1240px;
+    margin: 60px 140px 10px 100px;
+    padding-bottom: 40px;
+}
+.user_write h3{
+    margin-left: 40px;
+    color: var(--seed-main-color);
+}
+.user_write .write_info{
+    margin-left: 40px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--seed-main-color);
+}
+.user_write #title{
+    margin: 0 160px;
+}
+.user_write #num{
+    margin-left: 590px;
+}
+.user_write #date{
+    margin-left: 100px;
+}
+#written{
+    /* border: 2px solid var(--seed-backCover); */
+    color: var(--seed-main-color);
+    /* height: 360px;
+    overflow-y: scroll; */
+}
+/* #written::-webkit-scrollbar{
+    width: 5px;
+}
+#written::-webkit-scrollbar-thumb{
+    background-color: var(--seed-yelow);
+}
+#written::-webkit-scrollbar-track{
+    background-color: var(--seed-backCover);
+} */
+#written li{
+    height: 36px;
+    margin: 5px 5px;
+    border-bottom: 1px solid var(--seed-main-color);
+    list-style: none;
+}

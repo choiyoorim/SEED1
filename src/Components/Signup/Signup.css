@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+
+*{
+    font-family: 'Montserrat', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body{
+    background-color: black;
+    text-align: center;
+}
+
+input{
+    color: black;
+    font-weight: 700;
+}
+
+#signupLogo{
+    color: black;
+    font-family: 'Rock Salt', Courier, monospace;
+    font-size: 3.0rem;
+    margin-bottom: 30px;
+}
+
+#space{
+    margin-bottom: 200px;
+}
+
+
+.signupBox{
+    background-color: white;
+    width: 50%;
+    height:50%;
+    text-align: center;
+    border: 1px solid black;
+    margin: 0px auto;
+    border-radius: 30px;
+    padding-bottom: 30px;
+}
+
+.inputField{
+    background-color: white;
+    text-align:center;
+    margin-bottom: 60px;
+}
+
+input{
+    color: black;
+    font-size: 1.0rem;
+    border: 2px solid white;
+    box-shadow: 1px 1px 4px rgb(165, 165, 165);
+    display: inline-block;
+    width: 235px;
+    height: 30px;
+    margin-top: 8px;
+    margin-bottom: 25px;
+    border-radius: 15px;
+    padding:3px 5px 3px 15px;
+}
+
+#password_signup{
+    margin-bottom: 8px;
+}
+
+
+
+#idpara, #pwpara, #emailpara, #nicknamepara{
+    font-family: 'Noto Sans KR', Times, serif;
+    color: black;
+    font-weight: 700;
+    margin-bottom: 0;
+    margin-right: 200px;
+}
+
+#idpara{
+    margin-right: 200px;
+}
+
+#pwpara{
+    margin-right: 190px;
+}
+
+
+#passwordcheck_signup{
+    margin-bottom: 8px;
+}
+
+#checkpara{
+    margin-top: 0px;
+    margin-left: 90px;
+    font-family: 'Noto Sans KR', Times, serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: black;
+}
+
+#policyagree{
+    color: black;
+    background-color: white;
+    width: 20px;
+    height: 20px;
+    border: none;
+    box-shadow: none;
+    vertical-align: bottom;
+    margin-bottom: 0;
+}
+
+#policypara{
+    font-weight: 700;
+    font-family: 'Noto Sans KR', Times, serif;
+    color: black;
+    /* vertical-align: middle; */
+}
+
+
+
+
+#googleSignup, #signupSubmitBtn{
+    background-color: white;
+    width: 275px;
+    color: black;
+    font-family: 'Noto Sans KR', Times, serif;
+    font-weight: 700;
+    font-size: 1.0rem;
+    vertical-align: middle;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border:0.2px solid rgb(158, 158, 158);
+    border-radius: 30px;
+    box-shadow: 1px 1px 4px rgb(165, 165, 165);
+    cursor: pointer;
+}
+
+#signupSubmitBtn{
+    margin-top: 20px;
+}
+
+#googleSignup:hover, #signupSubmitBtn:hover{
+    background-color: rgb(236, 236, 236);
+}
+
+#orpara{
+    color:rgb(216, 216, 216);
+    font-weight: 700;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#loginpara, #gologin{
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    color: rgb(143, 143, 143);
+    font-weight: 700;
+}
+
+#gologin{
+    color:black;
+}
+
+#gologin:hover{
+    cursor: pointer;
+}
