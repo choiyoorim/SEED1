@@ -12,10 +12,10 @@ function Write(){
             <>
                 <section>
                     <div className="Write_main">
-                        <input className="movie-search" type='text' placeholder='Search'/>
-                        <div className="select-button-wrapping">
+                        <div className="select-button-wrap">
                             <BasicButtonGroup num={1}></BasicButtonGroup>
                         </div>
+                        <input className="movie-search" type='text' placeholder='Search'/>
                         <div className="form-wrap">
                             <input className="title-input" type='text' placeholder='제목'/>
                             <CKEditor
@@ -36,7 +36,7 @@ function Write(){
                                     console.log( 'Focus.', editor );
                                 } }
                             />
-                            <div className="setting">
+                            <div className="setting-wrap">
                                 <input className="keyword-input" type='text' placeholder='#'/>
                                 <div className="check">
                                     <input className="check-box" type="checkbox" value="spoiler"></input>
