@@ -1,0 +1,58 @@
+
+.reviewInfo{
+    margin-top: 100px;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.box{
+    border: #ffbb00;
+    margin-left: 10%;
+}
+tr{
+    color:  white;
+    height: 40px;
+    font-size: large;
+}
+#no{
+    width:10%;
+}
+#title{
+    width:60%;
+}
+#writer{
+    width:20%;
+}
+#date{
+    width:10%;
+}
+#hr{
+    width: 80%;
+}
+
+/*
+.List {
+    padding: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    min-height: 500px;
+}
+
+.list_tit {
+    border-bottom: solid 1px #ababab;
+    color : #ababab;
+}
+
+.list_grid {
+    display: grid;
+    grid-template-columns: 70% 15% 15%;
+}
+
+.list_data {
+    line-height: 40px;
+}
+
+.acenter {
+    text-align: center;
+}
+*/
