@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import './content_express.css';
-import Navi from '../Components/Navi';
+import './ContentExpress.css';
+import Navi from '../../Components/Navi';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import {FaHeart} from "react-icons/fa";
 import {AiOutlineHeart} from "react-icons/ai";
 
 
-class App extends Component {
+class ContentExpress extends Component {
   constructor(props) {
     super(props);
     this.state={
@@ -24,7 +24,6 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Navi></Navi>
         <div class="container">
           <div class="right">
             <p>작가이름</p>
@@ -53,4 +52,4 @@ For further details about the W3C-WHATWG agreement, see the Memorandum of Unders
   }
 }
 
-export default App;
+export default ContentExpress;

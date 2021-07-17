@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './RList.css';
-import Navi from '../Components/Navi';
-import reviewList from './reviewList';
+import Navi from '../../Components/Navi';
+import ReviewList from './ReviewList';
 //import { Link } from 'react-router-dom';
 
-class List extends Component {
+class RList extends Component {
     constructor(props){
       super(props);
       this.state={
@@ -114,8 +114,7 @@ class List extends Component {
       */
 
       return (
-        <div className="App">
-          <Navi></Navi>
+        <div>
           {/*
           <div className="RList">
             <div className="reviewInfo">
@@ -147,7 +146,7 @@ class List extends Component {
               </tr>
               <br></br>
               {this.state.reviewData.map((data)=> {
-                return React.createElement(reviewList, {id: data.id, title: data.title, writer: data.writer, date: data.date, key: data.id});
+                return React.createElement(ReviewList, {id: data.id, title: data.title, writer: data.writer, date: data.date, key: data.id});
               })}
             </tbody>
           </table>
@@ -156,4 +155,4 @@ class List extends Component {
     }
   }
   
-  export default List;
+  export default RList;

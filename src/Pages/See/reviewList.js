@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class reviewList extends Component {
+class ReviewList extends Component {
   render() {
     return(
         <tr>
@@ -14,4 +14,4 @@ class reviewList extends Component {
   }
 }
 
-export default reviewList;
+export default ReviewList;
