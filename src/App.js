@@ -19,6 +19,7 @@ import Navi from './Components/Navi';
 import Find from './Components/Find/Find.js';
 import Login from './Components/Login/Login.js';
 import Signup from './Components/Signup/Signup.js';
+import MemberInfo from './Components/MemberInfo/MemberInfo.js';
 
 const App = () =>{
   return(
@@ -34,6 +35,7 @@ const App = () =>{
         <Route path="/find" component={Find} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
+        <Route path="/memberInfo" component={MemberInfo} />
     </HashRouter>
     </>
   );
