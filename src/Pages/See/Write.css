@@ -60,11 +60,11 @@
 
 .setting-wrap>.keyword-input{
     height:20px;
+    width:98%;
 }
 
 .setting-wrap>.submit-button{
     position:relative;
-    top:10px;
 }
 
 .submit-area{

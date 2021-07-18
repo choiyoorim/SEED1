@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './movieList.css';
+import './MovieList.css';
 
-class movieList extends Component {
+class MovieList extends Component {
   render() {
     return(
       <div>
@@ -25,7 +25,7 @@ class movieList extends Component {
           <div id="actor">actor1, actor2</div>
           <div id="date">2020-05-06</div>
           <div>
-            <div class="link"><Link to=''>리뷰작성하기</Link></div>
+            <div class="link"><Link to='/ShortWrite'>리뷰작성하기</Link></div>
             <div class="link"><Link to='/RList'>리뷰보기</Link></div>
           </div>
         </div>
@@ -34,4 +34,4 @@ class movieList extends Component {
   }
 }
 
-export default movieList;
+export default MovieList;

@@ -1,6 +1,4 @@
-.Content{
 
-}
 
 .hashtag_button{
     position: absolute;
@@ -20,7 +18,7 @@
     margin-left:10%;
 }
 
-button{
+#num{
     margin:3%;
     width: 11%; height: 100px;
     background-color:#262626;
