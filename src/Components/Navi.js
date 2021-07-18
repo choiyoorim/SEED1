@@ -57,7 +57,7 @@ function Navi() {
                     <li key={index} className={item.cName}>
                       <Link to={item.path}>
                         {item.icon}
-                        <span><p>{item.title}</p></span>
+                        <span><p class="itemtitle">{item.title}</p></span>
                       </Link>
                     </li>
                     );

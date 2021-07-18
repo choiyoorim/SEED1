@@ -6,6 +6,17 @@
     font-family: 'Montserrat', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+.introtitle{
+    color: white;
+    font-family: 'Noto Sans KR', Courier, monospace;
+    font-size: 1.2rem;
+    margin-right: 0;
+}
+
+.intro{
+    color: white;
+}
+
 #logo{
     color: #ffffff;
     font-size: 5.5rem;
@@ -22,9 +33,8 @@
     margin-top: -40px;
 }
 
-#joinMsg{
-    margin-top: -10px;
-    font-size: 2.0rem;
+#joinmsg{
+    margin-top: 30px;
 }
 
 #joinLink{
