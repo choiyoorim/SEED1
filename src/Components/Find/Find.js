@@ -14,7 +14,7 @@ function Find(){
             <p id="findLogo">Find account</p>
             <div id="innerbox">
             <div id="findid">
-                <h1 class="findtitle">아이디 찾기</h1>
+                <h1 class="findtitle">아이디 찾기</h1><br/>
                 <p class="findpara">가입 시 작성한 이메일으로 아이디를 보내드립니다.</p>
                 <input id="id_find" placeholder="email" />
                 <button id="findid_sendemail">send</button>
@@ -22,7 +22,7 @@ function Find(){
             <p id="sepPara">───────────────────　OR　───────────────────</p>
             
             <div id="findpw">
-                <h1 class="findtitle">비밀번호 찾기</h1>
+                <h1 class="findtitle">비밀번호 찾기</h1><br/>
                 <p class="findpara">아이디와 비밀번호를 입력하세요.</p>
                 <input id="pw_find" placeholder="id" />
                 <button id="findpw_checkid">check</button>
