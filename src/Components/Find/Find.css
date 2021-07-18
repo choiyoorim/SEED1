@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
 
 .findBox{
     background-color: white;
@@ -15,14 +16,18 @@
 
 #innerbox{
     margin-left: 13%;
+    /* text-align: center; */
 }
 
 .findtitle{
+    text-align: left;
     font-size: 1.3rem;
     font-weight: 700;
     font-family: 'Noto Sans KR', Times, serif;
     color: rgb(92, 92, 92);
     margin-bottom: 5px;
+    margin-left: 30px;
+    position: relative;
 }
 
 .findpara{
