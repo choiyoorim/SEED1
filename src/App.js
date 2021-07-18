@@ -15,8 +15,10 @@ import Like from './Pages/Like/Like';
 import Mypage from './Pages/Mypage/Mypage';
 import Home from './Pages/Home/Home';
 import ShortWrite from './Pages/See/ShortWrite';
-import Find from './Components/Find/Find';
 import Navi from './Components/Navi';
+import Find from './Components/Find/Find.js';
+import Login from './Components/Login/Login.js';
+import Signup from './Components/Signup/Signup.js';
 
 const App = () =>{
   return(
@@ -30,6 +32,8 @@ const App = () =>{
         <Route path="/mypage" component={Mypage}/>
         <Route path="/shortwrite" component={ShortWrite}/>
         <Route path="/find" component={Find} />
+        <Route path="/login" component={Login} />
+        <Route path="/signup" component={Signup} />
     </HashRouter>
     </>
   );
