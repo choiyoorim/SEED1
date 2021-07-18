@@ -23,15 +23,17 @@ function Navi() {
             </Link>
           </div>
           <div>
-            <h1 class="logo">Seed Logo</h1>
+            <Link to="/"><h1 class="logo">Seed.</h1></Link>
             <ul class="menu">
               <li><Link to="/see">See</Link></li>
               <li><Link to="/like">Like</Link></li>
               <li><Link to="/mypage">MyPage</Link></li>
             </ul>
             <div class = "user">
-              <p id = "user_name">Seed님</p>
-              <img id = "user_img" src={user} width="40" height="40"/>
+              <Link to="/login"><button class="memberbtns" id="loginbtn">Login</button></Link>
+              <Link to="/signup"><button class="memberbtns" id="joinbtn">Sign up</button></Link>
+              <Link to="/memberInfo"><p id = "user_name">Seed님</p></Link>
+              <img id = "user_img" src={user} width="25" height="10"/>
             </div>
           </div>
         

@@ -47,20 +47,24 @@ body{
   padding: 0 15px;
   font-size: 12px;
 }
-h1{
+
+.logo{
+  font-family: 'Rock Salt', Courier, monospace;
+  font-size: 1.4rem;
   color: var(--seed-main-color);
   position:absolute;
   left: 80px;
+  margin-top: 10px;
   margin-right: 10px;
 }
 
 
 .menu{
 position:absolute;
-left: 250px;
+left: 180px;
 margin-right: 10px;
 width: 500px;
-padding-top: 10px;
+padding-top: 15px;
 font-family: 'Montserrat', Courier, monospace;
 font-size: 0.7rem;
 font-weight: 700;
@@ -74,24 +78,64 @@ font-weight: 700;
 }
 .menu a{
   color: var(--seed-main-color);
-  font-size: 28px;
+  font-size: 1.2rem;
   text-decoration: none;
+}
+
+.menu a:hover{
+  color: grey;
+}
+
+.memberbtns{
+  display: inline-block;
+  color: white;
+  background-color: var(--seed-backgroundColor);
+  font-family: 'Montserrat', Courier, monospace;
+  font-size: 1.1rem;
+  font-weight: 700;
+  position: absolute;
+  color: white;
+  border: none;
+  top: 25px;
+  cursor: pointer;
+}
+
+#loginbtn{
+  right: 270px;
+  
+}
+
+#joinbtn{
+  right: 180px;
+}
+
+#loginbtn:hover, #joinbtn:hover, #user_name:hover{
+  color: grey;
 }
 
 
 #user_name{
 position:absolute;
 right: 80px;
-margin-top: 24px;
+margin-top: 25px;
+display: inline-block;
+font-size: 1.1rem;
+font-weight: 700;
 }
+
 #user_img{
   position: absolute;
-  width: 40px;
-  height: 35px;
-  right: 20px;
-  top:18px;
-  border-radius: 50px;
+  width: 30px;
+  height: 25px;
+  right: 15px;
+  top:15px;
+  border: 1px solid white;
+  padding: 8px;
+  border-radius: 100%;
+  box-shadow: 1px 1px 4px rgb(0, 0, 0);
+  margin-top: 0;
 }
+
 @media(max-width: 800px){
   .user{
     display: none;
