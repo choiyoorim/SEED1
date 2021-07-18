@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+
+body{
+    background-color: black;
+    text-align: center;
+}
+
+#loginLogo{
+    color: black;
+    font-family: 'Rock Salt', Courier, monospace;
+    font-size: 3.0rem;
+    margin-bottom: 10px;
+    /* margin-bottom: 40px; */
+}
+
+#space{
+    margin-bottom: 200px;
+}
+
+
+.loginBox{
+    background-color: white;
+    width: 50%;
+    height:50%;
+    text-align: center;
+    border: 1px solid black;
+    margin: 0px auto;
+    border-radius: 30px;
+}
+
+.inputField{
+    background-color: white;
+    text-align:center;
+    margin-bottom: 60px;
+}
+
+#id_login{
+    color: black;
+    font-size: 1.0rem;
+    border: 2px solid white;
+    display: inline-block;
+    width: 235px;
+    height: 30px;
+    border-radius: 15px;
+    margin: 0px auto;
+    padding:3px 5px 3px 15px;
+    box-shadow: 1px 1px 4px rgb(165, 165, 165);
+}
+
+#password_login{
+    color: black;
+    font-size: 1.0rem;
+    border: 2px solid white;
+    box-shadow: 1px 1px 4px rgb(165, 165, 165);
+    display: inline-block;
+    width: 235px;
+    height: 30px;
+    margin-top: 20px;
+    border-radius: 15px;
+    padding:3px 5px 3px 15px;
+}
+
+#enterBtn{
+    width: 254px;
+    height: 45px;
+    background-color: white;
+    font-family: 'Montserrat', Courier, monospace;
+    font-size: 1.0rem;
+    font-weight: 700;
+    color: black;
+    border-radius: 30px;
+    border:0.2px solid rgb(158, 158, 158);
+    box-shadow: 1px 1px 4px rgb(165, 165, 165);
+    cursor: pointer;
+    margin-top: 25px;
+    margin-bottom: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#enterBtn:hover{
+    background-color: rgb(236, 236, 236);
+}
+
+#googleLogin{
+    background-color: white;
+    width: 275px;
+    color: black;
+    font-family: 'Noto Sans KR', Times, serif;
+    font-weight: 700;
+    font-size: 1.0rem;
+    vertical-align: middle;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border:0.2px solid rgb(158, 158, 158);
+    border-radius: 30px;
+    box-shadow: 1px 1px 4px rgb(165, 165, 165);
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+#googleLogin:hover{
+    background-color: rgb(236, 236, 236);
+}
+
+#googleIcon{
+    width: 35px;
+    height: 25px;
+    padding: 0;
+    margin: 0 auto;
+    vertical-align: middle;
+}
+
+#joinMsg{
+    margin-top: 20px;
+    color: rgb(51, 51, 51);
+    font-size: 0.5rem;
+    font-weight: 700;
+    padding: 0px;
+}
+
+
+#backBtn{
+    font-family: 'Montserrat', Courier, monospace;
+    float: left;
+    margin-top: 10px;
+    margin-left: 20px;
+    border: 1px solid white;
+    background-color: white;
+
+}
+
+#divPara{
+    color:rgb(216, 216, 216);
+    font-weight: 700;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#findId, #signuppara, #divpara{
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    color: rgb(112, 112, 112);
+    font-weight: 700;
+    display: inline-block;   
+}
+
+#findId, #signuppara{
+    cursor: pointer;
+}
+
+#findId:hover{
+    color: black;
+}
+
+#signuppara:hover{
+    color: black;
+}
