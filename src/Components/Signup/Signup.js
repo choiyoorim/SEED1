@@ -13,15 +13,15 @@ function Signup(){
              <div class="signupBox">
                  <p id="signupLogo">Sign Up</p>
                  <form class="inputField">
-                     <p id="idpara"> · 아이디</p>
+                     <p id="idpara">· ID</p>
                      <input id="id_signup" type="text" placeholder="id"/><br/>
-                     <p id="pwpara">· 패스워드</p>
+                     <p id="pwpara">· Password</p>
                      <input type="password" id="password_signup" placeholder="password" /><br/>
                      <input type="password" id="passwordcheck_signup" placeholder="password check" />
                      <p id="checkpara"> * 비밀번호가 일치하지 않습니다.</p>
-                     <p id="emailpara">· 이메일</p>
+                     <p id="emailpara">· Email</p>
                      <input type="email" id="email_signup" placeholder="email" /><br/>
-                     <p id="nicknamepara">· 닉네임</p>
+                     <p id="nicknamepara">· Nickname</p>
                      <input id="nickname_signup" placeholder="nickname" /><br/>
                      <input type="checkbox" id="policyagree" /> <span id="policypara"> SEED 정책에 동의합니다. </span><br/>
                      <button type="submit" id="signupSubmitBtn">Sign up</button>
