@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 //import { BsSearch } from "react-icons/bs";
-import Navi from '../Components/Navi';
-import MovieList from './movieList';
+import Navi from '../../Components/Navi';
+import MovieList from './MovieList';
 import'./MList.css';
-import SearchForm from './searchForm';
+import SearchForm from './SearchForm';
 
 
 class MList extends Component {
@@ -47,7 +47,6 @@ class MList extends Component {
   render () {
     return (
       <div className="App">
-        <Navi></Navi>
         <SearchForm></SearchForm>
         {/*
         <h3 id="result">' {this.state.movie} '에 대한 영화 검색</h3>

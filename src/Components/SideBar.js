@@ -16,7 +16,7 @@ export const SideBar = [
   },
   {
     title: '글쓰기',
-    path: '/Mypage',
+    path: '/ShortWrite',
     icon: <IoCreateOutline />,
     cName: 'nav-text'
   },

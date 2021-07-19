@@ -11,14 +11,16 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'left',
-    marginLeft:'100px',
-    marginBottom:'20px',
     '& > *': {
       margin: theme.spacing(1),
     },
   },
-}));
-
+  button:{
+    width:90,
+    height:50,
+  },
+}
+));
 
 
 function BasicButtonGroup(props){                                                   
@@ -39,8 +41,8 @@ function BasicButtonGroup(props){
     return (
       <div className={classes.root}>                                                               
         <ButtonGroup color="primary" aria-label="outlined primary button group">
-          <Button color={numValue === -1 ? "primary":"secondary"} onClick={()=>SetFrame(-1)}>Short</Button>
-          <Button color={numValue === 1 ? "primary":"secondary"} onClick={()=>SetFrame(1)}>Express</Button>
+          <Button className={classes.button} color={numValue === -1 ? "primary":"secondary"} onClick={()=>SetFrame(-1)}>Short</Button>
+          <Button className={classes.button} color={numValue === 1 ? "primary":"secondary"} onClick={()=>SetFrame(1)}>Express</Button>
         </ButtonGroup>
       </div>
     );
