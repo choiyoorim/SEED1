@@ -2,7 +2,7 @@
 
 .hashtag_button{
     position: absolute;
-    top: 65%; left:50%;
+    top: 65%; left:45%;
     transform: translate(-50%, -50%);
     width: 100%; height: 60%;
 }
