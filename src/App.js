@@ -15,10 +15,13 @@ import Like from './Pages/Like/Like';
 import Mypage from './Pages/Mypage/Mypage';
 import Home from './Pages/Home/Home';
 import ShortWrite from './Pages/See/ShortWrite';
-import Find from './Components/Find/Find';
 import Navi from './Components/Navi';
+import Find from './Components/Find/Find.js';
+import Login from './Components/Login/Login.js';
+import Signup from './Components/Signup/Signup.js';
 import RList from './Pages/See/RList';
 import MList from './Pages/See/MList';
+
 
 const App = () =>{
   return(

@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+*{
+    color: white;
+    font-family: 'Montserrat', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#logo{
+    color: #ffffff;
+    font-size: 5.5rem;
+    display: inline-block;
+    font-family: 'Rock Salt', Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 0px;
+    margin-top: 30px;
+}
+
+#logoIntro{
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: white;
+    margin-top: -40px;
+}
+
+#joinMsg{
+    margin-top: -10px;
+    font-size: 2.0rem;
+}
+
+#joinLink{
+    font-weight: 600;
+    display: inline-block;
+    padding: 40px 50px 40px 50px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    border-radius: 100%;
+    margin-bottom: 75px;
+}
+
+#recoTitle{
+    font-size: 1.5rem;
+    font-family: 'Rock Salt', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    margin-bottom: 20px;
+}
+
+#line{
+    width: 50%;
+    margin-top: 0px;
+    margin-bottom: 5%;
+}
+
+#frame{
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 50px;
+}
+
+#introTitle{
+    margin-top: 0px;
+    font-size: 2.0rem;
+    font-weight: 600;
+    font-family: 'Montserrat', Times, serif;
+}
+
+.intro{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: block;
+}
+
+#intro1{
+    text-align: left;
+    margin-left: 10%;
+}
+
+#intro2{
+    text-align: right;
+    margin-right: 10%;
+}
+
+#para2{
+    float: right;
+}
+
+#intro3{
+    display: block;
+    text-align: left;
+    margin-left: 10%;
+}
+
+#para3{
+    float: left;
+}
+
+.intropara{
+    width: 320px;
+}
+
+#posterdiv{
+    margin-top: 7%;
+}
+
+.poster{
+    width: 200px;
+    height: 250px;
+    border: 2px solid white;
+    border-radius: 100px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
