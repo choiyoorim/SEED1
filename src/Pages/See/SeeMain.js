@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './SeeMain.css';
-import Navi from '../../Components/Navi';
 import Category from './SeeCategory';
 import SearchForm from './SearchForm';
 

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 //import { BsSearch } from "react-icons/bs";
-import Navi from '../../Components/Navi';
 import MovieList from './MovieList';
 import'./MList.css';
 import SearchForm from './SearchForm';

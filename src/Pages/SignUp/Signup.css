@@ -13,11 +13,6 @@ body{
     text-align: center;
 }
 
-input{
-    color: black;
-    font-weight: 700;
-}
-
 #signupLogo{
     color: black;
     font-family: 'Rock Salt', Courier, monospace;
@@ -47,7 +42,8 @@ input{
     margin-bottom: 60px;
 }
 
-input{
+#input-type{
+    font-weight: 700;
     color: black;
     font-size: 1.0rem;
     border: 2px solid white;
@@ -155,6 +151,12 @@ input{
     font-size: 0.9rem;
     color: rgb(143, 143, 143);
     font-weight: 700;
+}
+
+#googleIcon{
+    width:30px;
+    height:25px;
+    
 }
 
 #gologin{

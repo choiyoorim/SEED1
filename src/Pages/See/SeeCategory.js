@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import './SeeCategory.css';
-import Navi from '../../Components/Navi';
 
 class SeeCategory extends Component {
   render () {
     return (
       <div className="Content">
-        <Navi></Navi>
         <div class='hashtag_button'>
           <div class='explain'>
             <h2>See Keyword</h2>
