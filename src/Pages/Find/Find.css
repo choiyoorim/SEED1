@@ -6,7 +6,6 @@
     background-color: white;
     width: 40%;
     height:50%;
-    text-align: center;
     border: 1px solid black;
     margin: 0px auto;
     border-radius: 30px;
@@ -14,7 +13,8 @@
 }
 
 #innerbox{
-    margin-left: 13%;
+    align-self:center;
+    position: relative;
 }
 
 .findtitle{
@@ -22,7 +22,8 @@
     font-weight: 700;
     font-family: 'Noto Sans KR', Times, serif;
     color: rgb(92, 92, 92);
-    margin-bottom: 5px;
+    width: 70%;
+    position: relative;
 }
 
 .findpara{
@@ -43,9 +44,7 @@
 #findid, #findpw{
     width: 80%;
     display: inline-block;
-    text-align: left;
-    padding-left: 120px;
-    padding-right: 50px;
+    position: relative;
 }
 
 #id_find, #pw_find, #findpw_email{
@@ -88,6 +87,5 @@
 #sepPara{
     color:rgb(236, 236, 236);
     font-weight: 700;
-    text-align: left;
-    padding-left: 100px;
+    position:relative;
 }

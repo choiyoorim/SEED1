@@ -15,10 +15,11 @@ import Like from './Pages/Like/Like';
 import Mypage from './Pages/Mypage/Mypage';
 import Home from './Pages/Home/Home';
 import ShortWrite from './Pages/See/ShortWrite';
-import Find from './Components/Find/Find';
+import Find from './Pages/Find/Find';
 import Navi from './Components/Navi';
 import RList from './Pages/See/RList';
 import MList from './Pages/See/MList';
+import SignUp from './Pages/SignUp/Signup';
 
 const App = () =>{
   return(
@@ -26,14 +27,15 @@ const App = () =>{
     <HashRouter>
         <Navi></Navi>
         <Route exact path ="/" component={Home}/>
-        <Route exact path="/see" component={See}/>
-        <Route exact path="/write" component={Write}/>
-        <Route exact path="/like" component={Like}/>
-        <Route exact path="/mypage" component={Mypage}/>
-        <Route exact path="/shortwrite" component={ShortWrite}/>
-        <Route exact path="/find" component={Find} />
-        <Route exact path="/RList" component={RList}/>
-        <Route exact path="/MList" component={MList}/>
+        <Route path="/see" component={See}/>
+        <Route path="/write" component={Write}/>
+        <Route path="/like" component={Like}/>
+        <Route path="/mypage" component={Mypage}/>
+        <Route path="/shortwrite" component={ShortWrite}/>
+        <Route path="/find" component={Find} />
+        <Route path="/rlist" component={RList}/>
+        <Route path="/mlist" component={MList}/>
+        <Route path="/signup" component={SignUp}/>
     </HashRouter>
     </>
   );

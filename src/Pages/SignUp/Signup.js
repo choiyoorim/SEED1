@@ -1,28 +1,25 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-import 'src\Components\Signup\Signup.css';
-import Navi from '../Navi';
-import googleIcon from '../img/googleLogin.png';
+import '../SignUp/Signup.css';
+import googleIcon from '../../Components/img/googleLogin.png';
 
-function Signup(){
+function SignUp(){
        return (
             <container>
-                <Navi></Navi>
                 <div id="space"></div>
-
                 <div class="signupBox">
                     <p id="signupLogo">Sign Up</p>
                     <form class="inputField">
                         <p id="idpara"> · 아이디</p>
-                        <input id="id_signup" type="text" placeholder="id"/><br/>
+                        <input id="input-type" type="text" placeholder="id"/><br/>
                         <p id="pwpara">· 패스워드</p>
-                        <input type="password" id="password_signup" placeholder="password" /><br/>
-                        <input type="password" id="passwordcheck_signup" placeholder="password check" />
+                        <input type="password" id="input-type" placeholder="password" /><br/>
+                        <input type="password" id="input-type" placeholder="password check" />
                         <p id="checkpara"> * 비밀번호가 일치하지 않습니다.</p>
                         <p id="emailpara">· 이메일</p>
-                        <input type="email" id="email_signup" placeholder="email" /><br/>
+                        <input type="email" id="input-type" placeholder="email" /><br/>
                         <p id="nicknamepara">· 닉네임</p>
-                        <input id="nickname_signup" placeholder="nickname" /><br/>
+                        <input id="input-type" placeholder="nickname" /><br/>
                         <input type="checkbox" id="policyagree" /> <span id="policypara"> SEED 정책에 동의합니다. </span><br/>
                         <button type="submit" id="signupSubmitBtn">Sign up</button>
                         <p id="orpara">─────────────　OR　─────────────</p>
@@ -44,4 +41,4 @@ function Signup(){
        );
      }
 
-   export default Signup;
+   export default SignUp;
