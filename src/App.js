@@ -21,7 +21,7 @@ import Login from './Components/Login/Login';
 import RList from './Pages/See/RList';
 import MList from './Pages/See/MList';
 import SignUp from './Pages/SignUp/Signup';
-
+import MemberInfo from './Pages/Memberinfo/MemberInfo';
 
 const App = () =>{
   return(
@@ -38,6 +38,7 @@ const App = () =>{
         <Route path="/rlist" component={RList}/>
         <Route path="/mlist" component={MList}/>
         <Route path="/signup" component={SignUp}/>
+        <Route path="/memberinfo" component={MemberInfo} />
     </HashRouter>
     </>
   );

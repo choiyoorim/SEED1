@@ -13,6 +13,11 @@ body{
     text-align: center;
 }
 
+.input-type{
+    color: black;
+    font-weight: 700;
+}
+
 #signupLogo{
     color: black;
     font-family: 'Rock Salt', Courier, monospace;
@@ -42,8 +47,7 @@ body{
     margin-bottom: 60px;
 }
 
-#input-type{
-    font-weight: 700;
+.input-type{
     color: black;
     font-size: 1.0rem;
     border: 2px solid white;
@@ -64,19 +68,29 @@ body{
 
 
 #idpara, #pwpara, #emailpara, #nicknamepara{
-    font-family: 'Noto Sans KR', Times, serif;
+    font-family: 'Montserrat', Times, serif;
     color: black;
     font-weight: 700;
-    margin-bottom: 0;
+    margin-bottom: 5px;
     margin-right: 200px;
+    padding-left: 60PX;
+    font-size: 1.1rem;
 }
 
 #idpara{
-    margin-right: 200px;
+    margin-right: 280px;
+}
+
+#emailpara{
+    margin-right: 250px;
 }
 
 #pwpara{
     margin-right: 190px;
+}
+
+#pwpara, #nicknamepara{
+    margin-right: 220px;
 }
 
 
@@ -90,7 +104,7 @@ body{
     font-family: 'Noto Sans KR', Times, serif;
     font-size: 0.8rem;
     font-weight: 700;
-    color: black;
+    color: grey;
 }
 
 #policyagree{
@@ -151,12 +165,6 @@ body{
     font-size: 0.9rem;
     color: rgb(143, 143, 143);
     font-weight: 700;
-}
-
-#googleIcon{
-    width:30px;
-    height:25px;
-    
 }
 
 #gologin{
