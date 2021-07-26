@@ -9,6 +9,7 @@ body{
     position: relative;
     /* margin: 120px 30px 10px 30px; */
     margin: 140px 140px 10px 140px;
+    padding-left: 200px;
 }
 #h3like{
     margin-bottom: 0;
