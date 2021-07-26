@@ -64,8 +64,8 @@ class Like extends Component {
                             </form>
                     </div>
                 </div>
-                <div class="subscribes">
-                    <h3>구독</h3>
+                <div class="subscribes"><br/>
+                    <h3>구독 리스트</h3>
                     <div class="subscribes_container list">
                         <form id="subs">
                                 <li></li>

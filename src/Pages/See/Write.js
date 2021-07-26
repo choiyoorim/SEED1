@@ -18,7 +18,11 @@ function Write(){
                         <input className="movie-search" type='text' placeholder='Search'/>
                         <div className="form-wrap">
                         <h2 id="shortlogo">EXPRESS REVIEW</h2>
-                            <input className="title-input" type='text' placeholder='제목'/>
+
+                        <div id="contentdiv">
+                        <p id="titleinst">제목 </p>
+                            <input className="title-input" type='text' placeholder='제목을 입력하세요.'/>
+                            </div>
                             <CKEditor
                                 editor={ ClassicEditor }
                                 data="<p>리뷰 작성 시 광고 및 욕설, 비속어나 타인을 비방하는 문구를 사용하시면 삭제될 수 있습니다.</p>"

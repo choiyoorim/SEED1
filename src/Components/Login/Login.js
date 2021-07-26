@@ -12,7 +12,6 @@ function Login() {
            <Navi></Navi>
            <div id="space"/>
             <div class="loginBox">
-            <Link to="/"><button id="backBtn">back</button></Link>
                 <p id="loginLogo">Login</p>
                 <form class="inputField">
                     <input type="text" id="id_login" placeholder='id'></input><br/>

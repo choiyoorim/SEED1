@@ -8,11 +8,13 @@
 }
 
 .form-wrap{
-    width:900px;
+    width:1000px;
     margin: 0 auto;
     background-color: var(--seed-subColor);
     padding:20px;
     box-sizing: border-box;
+    padding-left: 150px;
+    padding-right: 150px;
 }
 
 .movie-search{
@@ -38,8 +40,15 @@
     height:40px;
     margin-bottom:20px;
     margin-top: 30px;
-    border: 1px solid grey;
-    border-radius: 10px;
+    border: 1px solid rgb(199, 199, 199);
+    border-radius: 0;
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-family: 'Noto Sans KR', Courier, monospace;
+    font-weight: 700;
+    box-shadow: none;
 }
 
 .content-area{
@@ -55,7 +64,8 @@
 }
 
 .setting-wrap{
-    width: 860px;
+    text-align: center;
+    width: 1000px;
     margin: auto;
     /* display: grid; */
     /* grid-template-columns: 670px 2fr 1fr; 균일한 크기로 3등분 */
@@ -64,15 +74,23 @@
     gap:10px;
     padding-bottom: 50px;
     margin-bottom: 20px;
+    padding-right: 450px;
 }
 
 .setting-wrap>.keyword-input{
     height:20px;
 }
 
-.setting-wrap>.submit-button{
+.setting-wrap>Button{
     position:relative;
-    top:10px;
+    margin-top: 0;
+    margin-left: 100px;
+    font-weight: 700;
+    border: 1px solid white;
+    border-radius: 20px;
+    box-shadow: 1px 1px 4px rgb(165, 165, 165);
+    margin-top: 30px;
+    padding: 10px 20px 10px 20px;
 }
 
 .submit-area{
@@ -100,7 +118,6 @@
     font-weight: 700;
     border: 1px solid white;
     border-radius: 20px;
-    margin-right: 30px;
     box-shadow: 1px 1px 4px rgb(165, 165, 165);
     margin-top: 30px;
 }
@@ -110,3 +127,17 @@ CKEditor{
     font-weight: 700;
 }
 
+#titleinst{
+    font-family: 'Noto Sans KR', Courier, monospace;
+    font-weight: 700;
+    color: black;
+    display: inline-block;
+}
+
+#contentdiv{
+    text-align: left;
+}
+
+.check{
+    padding-left: 140px;
+}
