@@ -31,16 +31,22 @@
 }
 
 .title-input{
+    text-align: left;
     position: relative;
     align-self: left;
-    width:850px;
+    width:600px;
     height:40px;
     margin-bottom:20px;
+    margin-top: 30px;
+    border: 1px solid grey;
+    border-radius: 10px;
 }
 
 .content-area{
     width:80%;
     min-height:500px;
+    font-family: 'Noto Sans KR', Courier, monospace;
+    font-weight: 700;
 }
 
 .check-inst{
@@ -51,11 +57,13 @@
 .setting-wrap{
     width: 860px;
     margin: auto;
-    display: grid;
-    grid-template-columns: 670px 2fr 1fr; /* 균일한 크기로 3등분 */
+    /* display: grid; */
+    /* grid-template-columns: 670px 2fr 1fr; 균일한 크기로 3등분 */
      /* 40px로 24등분 -> <main> 영역의 전체 height가 계산된다면 height 지정 후 1fr로 사용하셔도 좋습니다.*/
     box-sizing:border-box;
     gap:10px;
+    padding-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .setting-wrap>.keyword-input{
@@ -86,5 +94,19 @@
     align-self:right;
     margin-left: 100px;
     margin-top:20px;
+}
+
+#expressbtn{
+    font-weight: 700;
+    border: 1px solid white;
+    border-radius: 20px;
+    margin-right: 30px;
+    box-shadow: 1px 1px 4px rgb(165, 165, 165);
+    margin-top: 30px;
+}
+
+CKEditor{
+    font-family: 'Noto Sans KR', Courier, monospace;
+    font-weight: 700;
 }
 

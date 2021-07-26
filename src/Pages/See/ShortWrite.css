@@ -1,16 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+
+*{
+    font-family: 'Noto Sans KR', Courier, monospace;
+    font-weight: 700;
+}
+
+.select-button-wrap{
+    text-align: center;
+    /* margin-left: 500px; */
+}
+
+.form-wrap{
+    font-family: 'Noto Sans KR', Courier, monospace;
+    font-weight: 700;
+    border: 1px solid white;
+    border-radius: 30px;
+    text-align: center;
+}
+
 .movie-search{
-    width:895px;
+    width: 600px;
     position:relative;
     height:40px;
     margin-bottom:20px;
+    border-radius: 50px;
 }
 
 .inst{
     position: relative;
-    left:-200px;
-    width:90%;
+    /* left:-200px; */
+    /* width:90%; */
     height:40px;
     margin-bottom:10px;
+    margin-top: 5px;
     color:var(--seed-backgroundColor);
 }
 
@@ -20,13 +46,27 @@
     position:relative;
     left:0px;
     margin-bottom:10px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-family: 'Noto Sans KR', Courier, monospace;
 }
 
 .button-wrap{
-    float:right;
+    display: block;
     margin-top:30px;
     position: relative;
-    right:30px;
+    /* right:30px; */
+    padding: 5px;
+    margin-bottom: 50px;
+}
+
+.button-wrap > Button{
+    font-weight: 700;
+    /* border: 1px solid white; */
+    border-radius: 20px;
+    margin-right: 30px;
+    box-shadow: 1px 1px 4px rgb(165, 165, 165);
 }
 
 .select-button-wrap{
@@ -45,5 +85,42 @@
     margin-bottom: 10px;
 }
 
+.check-box{
+    border: none;
+    box-shadow: none;
+    width: 20px;
+    height: 20px;
+    vertical-align: bottom;
+    margin-bottom: 0;
+    margin-right: 10px;
+}
+
+.check-inst{
+    padding-top: 5px;
+    vertical-align: bottom;
+
+}
+
+
+#shortlogo{
+    /* text-align: center; */
+    font-family: 'Rock Salt', Courier, monospace;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-top: 50px;
+}
+
+#movieName{
+    display: inline-block;
+    margin-right: 5px;
+    margin-top: 0;
+}
+
+
+#warnmsg, #shortmsg{
+    font-family: 'Noto Sans KR', Courier, monospace;
+}
 
 

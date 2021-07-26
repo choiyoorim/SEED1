@@ -17,6 +17,7 @@ function Write(){
                         </div>
                         <input className="movie-search" type='text' placeholder='Search'/>
                         <div className="form-wrap">
+                        <h2 id="shortlogo">EXPRESS REVIEW</h2>
                             <input className="title-input" type='text' placeholder='제목'/>
                             <CKEditor
                                 editor={ ClassicEditor }
@@ -37,12 +38,12 @@ function Write(){
                                 } }
                             />
                             <div className="setting-wrap">
-                                <input className="keyword-input" type='text' placeholder='#'/>
+                                <input className="keyword-input" type='text' placeholder='#'/><br/>
                                 <div className="check">
                                     <input className="check-box" type="checkbox" value="spoiler"></input>
-                                    <a className="check-inst">스포일러</a>
-                                </div>
-                                <Button className="submit-button" size="sm">저장</Button>
+                                    <a className="check-inst" id="warnmsg">스포일러가 될 수 있는 리뷰를 포함하고 있습니다.</a>
+                                </div><br/>
+                                <Button className="submit-button" size="sm" id="expressbtn">저장</Button>
                             </div>
                         </div>
                     </div>
