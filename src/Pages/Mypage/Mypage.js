@@ -16,10 +16,9 @@ class Mypage extends Component {
                         <img id = "mypage_user_img" src={user} width="50" height="50"/>
                     </span>
                     <span id="mypage_username">닉네임</span>
-                    {/* 설정 버튼 Link태그로 회원 정보 수정 페이지로 이동해야한다. */}
-                    <Link to="#" className="setting_icon">
-                        <FiSettings color= 'var(--seed-yelow)' size ='25px'/>
-                    </Link>
+                    <span id="mypage_sub">구독자 <span>23</span></span>
+                    <span id="mypage_total">Total <span>187</span></span>
+                    <span id="mypage_today">Today <span>5</span></span>
                 </div>
 
                 <div className="popularSeeds">
