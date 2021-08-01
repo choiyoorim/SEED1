@@ -4,7 +4,9 @@ const app = express();
 const api = require('./routes/index');
 const cors = require('cors');
 
-
+app.get('/', (req, res) => {
+    res.send(`Express Server Connected`);
+})
 
 app.unsubscribe(cors());
 app.use('/api', api);
