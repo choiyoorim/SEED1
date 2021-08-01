@@ -46,12 +46,18 @@ function Signup(){
             email: email
         };
 
+        const add_data = await axios('/api/signup', {
+            method: 'POST',
+            headers: new Headerss(),
+            data: data
+        })
+
         fetch("/api/signup", {
             method: "POST",
             headers: {
                 "content-type" : "application/json",
             },
-            body: JSON.stringify(data),
+            body: JSON.stringify(data)
         });
 
         
