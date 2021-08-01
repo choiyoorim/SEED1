@@ -7,10 +7,13 @@ import { SideBar } from './SideBar';
 import '../Components/Navi.css';
 import '../Components/color.css';
 import user from '../Components/img/googleLogin.png';
+import Login from '../Components/Login/Login.js';
 
-function Navi() {
+function Navi(props) {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () =>setSidebar(!sidebar);
+
+  const [member, setMember] = useState('Anonymous');
 
   return (
     <div class="main_container">
@@ -32,7 +35,7 @@ function Navi() {
             <div class = "user">
               <Link to="/login"><button class="memberbtns" id="loginbtn">Login</button></Link>
               <Link to="/signup"><button class="memberbtns" id="joinbtn">Sign up</button></Link>
-              <Link to="/memberInfo"><p id = "user_name">Seed님</p></Link>
+              <Link to="/memberInfo"><p id = "user_name">{Login.googleId}님</p></Link>
               <img id = "user_img" src={user} width="25" height="10"/>
             </div>
           </div>
@@ -76,5 +79,9 @@ function Navi() {
     </div>
     
   );
+}
+
+Navi.defaultProps = {
+  name: 'noname'
 }
 export default Navi;

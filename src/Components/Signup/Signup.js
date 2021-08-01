@@ -3,8 +3,55 @@ import {Link} from 'react-router-dom';
 import './Signup.css';
 import Navi from '../Navi';
 import googleIcon from '../img/googleLogin.png';
+import axios from 'axios';
 
 function Signup(){
+
+    const signup = async function(){
+        const id = document.getElementById('id_signup').value.trim();
+        const password = document.getElementById('password_signup').value.trim();
+        const pw_check = document.getElementById('passwordcheck_signup').value.trim();
+        const email = document.getElementById('email_signup').value.trim();
+        const nickname = document.getElementById('nickname_signup').value.trim();
+
+        const eng_check = /^[a-z]+[a-z0-9]{3,15}$/g;
+        if(!eng_check.test(id)){
+            return alert('아이디는 4자 이상 15자 이하의 영문자여야 합니다.')
+        }
+
+        const password_check = /^[a-z0-9]{3,19}$/g;
+        if(!password_check.test(password)){
+            return alert('비밀번호는 4자 이상 20자 이하여야 합니다.')
+        }else if(password !== pw_check){
+            return alert('비밀번호가 일치하지 않습니다.')
+        }
+
+        if(nickname.length === 0 || nickname.length < 2){
+            return alert('이름은 2글자 이상이어야 합니다.');
+        }
+
+        const email_check = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+        if(!email.match(email_check)){
+            return alert('올바른 이메일 형식을 입력하세요.');
+        }
+
+        console.log(id);
+        console.log(password);
+        console.log(nickname);
+        console.log(email);
+
+        const data = {
+            id: id,
+            password: password,
+            nickname: nickname,
+            email: email
+        };
+
+        
+    }
+
+
+
     return (
          <container>
              <Navi></Navi>
@@ -18,26 +65,17 @@ function Signup(){
                      <p id="pwpara">· Password</p>
                      <input type="password" id="password_signup" placeholder="password" /><br/>
                      <input type="password" id="passwordcheck_signup" placeholder="password check" />
-                     <p id="checkpara"> * 비밀번호가 일치하지 않습니다.</p>
+                     {/* <p id="checkpara"> * 비밀번호가 일치하지 않습니다.</p> */}
                      <p id="emailpara">· Email</p>
                      <input type="email" id="email_signup" placeholder="email" /><br/>
                      <p id="nicknamepara">· Nickname</p>
                      <input id="nickname_signup" placeholder="nickname" /><br/>
                      <input type="checkbox" id="policyagree" /> <span id="policypara"> SEED 정책에 동의합니다. </span><br/>
-                     <button type="submit" id="signupSubmitBtn">Sign up</button>
+                     <button type="submit" id="signupSubmitBtn" onClick={signup}>Sign up</button>
                      <p id="orpara">─────────────　OR　─────────────</p>
                      <button id="googleSignup"><img src={googleIcon} id="googleIcon"/>Google로 회원 가입하기</button>
                      <p id="loginpara">Already have a account?<Link to="/login"><b id="gologin">　Log in</b></Link></p>
-                     {/* <p class="headLine">ID   </p>
-                     <input name="id" type="text" id="id"/><br/>
-                     <p class="headLine">PW</p>
-                     <input name="password" type="password" id="password"></input><br/>
-                     <p class="headLine">PW Check</p>
-                     <input name="passwordCheck" type="password" id="passwordCheck"></input><br/>
-                     <p class="headLine" id="nicknameHl">Nickname</p>
-                     <input name="nickname" type="text" id="nickname"></input><br/>
-                     <input name="policyAgree" type="checkbox" name="policyAgree" value="agree"></input> <p id="policyPara">I Agree the SEED policy.</p><br/>
-                     <button type="submit" id="signUpBtn">Sign Up</button> */}
+
                  </form>
              </div>
          </container>
