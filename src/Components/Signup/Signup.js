@@ -35,10 +35,9 @@ function Signup(){
             return alert('올바른 이메일 형식을 입력하세요.');
         }
 
-        console.log(id);
-        console.log(password);
-        console.log(nickname);
-        console.log(email);
+        // front end check
+        
+
 
         const data = {
             id: id,
@@ -46,6 +45,14 @@ function Signup(){
             nickname: nickname,
             email: email
         };
+
+        fetch("/api/signup", {
+            method: "POST",
+            headers: {
+                "content-type" : "application/json",
+            },
+            body: JSON.stringify(data),
+        });
 
         
     }

@@ -4,6 +4,8 @@ const app = express();
 const api = require('./routes/index');
 const cors = require('cors');
 
+
+
 app.unsubscribe(cors());
 app.use('/api', api);
 
