@@ -1,13 +1,8 @@
 import './App.css';
-import React, { Component } from 'react';
-import './Components/Navi.css'
+import React, { Component, useEffect, useState}from "react";
+import './Components/Navi.css';
+import { BrowserRouter, Switch, Route, Router } from "react-router-dom";
 
-
-import{
-  HashRouter,
-  Switch,
-  Route,
-} from 'react-router-dom';
 
 import See from './Pages/See/SeeMain'
 import Write from './Pages/See/Write';
@@ -22,12 +17,14 @@ import RList from './Pages/See/RList';
 import MList from './Pages/See/MList';
 import SignUp from './Pages/SignUp/Signup';
 import MemberInfo from './Pages/Memberinfo/MemberInfo';
+import ContactUs from './Pages/Email/ContactUs';
 
 const App = () =>{
+
   return(
     <>
-    <HashRouter>
-        <Navi></Navi>
+    <BrowserRouter>
+        <Navi/>
         <Route exact path ="/" component={Home}/>
         <Route path="/see" component={See}/>
         <Route path="/write" component={Write}/>
@@ -35,23 +32,16 @@ const App = () =>{
         <Route path="/mypage" component={Mypage}/>
         <Route path="/shortwrite" component={ShortWrite}/>
         <Route path="/find" component={Find} />
+        <Route path="/login" component={Login} />
         <Route path="/rlist" component={RList}/>
         <Route path="/mlist" component={MList}/>
         <Route path="/signup" component={SignUp}/>
         <Route path="/memberinfo" component={MemberInfo} />
-    </HashRouter>
+        <Route path="/contactUs" component={ContactUs} />
+    </BrowserRouter>
     </>
   );
 }
 
-// class App extends Component{
-//   render(){
-//     return(
-//       <div className="App">
-//         <Navi></Navi>
-//       </div>
-//     );
-//   }
-// }
-
 export default App;
+
