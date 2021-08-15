@@ -1,9 +1,33 @@
-import React from 'react';
+import React, { Component, useState } from 'react';
 import Navi from '../../Components/Navi'
 import { Link } from 'react-router-dom';
 import './Home.css';
 
 function Home(){
+
+     const [state, setState] = useState("");
+
+     const handleChange = (e) =>{
+          setState({
+              [e.target.name]: e.target.value,
+          });
+      };
+
+      const onclick = () =>{
+           const textbox = {
+                inText: state.text,
+           };
+           
+           fetch("http://localhost:3002/text", { 
+               method: "post",
+               headers: {
+                    "content-type": "application/json",
+               },
+
+               body: JSON.stringify(textbox),
+          });
+      };
+
     return (
         <>
         <Navi></Navi>
@@ -30,8 +54,13 @@ function Home(){
              <h2 class="introtitle">전용 프로필을 사용하세요.</h2>
              <p class="intropara" id="para3">리뷰를 작성하고 공유하며 영감을 함께 나눠보세요.</p>
         </div>
+        <div>
+            <input name="text" onChange={handleChange}></input>
+            <button onClick={onclick}>전송</button>
+            <h3>{state.text}</h3>
         </div>
-        </>
-        );
-}
+     </div>
+     </>
+     );
+    }
 export default Home;
