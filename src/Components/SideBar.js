@@ -9,12 +9,6 @@ import { IoChatboxEllipsesOutline } from "react-icons/io5";
 
 export const SideBar = [
   {
-    title: '내 Seed',
-    path: '/Mypage',
-    icon: <IoHomeSharp />,
-    cName: 'nav-text'
-  },
-  {
     title: '글쓰기',
     path: '/ShortWrite',
     icon: <IoCreateOutline />,
@@ -40,7 +34,7 @@ export const SideBar = [
   },
   {
     title: '의견 보내기',
-    path: '/News',
+    path: '/ContactUs',
     icon: <IoChatboxEllipsesOutline />,
     cName: 'nav-text'
   }

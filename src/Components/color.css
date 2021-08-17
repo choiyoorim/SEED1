@@ -1,7 +1,10 @@
 :root{
     --seed-main-color: #E5E5E5;
+    --seed-text-black: #000000;
+
     --seed-backgroundColor: #262626;
     --seed-backCover:#c4c4c460;
+    
 
     --seed-subColor:#F3F0E5;
     --seed-subSideColor:#C4C4C4;

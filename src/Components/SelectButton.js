@@ -29,11 +29,11 @@ function BasicButtonGroup(props){
     
     function SetFrame(props){
       if(props==-1){
-        var link = "http://localhost:3000/#/shortWrite";
+        var link = "http://localhost:3000/shortWrite";
         window.location.assign(link);
       }
       else{
-        var link = "http://localhost:3000/#/write";
+        var link = "http://localhost:3000/write";
         window.location.assign(link);
       }
     }

@@ -1,0 +1,31 @@
+.movies .movie_card a{
+    display: grid;
+    grid-template-columns: minmax(150px, 1fr) 2fr;
+    grid-gap: 20px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.movie_card img{
+    position: relative;
+    top: -50px;
+    max-width: 150px;
+    width: 100%;
+    margin-right: 30px;
+    box-shadow: 0 13px 27px -5px rgba(244, 244, 247, 0.25), 
+                0 8px 16px -8px rgba(244, 244, 247, 0.25), 
+                0 -6px 16px -6px rgba(244, 244, 247, 0.25);
+}
+
+.movie_card .movie_title{
+    margin: 0;
+    font-weight: 300;
+    margin-bottom: 5px;
+    font-size: 24px;
+}
+
+.movie_card .movie_year,
+.movie_card .movie_summary {
+    margin: 0;
+    font-weight: 300;
+}

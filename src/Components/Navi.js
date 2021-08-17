@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { IconContext } from 'react-icons';
@@ -7,11 +7,56 @@ import { SideBar } from './SideBar';
 import '../Components/Navi.css';
 import '../Components/color.css';
 import user from '../Components/img/googleLogin.png';
+import Axios from 'axios';
+import { MicNone } from '@material-ui/icons';
+import {withRouter} from 'react-router-dom';
 
-function Navi() {
+function Navi({history}) {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () =>setSidebar(!sidebar);
 
+  const nickname = localStorage.getItem('userNickname');  
+  const auth= localStorage.getItem('auth');
+
+
+  const logout = () =>{
+    localStorage.removeItem('token')
+    localStorage.removeItem('auth')
+    localStorage.removeItem('userID')
+    localStorage.removeItem('userEmail')
+    localStorage.removeItem('userNickname')
+    localStorage.removeItem('reviewID')
+
+    Axios.get('http://localhost:3002/user/logout')
+    window.location.replace("/login")
+    //history.push('/login');
+  };
+
+  const moveLogin = () =>{
+    history.push('/login');
+    //window.location.replace("/login");
+  };
+
+  const moveInfo = () =>{
+    history.push('/memberinfo');
+  };
+
+  const[visibility, setVisibility] = useState('visible');
+
+  useEffect(()=>{
+    if(auth){
+      setVisibility('hidden')
+    }else{
+      setVisibility('visible')
+    }
+  });
+
+  const isAuth=()=>{
+    if(!auth){
+      moveLogin();
+    }
+    localStorage.setItem('edit', false);
+  }
   return (
     <div class="main_container">
       <div class="navi_wrapper">
@@ -23,18 +68,19 @@ function Navi() {
             </Link>
           </div>
           <div>
-            <h1 class="logo">Seed Logo</h1>
+            <h1 class="logo">Seed.</h1>
             <ul class="menu">
-              <li><Link to="/see">See</Link></li>
-              <li><Link to="/like">Like</Link></li>
-              <li><Link to="/mypage">MyPage</Link></li>
+              <li><Link to="/see" className="menus">See</Link></li>
+              <li onClick={isAuth}><Link to="/like" className="menus">Like</Link></li>
+              <li onClick={isAuth}><Link to="/mypage"  className="menus">MyPage</Link></li>
             </ul>
             <div class = "user">
-              <p id = "user_name">Seed님</p>
+              <p id = "user_name" onClick={moveInfo}>{nickname}</p>
+              <button id = "user_login" style={{visibility: visibility}} onClick={moveLogin}>로그인</button>
               <img id = "user_img" src={user} width="40" height="40"/>
             </div>
           </div>
-        
+
 
           {/* 사이드바 */}
           <nav className={sidebar ? 'nav-menu active' : 'nav-menu'} onClick={showSidebar}>
@@ -45,7 +91,7 @@ function Navi() {
             </div>
             <div class="nav_user_info">
               <img id = "sideBar_user_img" src={user} width="50" height="50"/>
-              <div className="sideBar_user_name"><p>seed님</p></div>
+              <div className="sideBar_user_name"><p>{nickname}</p></div>
               <span className ="sideBar_sub user-info"><p>구독자 23</p></span>
               <span className="sideBar_like user-info"><p>좋아요 103</p></span>
             </div>
@@ -54,7 +100,7 @@ function Navi() {
                 {/* SideBar를 순서대로 담기*/}
                 {SideBar.map((item, index) => {
                   return (
-                    <li key={index} className={item.cName}>
+                    <li onClick={isAuth} key={index} className={item.cName}>
                       <Link to={item.path}>
                         {item.icon}
                         <span><p class="itemtitle">{item.title}</p></span>
@@ -65,14 +111,14 @@ function Navi() {
               </ul>
             </div>
             <div class="nav_bottom">
-              <u>로그아웃</u>
+              <button id = "logoutBtn" onClick={logout}>로그아웃</button>
             </div>
           </nav>
         </IconContext.Provider>
-        
+
       </div>
     </div>
-    
+
   );
 }
-export default Navi;
+export default withRouter(Navi);

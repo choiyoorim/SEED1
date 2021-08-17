@@ -13,7 +13,7 @@ body{
     text-align: center;
 }
 
-.input-type{
+#input-type{
     color: black;
     font-weight: 700;
 }
@@ -47,9 +47,10 @@ body{
     margin-bottom: 60px;
 }
 
-.input-type{
+#input-type{
     color: black;
     font-size: 1.0rem;
+    font-weight: 700;
     border: 2px solid white;
     box-shadow: 1px 1px 4px rgb(165, 165, 165);
     display: inline-block;

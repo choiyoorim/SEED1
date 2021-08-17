@@ -2,8 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
 *{
-    color: white;
     font-family: 'Montserrat', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 700;
 }
 
 #logo{
@@ -13,6 +13,12 @@
     font-family: 'Rock Salt', Verdana, Geneva, Tahoma, sans-serif;
     margin-bottom: 0px;
     margin-top: 30px;
+}
+
+#joinLink:hover{
+    cursor: pointer;
+    color: white;
+    background-color: darkgray;
 }
 
 #logoIntro{
@@ -62,6 +68,7 @@
     font-family: 'Noto Sans KR', Courier, monospace;
     font-size: 1.2rem;
     margin-right: 0;
+    font-weight: 700;
 }
 
 .intro{

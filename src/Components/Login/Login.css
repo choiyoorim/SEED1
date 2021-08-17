@@ -157,6 +157,10 @@ body{
 #findId:hover{
     color: black;
 }
+#login_status{
+    color: rgb(112, 112, 112);
+    font-size: 13px;
+}
 
 #signuppara:hover{
     color: black;

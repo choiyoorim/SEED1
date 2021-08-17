@@ -1,0 +1,25 @@
+.topReviews .review_card {
+    text-align: center;
+}
+.topReviews .review_card a{
+    display: grid;
+    grid-template-columns: minmax(150px, 1fr) 2fr;
+    grid-gap: 20px;
+    text-decoration: none;
+    color: inherit;
+}
+
+
+.review_card .review_title{
+    margin: 0;
+    font-weight: 300;
+    margin-bottom: 5px;
+    font-size: 24px;
+}
+
+.review_card .review_writer,
+.review_card .review_likeC,
+.review_card .review_viewC {
+    margin: 0;
+    font-weight: 300;
+}

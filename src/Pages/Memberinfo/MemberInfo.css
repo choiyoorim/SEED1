@@ -15,6 +15,21 @@
     padding-bottom: 30px;
 }
 
+input{
+    color: black;
+    font-size: 1.0rem;
+    font-weight: 700;
+    border: 2px solid white;
+    box-shadow: 1px 1px 4px rgb(165, 165, 165);
+    display: inline-block;
+    width: 235px;
+    height: 30px;
+    margin-top: 8px;
+    margin-bottom: 25px;
+    border-radius: 15px;
+    padding:3px 5px 3px 15px;
+}
+
 .infodiv{
     /* padding-left: 37%; */
     text-align: center;
@@ -29,7 +44,9 @@
     margin-bottom: 20px;
     margin-right: 230px;
 }
-
+#IDpara{
+    margin-left: 20px;
+}
 #emailtitle{
     margin-right: 130px;
 }
@@ -75,7 +92,7 @@ h2{
 
 .savebtns{
     background-color: white;
-    width: 100px;
+    width: 230px;
     color: black;
     font-family: 'Montserrat', Times, serif;
     font-weight: 700;
@@ -92,8 +109,8 @@ h2{
 }
 
 .linepara{
-    margin-top: 0;
-    color: rgb(236, 236, 236);
+    margin: 0;
+    color: rgb(197, 197, 197);
 }
 
 .savebtns:hover{
