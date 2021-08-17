@@ -40,10 +40,6 @@ function MemberInfo(){
         });
 
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> e8cc27cc0ef31603abb6e1b7e89b0c78c3db2d71
     return(
         <>
              <div id="space"></div>
