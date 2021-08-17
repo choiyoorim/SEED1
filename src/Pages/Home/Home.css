@@ -44,6 +44,12 @@
     margin-bottom: 75px;
 }
 
+#joinLink:hover{
+    cursor: pointer;
+    color: white;
+    background-color: darkgray;
+}
+
 #recoTitle{
     font-size: 1.5rem;
     font-family: 'Rock Salt', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;

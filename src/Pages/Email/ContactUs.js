@@ -1,5 +1,6 @@
 import React from 'react';
 import emailjs from 'emailjs-com';
+<<<<<<< HEAD
 
 import './ContactUs.css';
 
@@ -8,6 +9,12 @@ export default function ContactUs() {
   function sendEmail(e) {
     e.preventDefault();
 
+=======
+import './ContactUs.css';
+export default function ContactUs() {
+  function sendEmail(e) {
+    e.preventDefault();
+>>>>>>> e8cc27cc0ef31603abb6e1b7e89b0c78c3db2d71
     emailjs.sendForm('service_j3hy8f7', 'template_f08s5je', e.target, 'user_zFINoRCdzAAr5RPP6Rk3H')
       .then((result) => {
           console.log(result.text);
@@ -17,7 +24,10 @@ export default function ContactUs() {
     e.target.reset();
     alert('의견내주셔서 감사합니다. 메시지가 전송되었습니다.')
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> e8cc27cc0ef31603abb6e1b7e89b0c78c3db2d71
   return (
     <section>
       <div className="contact">
@@ -38,6 +48,11 @@ export default function ContactUs() {
         </form>
       </div>      
     </section>
+<<<<<<< HEAD
     
   );
 }
+=======
+  );
+}
+>>>>>>> e8cc27cc0ef31603abb6e1b7e89b0c78c3db2d71

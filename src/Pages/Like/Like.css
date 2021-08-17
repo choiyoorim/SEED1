@@ -12,6 +12,11 @@ body{
 }
 #h3like{
     margin-bottom: 0;
+    text-align: left;
+}
+#h3sub{
+    margin: 20px 0;
+    text-align: left;
 }
 #h4f, #h4s{
     display: inline-block;

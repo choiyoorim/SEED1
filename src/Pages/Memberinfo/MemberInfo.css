@@ -44,9 +44,17 @@ input{
     margin-bottom: 20px;
     margin-right: 230px;
 }
+<<<<<<< HEAD
 #IDpara{
     margin-left: 20px;
 }
+=======
+
+#IDpara{
+    margin-left: 20px;
+}
+
+>>>>>>> e8cc27cc0ef31603abb6e1b7e89b0c78c3db2d71
 #emailtitle{
     margin-right: 130px;
 }

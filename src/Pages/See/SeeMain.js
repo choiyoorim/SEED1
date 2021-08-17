@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './SeeMain.css';
+<<<<<<< HEAD
 import Movie from './MovieCard';
 import Review from './ReviewCard';
 import {FaHeart} from "react-icons/fa";
@@ -120,6 +121,21 @@ class SeeMain extends Component  {
       </section>
     );
   }
+=======
+import Category from './SeeCategory';
+import SearchForm from './searchForm';
+
+
+class SeeMain extends Component {
+    render() {
+      return(
+        <div>
+          <SearchForm></SearchForm>
+          <Category></Category>
+        </div>
+      );
+    }
+>>>>>>> e8cc27cc0ef31603abb6e1b7e89b0c78c3db2d71
 }
 
 
