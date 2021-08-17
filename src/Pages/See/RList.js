@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './RList.css';
 import Navi from '../../Components/Navi';
-import ReviewList from './ReviewList';
+import ReviewList from './reviewList';
 //import { Link } from 'react-router-dom';
 
 class RList extends Component {

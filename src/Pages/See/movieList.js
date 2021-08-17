@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './MovieList.css';
+import './movieList.css';
 
 class MovieList extends Component {
   render() {

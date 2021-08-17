@@ -16,6 +16,7 @@ app.use(cors({
   methods: ["GET", "POST"],
   credentials: true,
 }));
+
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(
@@ -32,6 +33,51 @@ app.use(
   })
 );
 
+// 회원 정보 수정
+app.post('/modify', (req, res)=>{
+  const userID = req.body.userID;
+  const userPW = req.body.userPW;
+  const userNickname = req.body.userNickname;
+
+  bcrypt.hash(userPW, saltRounds, (err, hash)=>{
+    if(err){
+      console.log(err);
+      res.send({
+        modified: false,
+        modifyMessage: "회원 정보 수정 실패"
+      });
+    }
+
+    if(userPW === ''){
+      // pw 변경 안했을 경우 닉네임만 수정
+      db.query(
+        "UPDATE USER SET userNickname=? WHERE userID=?",
+        [userNickname, userID],
+        (err, result) =>{
+          console.log(err);
+        }
+      );
+      res.send({
+        modified: true,
+        modifyMessage: "회원 정보 수정 완료"
+      });
+    }else{
+      // PW, nickname 모두 수정한 경우
+      db.query(
+        "UPDATE USER SET userPW=?, userNickname=? WHERE userID=?",
+        [hash, userNickname, userID],
+        (err, result) =>{
+          console.log(err);
+        }
+      );
+      res.send({
+        modified: true,
+        modifyMessage: "회원 정보 수정 완료"
+      });
+    }
+  })
+});
+
 //회원가입
 app.post('/register', (req, res)=>{
   const userID = req.body.userID;
@@ -41,8 +87,13 @@ app.post('/register', (req, res)=>{
 
   bcrypt.hash(userPW, saltRounds, (err, hash)=>{
     if(err){
-      console.log(err)
+      console.log(err);
+      res.send({
+        signed: false,
+        signMessage: "회원 가입 실패"
+      });
     }
+
     db.query(
       "INSERT INTO USER (userID, userPW, userEmail, userNickname) VALUES (?,?,?,?)",
       [userID, hash, userEmail, userNickname],
@@ -50,8 +101,11 @@ app.post('/register', (req, res)=>{
           console.log(err);
       }
     );
+    res.send({
+      signed: true,
+      signMessage: "회원 가입 완료!",
+    });
   })
-  
 });
 
 //로그인

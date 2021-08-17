@@ -9,9 +9,37 @@ function Signup(){
     const [passwordReg, setPasswordReg] = useState('')
     const [emailReg, setEmailReg] = useState('')
     const [nicknameReg, setNicknameReg] = useState('')
-    
+    const [passwordCheck, setPasswordCheck] = useState('')
+    const [policyagree, setPolicyagree] = useState(false);
 
     const register = () => {
+
+        // 유효성 검사
+        const eng_check = /^[a-z]+[a-z0-9]{3,15}$/g;
+        if(!eng_check.test(idReg)){
+            return alert('아이디는 4자 이상 15자 이하의 영문자여야 합니다.')
+        }
+
+        const password_check = /^[a-z0-9]{3,19}$/g;
+        if(!password_check.test(passwordReg)){
+            return alert('비밀번호는 4자 이상 20자 이하여야 합니다.')
+        }else if(passwordReg !== passwordCheck){
+            return alert('비밀번호가 일치하지 않습니다.')
+        }
+
+        const email_check = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+        if(!emailReg.match(email_check)){
+            return alert('올바른 이메일 형식을 입력하세요.');
+        }
+
+        if(nicknameReg.length === 0 || nicknameReg.length < 2){
+            return alert('이름은 2글자 이상이어야 합니다.');
+        }
+
+        if(policyagree === false){
+            return alert('SEED 정책에 동의하셔야 합니다.');
+        }
+
         Axios.post('http://localhost:3002/register', {
           userID: idReg, 
           userPW: passwordReg,
@@ -19,6 +47,10 @@ function Signup(){
           userNickname: nicknameReg
         }).then((response)=>{
           console.log(response);
+          if(response.data.signed){
+            alert('회원 가입 완료!');
+            window.location.replace("/login");
+          }
         });
       };
 
@@ -49,8 +81,14 @@ function Signup(){
                             setPasswordReg(e.target.value);
                         }}
                     /><br/>
-                     <input type="password" id="input-type" placeholder="password check" />
-                     <p id="checkpara"> * 비밀번호가 일치하지 않습니다.</p>
+                     <input type="password" 
+                        id="input-type" 
+                        placeholder="password check"
+                        onChange={(e) =>{
+                            setPasswordCheck(e.target.value);
+                        }}   
+                    />
+                     {/* <p id="checkpara"> * 비밀번호가 일치하지 않습니다.</p> */}
 
                      <p id="emailpara">· Email</p>
                      <input 
@@ -71,8 +109,18 @@ function Signup(){
                         }}
                     /><br/>
 
-                     <input type="checkbox" id="policyagree" /> <span id="policypara"> SEED 정책에 동의합니다. </span><br/>
-                     <button type="submit" id="signupSubmitBtn" onClick={register}>Sign up</button>
+                     <input type="checkbox" 
+                        onClick={(e)=>{
+                            setPolicyagree(e.target.value);
+                        }}
+                        id="policyagree" 
+                    /> <span id="policypara"> SEED 정책에 동의합니다. </span><br/>
+
+                     <button 
+                        type="submit" 
+                        id="signupSubmitBtn" 
+                        onClick={register}>Sign up</button>
+
                      <p id="orpara">─────────────　OR　─────────────</p>
                      <button id="googleSignup"><img src={googleIcon} id="googleIcon"/>Google로 회원 가입하기</button>
                      <p id="loginpara">Already have a account?<Link to="/login"><b id="gologin">　Log in</b></Link></p>

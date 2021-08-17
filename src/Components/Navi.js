@@ -39,14 +39,16 @@ function Navi() {
             </Link>
           </div>
           <div>
-            <h1 class="logo">Seed Logo</h1>
+            <Link to="/"><h1 class="logo">Seed.</h1></Link>
             <ul class="menu">
-              <li><Link to="/see">See</Link></li>
-              <li><Link to="/like">Like</Link></li>
-              <li><Link to="/mypage">MyPage</Link></li>
+              <li><Link to="/see" class="menus">See</Link></li>
+              <li><Link to="/like" class="menus">Like</Link></li>
+              <li><Link to="/mypage" class="menus">MyPage</Link></li>
             </ul>
             <div class = "user">
-              <p id = "user_name">{localUsername}</p>
+              <Link to="/memberInfo">
+                <p id = "user_name">{localUsername}</p>
+              </Link>
               <img id = "user_img" src={user} width="40" height="40"/>
             </div>
           </div>
@@ -61,7 +63,7 @@ function Navi() {
             </div>
             <div class="nav_user_info">
               <img id = "sideBar_user_img" src={user} width="50" height="50"/>
-              <div className="sideBar_user_name"><p>seed님</p></div>
+              <div className="sideBar_user_name"><p>{localUsername}</p></div>
               <span className ="sideBar_sub user-info"><p>구독자 23</p></span>
               <span className="sideBar_like user-info"><p>좋아요 103</p></span>
             </div>
@@ -81,7 +83,7 @@ function Navi() {
               </ul>
             </div>
             <div class="nav_bottom">
-              <button onClick={logout}>로그아웃</button>
+              <button id="logoutBtn"onClick={logout}>로그아웃</button>
             </div>
           </nav>
         </IconContext.Provider>

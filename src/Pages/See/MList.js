@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 //import { BsSearch } from "react-icons/bs";
-import MovieList from './MovieList';
+import MovieList from './movieList';
 import'./MList.css';
-import SearchForm from './SearchForm';
+import SearchForm from './searchForm';
 
 
 class MList extends Component {

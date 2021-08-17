@@ -47,6 +47,7 @@ body{
   padding: 0 15px;
   font-size: 12px;
 }
+
 h1{
   color: var(--seed-main-color);
   position:absolute;
@@ -54,6 +55,20 @@ h1{
   margin-right: 10px;
 }
 
+.logo{
+  font-family: 'Rock Salt', Courier, monospace;
+  font-size: 1.4rem;
+  color: var(--seed-main-color);
+  position:absolute;
+  left: 80px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.logo:hover{
+  color:darkgray;
+  cursor: pointer;
+}
 
 .menu{
 position:absolute;
@@ -67,23 +82,43 @@ font-weight: 700;
 }
 
 .menu li{
-  padding: 0 15px;
+  padding: 0 50px;
   display: block;
   float: left;
   padding-left: 50px;
 }
+
 .menu a{
   color: var(--seed-main-color);
-  font-size: 28px;
+  font-size: 1.2rem;
+  font-weight:700;
   text-decoration: none;
+  margin-top: 10px;
+  padding-top: 100px;
+}
+
+.menus{
+  padding-top: 10px;
+}
+
+.menus:hover{
+  color:khaki;
+  cursor: pointer;
 }
 
 
 #user_name{
-position:absolute;
-right: 80px;
-margin-top: 24px;
+  font-weight: 700;
+  position:absolute;
+  right: 80px;
+  margin-top: 24px;
 }
+
+#user_name:hover{
+  cursor: pointer;
+  color: darkgray;
+}
+
 #user_img{
   position: absolute;
   width:40px;
@@ -225,3 +260,19 @@ background-color: var(--seed-backCover);
 /* .itemtitle:hover{
   color: grey;
 } */
+
+#logoutBtn{
+  padding: 5px 20px 5px 20px;
+  font-family: 'Noto Sans KR', Courier, monospace;
+  font-weight: 700;
+  font-size: 1rem;
+  color: black;
+  background-color: none;
+  border: 1px solid black;
+  border-radius: 50px;
+}
+
+#logoutBtn:hover{
+  cursor: pointer;
+  background-color: darkgray;
+}

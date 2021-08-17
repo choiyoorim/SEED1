@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './SeeMain.css';
 import Category from './SeeCategory';
-import SearchForm from './SearchForm';
+import SearchForm from './searchForm';
 
 
 class SeeMain extends Component {
