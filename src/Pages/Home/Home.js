@@ -8,6 +8,7 @@ function Home(){
         <>
         <Navi></Navi>
         <br/><br/><br/>
+        
         <p id="logo">Seed</p>
         <p id="logoIntro">Best Movie Review Application</p>
         <p id="joinmsg">Are you not a member yet?</p>

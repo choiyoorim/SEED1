@@ -7,10 +7,26 @@ import { SideBar } from './SideBar';
 import '../Components/Navi.css';
 import '../Components/color.css';
 import user from '../Components/img/googleLogin.png';
+import Axios from 'axios';
 
 function Navi() {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () =>setSidebar(!sidebar);
+
+  const localUsername = localStorage.getItem('userNickname');
+
+  const logout = () =>{
+    localStorage.removeItem('userID')
+    localStorage.removeItem('userEmail')
+    localStorage.removeItem('userNickname')
+    window.location.replace("/login")
+
+
+    Axios.get('http://localhost:3002/user/logout')
+
+  }
+
+
 
   return (
     <div class="main_container">
@@ -30,7 +46,7 @@ function Navi() {
               <li><Link to="/mypage">MyPage</Link></li>
             </ul>
             <div class = "user">
-              <p id = "user_name">Seed님</p>
+              <p id = "user_name">{localUsername}</p>
               <img id = "user_img" src={user} width="40" height="40"/>
             </div>
           </div>
@@ -65,7 +81,7 @@ function Navi() {
               </ul>
             </div>
             <div class="nav_bottom">
-              <u>로그아웃</u>
+              <button onClick={logout}>로그아웃</button>
             </div>
           </nav>
         </IconContext.Provider>

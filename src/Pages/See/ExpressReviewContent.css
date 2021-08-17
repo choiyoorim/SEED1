@@ -4,16 +4,14 @@
 }
 .reviewInfo{
     margin-top: 100px;
-    width: 80%;
     margin-left: 10%;
 }
-#reviewInfo{
-    margin-top: 100px;
-    width: 80%;
-    margin-left: 10%;
-}
-#contentBox{
-    background-color: #ffbb00;
+.reviewcontent{
+    text-align: center;
+    margin-left:200px;
+    background-color: #E5E5E5;
+    width:1000px;
+    height:500px;
 }
 .box{
     border: #ffbb00;

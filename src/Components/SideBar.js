@@ -28,7 +28,7 @@ export const SideBar = [
   },
   {
     title: '실시간 채팅',
-    path: '/Subs',
+    path: '/chathome',
     icon: <IoChatbubblesOutline />,
     cName: 'nav-text'
   },

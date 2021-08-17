@@ -1,0 +1,28 @@
+.content-container{
+    outline-color:#E5E5E5;
+    outline-style:auto;
+    width:80%;
+    margin-bottom:20px;
+}
+
+tr{
+    color:  white;
+    height: 40px;
+    font-size: large;
+}
+
+#no{
+    width:10%;
+}
+#title{
+    width:60%;
+}
+#writer{
+    width:20%;
+}
+#date{
+    width:10%;
+}
+#hr{
+    width: 80%;
+}
