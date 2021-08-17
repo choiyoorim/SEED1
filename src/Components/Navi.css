@@ -82,6 +82,7 @@ font-weight: 700;
 }
 
 .menu li{
+  margin-top:5px;
   padding: 0 50px;
   display: block;
   float: left;
