@@ -65,7 +65,7 @@ function Write(){
                                 <input className="title-input" type='text' placeholder='제목' onChange={getTitle}/>
                                     <CKEditor
                                         editor={ ClassicEditor }
-                                        data="<p>리뷰 작성 시 광고 및 욕설, 비속어나 타인을 비방하는 문구를 사용하시면 삭제될 수 있습니다.</p>"
+                                        data=""
                                         onReady={ editor => {
                                             // You can store the "editor" and use when it is needed.
                                             console.log( 'Editor is ready to use!', editor );

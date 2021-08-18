@@ -9,6 +9,9 @@ function ShortWrite(number){
     const [shortReviewMovieTitle,setShortReviewMovieTitle] = useState('');
     const [shortReviewContent,setShortReviewContent] = useState('');
     const userID = localStorage.getItem('userID');
+
+
+
     const dateInst = new Date();
     var dateMonth = dateInst.getMonth() + 1;
     if(dateMonth<=9) dateMonth = "0" + dateMonth;
@@ -62,10 +65,10 @@ function ShortWrite(number){
                                 <Button className="submit-button" size ="lg" type="submit">저장</Button>
                             </div>
                         </div>
-                    </form>
                     <input className="keyword-input" type='text' placeholder='#'/>
                     <input className="check-box" type="checkbox" value="spoiler"></input>
                     <a className="check-inst">스포일러</a>
+                    </form>
                 </div>
             </div>
         </>

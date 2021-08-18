@@ -36,11 +36,11 @@ const App = () =>{
     <BrowserRouter>
         <Navi></Navi>
         <Route exact path ="/" component={Home}/>
-        <Route path="/see" component={See}/>
-        <Route path="/write" component={Write}/>
+        <Route path="/see" component={ShortWrite}/>
         <Route path="/like" component={Like}/>
         <Route path="/mypage" component={Mypage}/>
         <Route path="/shortwrite" component={ShortWrite}/>
+        <Route path="/write" component={Write}/>
         <Route path="/find" component={Find} />
         <Route path="/shortreview" component={ShortReview}/>
         <Route path="/expressreview" component={ExpressReview}/>
