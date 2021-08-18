@@ -32,7 +32,7 @@
     border-radius: 6px;
     color: black;
 }
-input[type="submit"] {
+#contactUsBtn {
     width: 320px;
     height: 35px;
     margin-top: 20px;
@@ -41,7 +41,8 @@ input[type="submit"] {
     color: white;
     font-size: 18px;
 }
-input[type="submit"]:hover{
+
+#contactUsBtn:hover{
     color:darkgray;
     cursor: pointer;
 }

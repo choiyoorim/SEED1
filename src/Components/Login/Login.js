@@ -60,7 +60,7 @@ function Login() {
         <>
         <div id="space"/>
         <div className="loginBox">
-        <Link to="/"><button id="backBtn">back</button></Link>
+        {/* <Link to="/"><button id="backBtn">back</button></Link> */}
             <p id="loginLogo">Login</p>
             <form className="inputField">
                 <input type="text" 

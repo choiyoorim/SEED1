@@ -83,7 +83,8 @@ body{
 }
 
 #enterBtn:hover{
-    background-color: rgb(236, 236, 236);
+    color: white;
+    background-color: #ffbb00;
 }
 
 #googleLogin{

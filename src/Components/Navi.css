@@ -65,7 +65,7 @@ h1{
 }
 
 .logo:hover{
-  color:darkgray;
+  color:#ffbb00;
   cursor: pointer;
 }
 
@@ -101,24 +101,34 @@ font-weight: 700;
 }
 
 .menus:hover{
-  color:khaki;
+  color:#ffbb00;
   cursor: pointer;
 }
 
 #user_name, #user_login{
+  font-family: 'Noto Sans KR', Courier, monospace;
   font-weight: 700;
   position:absolute;
   right: 80px;
   margin-top: 24px;
 }
 
+#user_login{
+  border-radius: 30px;
+  padding: 5px 20px 5px 20px;
+}
+
+
+
 #user_name:hover{
   cursor: pointer;
-  color: darkgray;
+  color: #ffbb00;
 }
+
 #user_login:hover{
+  background-color: #ffbb00;
   cursor: pointer;
-  color: darkgray;
+  color: white;
 }
 
 
@@ -141,15 +151,16 @@ font-weight: 700;
   font-family: 'Noto Sans KR', Courier, monospace;
   font-weight: 700;
   font-size: 1rem;
-  color: var(--seed-main-color);
-  background-color: none;
+  color: black;
+  background-color: white;
   border: 1px solid black;
   border-radius: 50px;
 }
 
 #logoutBtn:hover{
   cursor: pointer;
-  background-color: darkgray;
+  color:white;
+  background-color: #ffbb00;
 }
 
 /* 사이드바 */

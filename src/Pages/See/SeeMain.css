@@ -2,6 +2,8 @@
     margin-top: 130px;
     display: flex;
     justify-content: center;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 #map{
@@ -9,26 +11,42 @@
 }
 
 .search_bar{
-    padding: 2px;
+    font-family: 'Noto Sans KR', Courier, monospace;
+    font-weight: 700;
+    padding: 5px 20px 5px 20px;
+    padding-top: 10px;
+    padding-bottom: 15px;
     margin-right: 5px;
     margin-bottom: 50px;
     width: 50%;
-    color: #e5e5e5;
-    background-color: black;
-    border-top: none;
-    border-right: none;
-    border-left: none;
-    border-color: #ffbb00;
+    color: white;
+    background-color: white;
+    border: 1px solid #ffbb00;
+    border-radius: 100px;
     font-size:x-large;
 }
 
 .search_but {
-    height: 35px;
+    font-family: 'Noto Sans KR', Courier, monospace;
+    font-weight: 700;
+    height: 60px;
+    width: 65px;
+    margin-left: 20px;
+    margin-top: 8px;
+    padding-right: 20px;
+    text-align: left;
     position: absolute;
     cursor: pointer;
-    background-color: #ffbb00;
-    border: none;
+    background-color: white;
+    color: black;
+    border: 1px solid #ffbb00;
+    border-radius: 50px;
     font-size: large;
+}
+
+.search_but:hover{
+    background-color: #ffbb00;
+    color: white;
 }
 
 
@@ -83,19 +101,47 @@
     align-items: flex-start;
     padding: 50px;
     /*padding-top: 70px;*/
+    padding-bottom: 70px;
     width:80%;
 }
 
 .topReviews .review_card {
+    font-family: 'Noto Sans KR', Courier, monospace;
     margin-bottom: 50px;
     font-weight: 300;
     padding: 20px;
+    padding-left: 30px;
+    padding-bottom: 40px;
     border-radius: 5px;
     color: #adaeb9;
     width:40%;
-    border: solid;
-    border-color: #e5e5e5;
+    border: 1px solid white;
+    /* border-radius: 30px; */
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+  }
+
+  .loadMore_but{
+      font-family: 'Noto Sans KR', Courier, monospace;
+      font-weight: 700;
+      border: 1px solid #ffbb00;
+      border-radius: 30px;
+      padding: 10px 15px 10px 15px;
+      background-color: white;  
+      margin-bottom: 50px;
+  }
+
+  .loadMore_but:hover{
+      cursor: pointer;
+      color: white;
+      background-color: #ffbb00;
+  }
+
+  h3{
+      font-size: 1.2rem;
+  }
+
+  .review__title:hover{
+      color: #ffbb00;
   }

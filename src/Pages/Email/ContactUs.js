@@ -51,7 +51,7 @@ export default function ContactUs() {
           <input type="text" name="title" onChange={(e)=>{setTitle(e.target.value);}}/>
           <label>Message</label>
           <textarea name="message" onChange={(e)=>{setContents(e.target.value);}}/>
-          <input type="submit" value="Send" />
+          <input type="submit" id="contactUsBtn" value="Send" />
         </form>
       </div>      
     </section>

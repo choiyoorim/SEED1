@@ -6,7 +6,7 @@
 
 .infoBox{
     background-color: white;
-    width: 50%;
+    width: 630px;
     height:50%;
     text-align: center;
     border: 1px solid black;
@@ -42,32 +42,27 @@ input{
     font-weight: 700;
     margin-top: 0;
     margin-bottom: 20px;
-    margin-right: 230px;
+    margin-right: 240px;
 }
-<<<<<<< HEAD
-#IDpara{
-    margin-left: 20px;
-}
-=======
 
 #IDpara{
     margin-left: 20px;
 }
 
->>>>>>> e8cc27cc0ef31603abb6e1b7e89b0c78c3db2d71
 #emailtitle{
     margin-right: 130px;
 }
 
-h2{
+.memberinfotitle{
     font-size: 1.2rem;
-    color: rgb(63, 63, 63);
+    font-weight: 700;
+    color: #ffbb00;
     margin-bottom: 10px;
     margin-right: 170px;
 }
 
 #idinfo{
-    margin-right: 245px;
+    margin-right: 270px;
 }
 
 #passwordinfo{
@@ -78,7 +73,11 @@ h2{
     margin-right: 220px;
 }
 
-
+#nickinfo{
+    margin-right: 180px;
+    /* margin-left: 168px; */
+    text-align: center;
+}
 
 #pwinfo{
     margin-bottom: 5px;
@@ -122,5 +121,11 @@ h2{
 }
 
 .savebtns:hover{
-    background-color: rgb(235, 235, 235);
+    color: white;
+    background-color: #ffbb00;
+}
+
+#nickmodifyinput{
+    font-weight: 700;
+    font-family: 'Noto Sans KR', Courier, monospace;
 }
