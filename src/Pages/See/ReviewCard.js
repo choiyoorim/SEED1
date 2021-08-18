@@ -5,11 +5,25 @@ import "./ReviewCard.css";
 import {FaHeart} from "react-icons/fa";
 import {FaEye} from "react-icons/fa";
 import {BsFillPersonFill} from "react-icons/bs";
+import {withRouter} from 'react-router-dom';
 
-function ReviewList({ id, writer, title, likeC, viewC, content }) {
+
+function ReviewList({ history, id, writer, title, likeC, viewC, content }) {
+
+  const auth= localStorage.getItem('auth');
+
+  const isAuth = ()=>{
+    if(!auth){
+      alert("영화 리뷰를 자세히 보고 싶다면 seed에 가입해야합니다.");
+      //window.location.replace("/");
+      history.push('/');
+    }
+    localStorage.setItem('edit', false);
+  }
+
     return (
-      <div className="review_card" id="review_card_outside">
-        <Link
+      <div className="review_card" id="review_card_outside" onClick={isAuth}>
+        <Link 
           to={{
             pathname: `/review/${id}`,
             state: {
@@ -41,4 +55,4 @@ function ReviewList({ id, writer, title, likeC, viewC, content }) {
     content: PropTypes.string.isRequired
   };
 
-export default ReviewList;
+export default withRouter(ReviewList);

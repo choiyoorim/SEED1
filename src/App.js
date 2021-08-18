@@ -32,7 +32,7 @@ const App = () =>{
     <BrowserRouter>
         <Navi/>
         <Route exact path ="/" component={Home}/>
-        <Route path="/see" component={ShortWrite}/>
+        <Route path="/see" component={See}/>
         <Route path="/like" component={Like}/>
         <Route path="/mypage" component={Mypage}/>
         <Route path="/shortwrite" component={ShortWrite}/>
