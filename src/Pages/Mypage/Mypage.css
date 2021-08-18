@@ -9,6 +9,11 @@
     border-bottom: 1px solid var(--seed-yelow);
     color: var(--seed-main-color);
 }
+
+#mypageSection{
+    padding-left: 15%;
+    padding-right: 15%;
+}
 #mypage_user_img{
     float: left;
     border-radius: 50%;
@@ -42,8 +47,11 @@
     min-width: 1000px;
     margin: 60px 100px 10px 100px;
     padding-bottom: 0px;
+    padding-left: 3%;
 }
 .user_write{
+    padding-left: 3%;
+    padding-right: 10%;
     padding-bottom: 30px;
 
 }
