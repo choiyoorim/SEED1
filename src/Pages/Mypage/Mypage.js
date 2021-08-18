@@ -11,6 +11,7 @@ function Mypage(){
 
     const [movieReviewList, setReviewList] = useState([]);
     const id= localStorage.getItem('userID');
+    const name = localStorage.getItem('userNickname');
 
   
     useEffect(()=>{
@@ -43,8 +44,7 @@ function Mypage(){
                 <span>
                     <img id = "mypage_user_img" src={user} width="50" height="50"/>
                 </span>
-                <span id="mypage_username">닉네임</span>
-                <span id="mypage_sub">구독자 <span>23</span></span>
+                <span id="mypage_username">{name}</span>
                 <span id="mypage_total">Total <span>187</span></span>
                 <span id="mypage_today">Today <span>5</span></span>
             </div>

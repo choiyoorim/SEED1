@@ -8,6 +8,7 @@
     border: none;
     border-bottom: 1px solid var(--seed-yelow);
     color: var(--seed-main-color);
+    font-size: 15px;
 }
 #mypage_user_img{
     float: left;
