@@ -61,13 +61,12 @@ function Write(){
     useEffect(()=>{
         if(edit==='true'){
             Axios.post("http://localhost:3002/reviewE/edit", {
-            userID: userID,
             reviewID: reviewID
             }).then((response)=>{
                 //console.log(response.data)
                 setTitle(response.data[0].reviewTitle)
                 setEditdate(response.data[0].reviewContent)
-                setMovietitle(response.data[0].title);
+                setMovietitle(response.data[0].title)
                 localStorage.setItem('edit', false);
             })
         } 
@@ -82,8 +81,8 @@ function Write(){
                     </div>
                     <div className="form-wrap">
                         <form onSubmit={submitExpressReview}>
-                            <input className="movietitle-input" type='text' placeholder='영화 제목' value = {movietitle} onChange={getMovieTitle}/>
-                            <input className="title-input" type='text' placeholder='제목' value = {title} onChange={getTitle}/>
+                            <input className="movietitle-input" type='text'  name = "title" placeholder='영화 제목' value = {movietitle} onChange={getMovieTitle}/>
+                            <input className="title-input" type='text' name = "contents" placeholder='제목' value = {title} onChange={getTitle}/>
                                 <CKEditor
                                     editor={ ClassicEditor }
                                     data={editdata}

@@ -28,13 +28,16 @@ function Navi({history}) {
     localStorage.removeItem('reviewID')
 
     Axios.get('http://localhost:3002/user/logout')
-    window.location.replace("/login")
+    window.location.replace("/")
     //history.push('/login');
   };
 
   const moveLogin = () =>{
     history.push('/login');
-    //window.location.replace("/login");
+  };
+
+  const moveHome = () =>{
+    history.push('/');
   };
 
   const moveInfo = () =>{
@@ -53,10 +56,12 @@ function Navi({history}) {
 
   const isAuth=()=>{
     if(!auth){
-      moveLogin();
+      moveHome();
+      alert("seed를 이용하기 전에 로그인 해야합니다.");
     }
     localStorage.setItem('edit', false);
-  }
+  };
+
   return (
     <div class="main_container">
       <div class="navi_wrapper">
@@ -68,7 +73,7 @@ function Navi({history}) {
             </Link>
           </div>
           <div>
-            <h1 class="logo">Seed.</h1>
+            <h1 class="logo" onClick={moveHome}>Seed.</h1>
             <ul class="menu">
               <li><Link to="/see" className="menus">See</Link></li>
               <li onClick={isAuth}><Link to="/like" className="menus">Like</Link></li>

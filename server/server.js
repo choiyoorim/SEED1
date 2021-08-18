@@ -186,11 +186,10 @@ app.post("/reviewE/list",(req,res)=>{
 
 //리뷰내용
 app.post("/reviewE/edit",(req,res)=>{
-  const userID = req.body.userID;
   const reviewID = req.body.reviewID;
   // console.log(userID);
   // console.log(reviewID);
-  const sqlSelect = "SELECT * FROM REVIEW_E WHERE reviewID = ?";
+  const sqlSelect = "SELECT * FROM REVIEW_E R JOIN  moviedata M ON R.movieCODE = M.movieCODE WHERE R.reviewID = ?";
 
   db.query(sqlSelect, reviewID , (err, result)=>{
       res.send(result);
@@ -260,9 +259,10 @@ app.post("/expresssubmit",(req,res)=>{
   const date = req.body.date
   db.query("SELECT movieCODE FROM moviedata WHERE title=?",movietitle,(err,result1)=>{
     console.log(result1);
+    //db에 영화가 없는 경우
     if(!result1[0]){
       console.log('여기?');
-      db.query("INSERT INTO moviedata (title) VALUES (?)",
+      db.query("INSERT INTO moviedata (title) VALUES (?)",  //새로 입력한 영화 db에 추가
       movietitle,
       (err,result) =>{
         if(err){
@@ -270,8 +270,10 @@ app.post("/expresssubmit",(req,res)=>{
         }
       })
 
+      //입력한 영화 검색
       db.query("SELECT movieCODE FROM moviedata WHERE title=?",movietitle,(err,result2)=>{
         console.log(result2);
+        //검색 영화와 작성한 리뷰 db에 저장
         db.query("INSERT INTO REVIEW_E (movieCODE, reviewTitle, reviewContent, userID, preparationDate) VALUES (?,?,?,?,?)",
           [result2[0].movieCODE,title,content,id,date],
           (err,result) => {
@@ -283,7 +285,7 @@ app.post("/expresssubmit",(req,res)=>{
         );
       })
     }
-    else{
+    else{ //db에 있는 영화인 경우 입력한 리뷰 내용 db에 저장
       db.query("INSERT INTO REVIEW_E (movieCODE,reviewTitle,reviewContent,userID,preparationDate) VALUES (?,?,?,?,?)",
         [result1[0].movieCODE,title,content,id,date],
         (err,result) => {
