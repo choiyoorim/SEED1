@@ -18,7 +18,7 @@ function MovieCard({ id, year, title, summary, poster }) {
             }
           }}
         >
-          <img src={poster} alt={title} title={title} />
+          {/* <img src={poster} alt={title} title={title} /> */}
           <div className="movie__data">
             <h3 className="movie__title">{title}</h3>
             <h5 className="movie__year">{year}</h5>

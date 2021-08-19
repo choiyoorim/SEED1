@@ -34,7 +34,7 @@
     border-radius: 6px;
     color: black;
 }
-input[type="submit"] {
+.contact-form input[type="submit"] {
     width: 320px;
     height: 35px;
     margin-top: 20px;

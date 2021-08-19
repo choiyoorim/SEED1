@@ -4,7 +4,6 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const cors = require("cors");
 const app = express();
-
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
@@ -338,9 +337,10 @@ app.post('/getmovietitle',(req,res)=>{
 
 //See
 //SeeMain : 영화 검색
-app.get("/api/see/searchMovie", (req, res) => {
-  const search = req.body.search;
-  const sql = "SELECT * FROM moviedata WHERE title = ?";
+app.post("/api/see/searchMovie", (req, res) => {
+  const search = "%" + req.body.search + "%";
+  console.log(search);
+  const sql = "SELECT * FROM moviedata WHERE title LIKE ?"
   db.query(sql, [search], (err, result) => {
       if(err){
         console.log(err);
@@ -351,8 +351,8 @@ app.get("/api/see/searchMovie", (req, res) => {
   )
 });
 
-//SeeMain : 좋아요 수 많은 리뷰 TOP 2
-app.get("/api/see/topLikeReviews", (req, res) => {
+//SeeMain : 좋아요 수 많은 리뷰E TOP 2
+app.get("/api/see/topLikeReviewsE", (req, res) => {
   const sql = "SELECT * FROM REVIEW_E ORDER BY `likeCount` DESC LIMIT 2";
   db.query(sql, (err, result) => {
       if(err){
@@ -364,9 +364,9 @@ app.get("/api/see/topLikeReviews", (req, res) => {
   )
 });
 
-//SeeMain : 조회수 많은 리뷰 TOP 2
-app.get("/api/see/topViewReviews", (req, res) => {
-  const sql = "SELECT * FROM REVIEW_E ORDER BY `viewCount` DESC LIMIT 2";
+//SeeMain : 좋아요 수 많은 리뷰S TOP 2
+app.get("/api/see/topLikeReviewsS", (req, res) => {
+  const sql = "SELECT * FROM REVIEW_S ORDER BY `likeCount` DESC LIMIT 2";
   db.query(sql, (err, result) => {
       if(err){
         console.log(err);
@@ -375,7 +375,20 @@ app.get("/api/see/topViewReviews", (req, res) => {
       }
     }
   )
-})
+});
+
+//SeeMain : 조회수 많은 리뷰 TOP 2
+// app.get("/api/see/topViewReviews", (req, res) => {
+//   const sql = "SELECT * FROM REVIEW_E ORDER BY `viewCount` DESC LIMIT 2";
+//   db.query(sql, (err, result) => {
+//       if(err){
+//         console.log(err);
+//       }else {
+//         res.send(result);
+//       }
+//     }
+//   )
+// })
 
 //SeeMain : 리뷰 수 많은 영화 TOP 2
 app.get("/api/see/movie", (req, res) => {
@@ -390,13 +403,24 @@ app.get("/api/see/movie", (req, res) => {
   )
 })
 
-//MovieDetail : movieCODE로 리뷰 목록 가져오기
-app.post("/api/see/movie/reviewList", (req, res) => {
-  console.log(req)
+//MovieDetail : movieCODE로 리뷰E 목록 가져오기
+app.post("/api/see/movie/reviewListE", (req, res) => {
   const movieCODE = req.body.movieCODE;
-  const sql = "SELECT * FROM REVIEW_E WHERE movieCODE = ?";
+  const sql = "SELECT * FROM REVIEW_E WHERE movieCODE = (?)";
   db.query(sql, [movieCODE], (err, result) => {
-    console(result);
+      if(err){
+        console.log(err);
+      }else {
+        res.send(result);
+      }
+    }
+  )
+})
+//MovieDetail : movieCODE로 리뷰S 목록 가져오기
+app.post("/api/see/movie/reviewListS", (req, res) => {
+  const movieCODE = req.body.movieCODE;
+  const sql = "SELECT * FROM REVIEW_S WHERE movieCODE = (?)";
+  db.query(sql, [movieCODE], (err, result) => {
       if(err){
         console.log(err);
       }else {
