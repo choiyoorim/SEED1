@@ -14,8 +14,6 @@ function Write(){
     const [expressReviewContent,setExpressReviewContent] = useState('');
     const userID = localStorage.getItem('userID');
     const reviewID = localStorage.getItem('reviewID');
-    const [title, setTitle] = useState("");
-    const [movietitle, setMovietitle] = useState("");
     const [editdata, setEditdate] = useState("<p>리뷰 작성 시 광고 및 욕설, 비속어나 타인을 비방하는 문구를 사용하시면 삭제될 수 있습니다.</p>");
     const edit = localStorage.getItem('edit');
     const dateInst = new Date();
@@ -35,6 +33,8 @@ function Write(){
             content:expressReviewContent,
             id:userID,
             date:date
+            // reviewid:reviewID,
+            // edit:edit
         }).then((res)=>{
             if(res.data.success){
                 alert('작성 완료')
@@ -63,10 +63,11 @@ function Write(){
             Axios.post("http://localhost:3002/reviewE/edit", {
             reviewID: reviewID
             }).then((response)=>{
-                //console.log(response.data)
-                setTitle(response.data[0].reviewTitle)
-                setEditdate(response.data[0].reviewContent)
-                setMovietitle(response.data[0].title)
+                setExpressReviewMovieTitle(response.data[0].title)
+                setExpressReviewTitle(response.data[0].reviewTitle)
+                // setTitle(response.data[0].reviewTitle)
+                // setEditdate(response.data[0].reviewContent)
+                // setMovietitle(response.data[0].title)
                 localStorage.setItem('edit', false);
             })
         } 
@@ -81,8 +82,8 @@ function Write(){
                     </div>
                     <div className="form-wrap">
                         <form onSubmit={submitExpressReview}>
-                            <input className="movietitle-input" type='text'  name = "title" placeholder='영화 제목' value = {movietitle} onChange={getMovieTitle}/>
-                            <input className="title-input" type='text' name = "contents" placeholder='제목' value = {title} onChange={getTitle}/>
+                            <input className="movietitle-input" type='text' placeholder='영화 제목' value={expressReviewMovieTitle} onChange={getMovieTitle}/>
+                            <input className="title-input" type='text' placeholder='제목' value={expressReviewTitle} onChange={getTitle}/>
                                 <CKEditor
                                     editor={ ClassicEditor }
                                     data={editdata}

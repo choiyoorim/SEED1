@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './ReviewDetail.css';
 import axios from 'axios';
+import {Link} from "react-router-dom";
 import {FaHeart} from "react-icons/fa";
 import {FaEye} from "react-icons/fa";
 import {BsFillBackspaceReverseFill, BsFillPersonFill} from "react-icons/bs";
@@ -41,8 +42,8 @@ class ReviewDetail extends Component {
           </div>
           <div>
             <p><BsFillPersonFill/>  {location.state.writer}</p>
-            <p><FaHeart/>  {location.state.likeC}</p>
-            <p><FaEye/>  {location.state.viewC}</p>
+            <button className="like_but"><FaHeart/>  {location.state.likeC}</button>
+            {/* <p><FaEye/>  {location.state.viewC}</p> */}
           </div>
         </div>
       </div>

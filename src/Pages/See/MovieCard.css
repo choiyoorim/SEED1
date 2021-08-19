@@ -1,6 +1,6 @@
 .movies .movie_card a{
     display: grid;
-    grid-template-columns: minmax(150px, 1fr) 2fr;
+    grid-template-columns: minmax(10%, 1fr) 2fr;
     grid-gap: 20px;
     text-decoration: none;
     color: inherit;
@@ -12,9 +12,9 @@
     max-width: 150px;
     width: 100%;
     margin-right: 30px;
-    box-shadow: 0 13px 27px -5px rgba(244, 244, 247, 0.25), 
-                0 8px 16px -8px rgba(244, 244, 247, 0.25), 
-                0 -6px 16px -6px rgba(244, 244, 247, 0.25);
+    box-shadow: 0 13px 27px 5px rgba(256, 256, 256, 0.25), 
+                0 8px 16px 8px rgba(256, 256, 256, 0.25), 
+                0 6px 16px 6px rgba(256, 256, 256, 0.25);
 }
 
 .movie_card .movie_title{
