@@ -97,10 +97,11 @@ body{
     background-color: var(--seed-backCover);
 }
 #like li {
-    height: 80px;
+    height: 50px;
     margin: 5px 5px;
     border-bottom: 1px solid var(--seed-main-color);
     list-style: none;
+    font-size: 14px;
 }
 #like2 li {
     height: 80px;

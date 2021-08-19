@@ -172,8 +172,31 @@ app.get('/user/logout', (req,res)=>{
     .json({ auth: false, });
 })
 
+//좋아요 개수 SELECT
 
-//리뷰가져오기
+
+//좋아요 개수 INSERT
+
+
+//사용자가 좋아요한 리뷰 목록 가져오기
+app.post("/Like/reviewS",(req, res)=>{
+  const userID =  req.body.userID;
+  const sqlSelect = "SELECT * FROM LIKE_S JOIN REVIEW_S ON LIKE_S.reviewID = REVIEW_S.reviewID WHERE LIKE_S.userID = ?";
+  db.query(sqlSelect, userID , (err, result)=>{
+    res.send(result);
+  })
+});
+
+app.post("/Like/reviewE",(req, res)=>{
+  const userID =  req.body.userID;
+  const sqlSelect = "SELECT * FROM LIKE_E JOIN REVIEW_E ON LIKE_E.reviewID = REVIEW_E.reviewID WHERE LIKE_E.userID = ?";
+  db.query(sqlSelect, userID , (err, result)=>{
+    res.send(result);
+  })
+});
+
+
+//사용자가 작성한 리뷰가져오기
 app.post("/reviewE/list",(req,res)=>{
   const userID = req.body.userID;
   const sqlSelect = "SELECT * FROM REVIEW_E JOIN  moviedata ON REVIEW_E.movieCODE = moviedata.movieCODE WHERE REVIEW_E.userID = ?";
@@ -365,6 +388,9 @@ app.get("/api/see/topLikeReviews", (req, res) => {
     }
   )
 });
+
+
+
 
 //SeeMain : 조회수 많은 리뷰 TOP 2
 app.get("/api/see/topViewReviews", (req, res) => {
