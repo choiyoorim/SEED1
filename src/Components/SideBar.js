@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { IoCreateOutline } from "react-icons/io5";
-import { IoHomeSharp } from "react-icons/io5";
 import { IoNotifications } from "react-icons/io5";
 import { IoBarChartSharp } from "react-icons/io5";
 import { IoChatbubblesOutline } from "react-icons/io5";
@@ -22,7 +21,7 @@ export const SideBar = [
   },
   {
     title: '실시간 채팅',
-    path: '/Subs',
+    path: '/chathome',
     icon: <IoChatbubblesOutline />,
     cName: 'nav-text'
   },
