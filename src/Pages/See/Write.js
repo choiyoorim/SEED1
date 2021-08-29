@@ -65,9 +65,7 @@ function Write(){
             }).then((response)=>{
                 setExpressReviewMovieTitle(response.data[0].title)
                 setExpressReviewTitle(response.data[0].reviewTitle)
-                // setTitle(response.data[0].reviewTitle)
-                // setEditdate(response.data[0].reviewContent)
-                // setMovietitle(response.data[0].title)
+                setEditdate(response.data[0].reviewContent)
                 localStorage.setItem('edit', false);
             })
         } 
