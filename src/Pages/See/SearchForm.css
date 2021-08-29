@@ -1,0 +1,31 @@
+.search_bar{
+    padding: 2px;
+    margin-right: 5px;
+    margin-bottom: 50px;
+    width: 50%;
+    color: #e5e5e5;
+    background-color: black;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-color: #ffbb00;
+    font-size:x-large;
+    box-shadow: none;
+}
+
+.search_but {
+    width: 10%;
+    height: 35px;
+    cursor: pointer;
+    background-color: #ffbb00;
+    border: none;
+    font-size: large;
+    box-shadow: none;
+    padding:0;
+    border-radius: 10px;
+}
+
+.search_bar :click{
+    border: none;
+    outline: none;
+}

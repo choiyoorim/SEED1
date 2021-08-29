@@ -20,6 +20,12 @@ hr{
     width:100%; height:1px;
 }
 
+.like_but{
+    background-color: black;
+    border: none;
+    color: #e5e5e5;
+}
+
 .review_text_box{
     color:#262626;
     background-color: #e5e5e5;

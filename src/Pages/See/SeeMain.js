@@ -3,59 +3,70 @@ import axios from 'axios';
 import './SeeMain.css';
 import Movie from './MovieCard';
 import Review from './ReviewCard';
+import ReviewS from './ReviewSCard';
 import {FaHeart} from "react-icons/fa";
 import {FaEye} from "react-icons/fa";
-
+import Search from './SearchForm';
+import queryString from 'query-string';
 
 class SeeMain extends Component  {
   state = {
     isLoading: true,
     searchMovies: [],
     topMovies: [],
-    topLikeReviews: [],
-    topViewReviews: [],
-    search: "rush"
+    topLikeReviewsE: [],
+    topLikeReviewsS: [],
+    topViewReviews: []
   };
-  
+
   //영화 검색
-  searchMovie = async () => {
-    const search = this.state.search;
-    const res = await axios.post('//localhost:3002/api/see/searchMovie',{search});
+  searchMovies = async () => {
+    const search = queryString.parse(this.props.location.search);
+    console.log(search);
+    const res = await axios.post('//localhost:3002/api/see/searchMovie', search);
     console.log(res);
     this.setState({ searchMovies : res.data, isLoading: false });
-  }
-  
-
-  //좋아요 수 많은 리뷰 2개
-  getTopLikeReviews = async () => {
-    const res = await axios.get('//localhost:3002/api/see/topLikeReviews');
-    console.log(res);
-    this.setState({ topLikeReviews : res.data, isLoading: false });
   };
 
-  //조회수 많은 리뷰 2개
-  getTopViewReviews = async () => {
-    const res = await axios.get('//localhost:3002/api/see/topViewReviews');
+
+  //좋아요 수 많은 리뷰E 2개
+  getTopLikeReviewsE = async () => {
+    const res = await axios.get('//localhost:3002/api/see/topLikeReviewsE');
     console.log(res);
-    this.setState({ topViewReviews : res.data, isLoading: false });
+    this.setState({ topLikeReviewsE : res.data });
   };
+
+  //좋아요 수 많은 리뷰S 2개
+  getTopLikeReviewsS = async () => {
+    const res = await axios.get('//localhost:3002/api/see/topLikeReviewsS');
+    console.log(res);
+    this.setState({ topLikeReviewsS : res.data });
+  };
+
+  //조회수 많은 리뷰E 2개
+  // getTopViewReviews = async () => {
+  //   const res = await axios.get('//localhost:3002/api/see/topViewReviews');
+  //   console.log(res);
+  //   this.setState({ topViewReviews : res.data, isLoading: false });
+  // };
 
   //영화2개
   getMovies = async () => {
     const res = await axios.get('//localhost:3002/api/see/movie');
     console.log(res);
-    this.setState({ topMovies : res.data, isLoading: false });
+    this.setState({ topMovies : res.data});
   };
 
   componentDidMount() {
+    this.searchMovies();
     this.getMovies();
-    this.getTopLikeReviews();
-    this.getTopViewReviews();
+    this.getTopLikeReviewsE();
+    this.getTopLikeReviewsS();
   }
 
 
   render() {
-    const { isLoading, searchMovies, topMovies, topLikeReviews, topViewReviews} = this.state;
+    const { isLoading, searchMovies, topMovies, topLikeReviewsE, topLikeReviewsS, topViewReviews} = this.state;
     return (
       <section className="seeMain_container">
         {isLoading ? (
@@ -64,44 +75,10 @@ class SeeMain extends Component  {
           </div>
         ) : (
           <div className="SeeMain_Container">
-            <form className="searchForm">
-              <input type='text' maxLength='20' className='search_bar' name='search' placeholder='영화를 검색해보세요.'/>
-              <input type='submit' value='검색' className='search_but'></input>
-            </form>
             <div>
-
-            </div>
-            <h3 className="review_text_like"><FaHeart/> 가 많은 리뷰_E TOP 2</h3>
-            <div className="topReviews" id="map">
-              {topLikeReviews.map(review => (
-                <Review
-                  key={review.reviewID}
-                  id={review.reviewID}
-                  writer={review.userID}
-                  title={review.reviewTitle}
-                  likeC={review.likeCount}
-                  viewC={review.viewCount}
-                  content={review.reviewContent}
-                />
-              ))}
-            </div>
-            <h3 className="review_text_view"><FaEye/> 가 많은 리뷰_E TOP 2</h3>
-            <div className="topReviews" id="map">
-              {topViewReviews.map(review => (
-                <Review
-                  key={review.reviewID}
-                  id={review.reviewID}
-                  writer={review.userID}
-                  title={review.reviewTitle}
-                  likeC={review.likeCount}
-                  viewC={review.viewCount}
-                  content={review.reviewContent}
-                />
-              ))}
-            </div>
-            <h3 className="review_text_movie">'리뷰'가 많은 영화 TOP 2</h3>
-            <div className="movies" id="map">
-              {topMovies.map(movie => (
+              <Search></Search>
+              <div className="movies" id="map">
+              {searchMovies.map(movie => (
                 <Movie
                   key={movie.movieCODE}
                   id={movie.movieCODE}
@@ -112,8 +89,37 @@ class SeeMain extends Component  {
                 />
               ))}
             </div>
-            <div className="moreReview">
-                <button className="loadMore_but">더 많은 리뷰 보러가기</button>
+            </div>
+            <h3 className="review_text_like"><FaHeart/> 가 많은 리뷰_E TOP 2</h3>
+            <div className="topReviews" id="map">
+              {topLikeReviewsE.map(review => (
+                <Review
+                  key={review.reviewID}
+                  id={review.reviewID}
+                  writer={review.userID}
+                  title={review.reviewTitle}
+                  likeC={review.likeCount}
+                  viewC={review.viewCount}
+                  content={review.reviewContent}
+                />
+              ))}
+            </div>
+<<<<<<< HEAD
+            <h3 className="review_text_view"><FaEye/> 가 많은 리뷰_E TOP 2</h3>
+=======
+            <h3 className="review_text_like"><FaHeart/>가 많은 리뷰_S TOP 2</h3>
+>>>>>>> bcbf2ad32b278369e423f4eb9b4cc477c07c0429
+            <div className="topReviews" id="map">
+              {topLikeReviewsS.map(review => (
+                <ReviewS
+                  key={review.reviewID}
+                  id={review.reviewID}
+                  writer={review.userID}
+                  likeC={review.likeCount}
+                  viewC={review.viewCount}
+                  content={review.reviewContent}
+                />
+              ))}
             </div>
           </div>
         )}

@@ -6,18 +6,6 @@ class MovieList extends Component {
   render() {
     return(
       <div>
-        {/*
-        <div class="moviePage">
-          {this.props.id}
-          <div id="poster">poster</div>
-          <h3 id="title">{this.props.title}</h3>
-          <p id="writer">{this.props.directorr}</p>
-          <p id="actor">{this.props.actor}</p>
-          <p id="date">{this.props.date}</p>
-          <Link id="RListP" to='/RList'>리뷰보기</Link>
-        </div>
-        */}
-
         <div class="moviePage">
           <div id="poster">poster</div>
           <div id="title">Catch Me If You Can</div>

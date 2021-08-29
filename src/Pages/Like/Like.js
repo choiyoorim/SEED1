@@ -53,11 +53,10 @@ function Like() {
                 </form>
                 </div>
             </div>
-            {/* <div class="subscribes">
+            <div class="subscribes">
                 <h3 id="h3sub">구독</h3>
                 <div class="subscribes_container list">
                     <form id="subs">
-                            <li></li>
                             <li></li>
                             <li></li>
                             <li></li>
@@ -79,20 +78,10 @@ function Like() {
                             <li></li>
                             <li></li>
                             <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
                         </ul>
                     </form>
                 </div>
-            </div> */}
+            </div>
         </div>
     </section>
     );
