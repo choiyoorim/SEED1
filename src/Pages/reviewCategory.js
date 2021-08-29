@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Category = [
+export const ReviewCategory = [
   {
     title: '줄 글',
     path: '/',

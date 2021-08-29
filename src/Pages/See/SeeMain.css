@@ -10,7 +10,6 @@
     margin-left: 5%;
 }
 
-<<<<<<< HEAD
 .search_bar{
     font-family: 'Noto Sans KR', Courier, monospace;
     font-weight: 700;
@@ -51,8 +50,6 @@
 }
 
 
-=======
->>>>>>> bcbf2ad32b278369e423f4eb9b4cc477c07c0429
 .loader {
     width: 100%;
     height: 100%;
@@ -100,13 +97,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: flex-start;
-<<<<<<< HEAD
-    padding: 50px;
-    /*padding-top: 70px;*/
-    padding-bottom: 70px;
-=======
     padding: 10px 50px 50px 50px;
->>>>>>> bcbf2ad32b278369e423f4eb9b4cc477c07c0429
     width:80%;
 }
 
@@ -120,42 +111,12 @@
     border-radius: 5px;
     color: #adaeb9;
     width:40%;
-<<<<<<< HEAD
-    border: 1px solid white;
-    /* border-radius: 30px; */
-    display: flex;
-=======
     border: solid;
     border-color: #e5e5e5;
->>>>>>> bcbf2ad32b278369e423f4eb9b4cc477c07c0429
     align-items: flex-start;
     justify-content: space-between;
   }
 
-<<<<<<< HEAD
-  .loadMore_but{
-      font-family: 'Noto Sans KR', Courier, monospace;
-      font-weight: 700;
-      border: 1px solid #ffbb00;
-      border-radius: 30px;
-      padding: 10px 15px 10px 15px;
-      background-color: white;  
-      margin-bottom: 50px;
-  }
-
-  .loadMore_but:hover{
-      cursor: pointer;
-      color: white;
-      background-color: #ffbb00;
-  }
-
-  h3{
-      font-size: 1.2rem;
-  }
-
-  .review__title:hover{
-      color: #ffbb00;
-=======
   .topReviews .review_card:hover{
     box-shadow: 0 13px 27px 5px rgba(244, 244, 247, 0.25), 
     0 8px 16px 8px rgba(244, 244, 247, 0.25), 
@@ -173,5 +134,4 @@
     padding:0;
     border-radius: 15px;
     margin-bottom: 100px;
->>>>>>> bcbf2ad32b278369e423f4eb9b4cc477c07c0429
   }

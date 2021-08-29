@@ -104,11 +104,7 @@ class SeeMain extends Component  {
                 />
               ))}
             </div>
-<<<<<<< HEAD
-            <h3 className="review_text_view"><FaEye/> 가 많은 리뷰_E TOP 2</h3>
-=======
             <h3 className="review_text_like"><FaHeart/>가 많은 리뷰_S TOP 2</h3>
->>>>>>> bcbf2ad32b278369e423f4eb9b4cc477c07c0429
             <div className="topReviews" id="map">
               {topLikeReviewsS.map(review => (
                 <ReviewS

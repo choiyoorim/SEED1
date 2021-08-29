@@ -18,7 +18,8 @@ import MemberInfo from './Pages/Memberinfo/MemberInfo';
 import ContactUs from './Pages/Email/ContactUs';
 import MovieDetail from './Pages/See/MovieDetail';
 import ReviewDetail from './Pages/See/ReviewDetail';
-import ShortReview from './Pages/See/ShortReview'
+import ShortReview from './Pages/See/ShortReview';
+import ReviewSelect from './Pages/ReviewSelect/ReviewSelect';
 //import ExpressReview from './Pages/See/ExpressReview';
 import ChatHome from './Pages/Chat/ChatHome';
 import Chat from './Pages/Chat/Chat';
@@ -47,6 +48,7 @@ const App = () =>{
         <Route path="/login" component={Login}/>
         <Route path="/movie/:id" component={MovieDetail}/>
         <Route path="/review/:id" component={ReviewDetail}/>
+        <Route path="/reviewSelect" component={ReviewSelect}/>
         <Route path="/chathome">
           <ChatHome 
             userName={userName} 
