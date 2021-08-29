@@ -18,6 +18,29 @@
     padding: 10px;
 }
 
+.detail_img{
+    position: relative;
+    max-width: 150px;
+    width: 100%;
+    margin: 2%;
+}
+
+.movieTOWrite_but{
+    width: 10%;
+    height: 35px;
+    background-color: #ffbb00;
+    border-radius: 15px;
+    box-shadow: none;
+    margin:20px;
+    padding: 5px;
+}
+
+.reviewlist .line{
+    background-color:#ffbb00;
+    border-color: #ffbb00;
+    width:80%; height:1px;
+}
+
 .reviewlist_card{
     border:solid;
     border-width: 1px;

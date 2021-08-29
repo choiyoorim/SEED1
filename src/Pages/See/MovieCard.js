@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import "./MovieCard.css";
 
 function MovieCard({ id, year, title, summary, poster }) {
+
     return (
       <div className="movie_card" id="movie_card_outside">
         <Link

@@ -34,9 +34,9 @@ class reviewListDetail extends React.Component{
         return (
             <div className MovieDetail_Container>
                 <div className="detail_container">
-                    {/*
+                    
                     <img className="detail_img" src={location.state.poster} alt={location.state.title} title={location.state.title}/>
-                    */}
+                   
                     <div className="detail_movie_data">
                         <h3 className="movie_title">{location.state.title}</h3>
                         <h5 className="movie_year">{location.state.year}</h5>

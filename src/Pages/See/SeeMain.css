@@ -42,7 +42,6 @@
     font-weight: 300;
 }
 
-
 /*movie card css*/
 .movies {
     display: flex;
@@ -68,9 +67,9 @@
 }
 
 .movies .movie_card:hover{
-    box-shadow: 0 13px 27px -5px rgba(244, 244, 247, 0.25), 
-    0 8px 16px -8px rgba(244, 244, 247, 0.25), 
-    0 -6px 16px -6px rgba(244, 244, 247, 0.25);
+    box-shadow: 0 13px 27px 5px rgba(244, 244, 247, 0.25), 
+    0 8px 16px 8px rgba(244, 244, 247, 0.25), 
+    0 6px 16px 6px rgba(244, 244, 247, 0.25);
 }
 
 
@@ -98,4 +97,23 @@
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+  }
+  
+  .topReviews .review_card:hover{
+    box-shadow: 0 13px 27px 5px rgba(244, 244, 247, 0.25), 
+    0 8px 16px 8px rgba(244, 244, 247, 0.25), 
+    0 6px 16px 6px rgba(244, 244, 247, 0.25);
+}
+
+  .loadMore_but{
+    width: 20%;
+    height: 50px;
+    cursor: pointer;
+    background-color: #ffbb00;
+    border: none;
+    font-size: large;
+    box-shadow: none;
+    padding:0;
+    border-radius: 15px;
+    margin-bottom: 100px;
   }

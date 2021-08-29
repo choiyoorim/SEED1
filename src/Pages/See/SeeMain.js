@@ -5,7 +5,7 @@ import Movie from './MovieCard';
 import Review from './ReviewCard';
 import {FaHeart} from "react-icons/fa";
 import {FaEye} from "react-icons/fa";
-
+import queryString from 'query-string';
 
 class SeeMain extends Component  {
   state = {
@@ -25,6 +25,13 @@ class SeeMain extends Component  {
     this.setState({ searchMovies : res.data, isLoading: false });
   }
   
+
+  // searchMovies = async () => {
+  //   const search = queryString.parse(this.props.location.search);
+  //   const res = await axios.post('//localhost:3002/api/see/searchMovie', search);
+  //   this.setState({ searchMovies : res.data, isLoading: false });
+  //   console.log(res.data[0]);
+  // };
 
   //좋아요 수 많은 리뷰 2개
   getTopLikeReviews = async () => {
@@ -111,9 +118,6 @@ class SeeMain extends Component  {
                   poster={movie.image_url}
                 />
               ))}
-            </div>
-            <div className="moreReview">
-                <button className="loadMore_but">더 많은 리뷰 보러가기</button>
             </div>
           </div>
         )}
