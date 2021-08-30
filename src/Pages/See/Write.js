@@ -14,7 +14,7 @@ function Write(){
     const [expressReviewContent,setExpressReviewContent] = useState('');
     const userID = localStorage.getItem('userID');
     const reviewID = localStorage.getItem('reviewID');
-    const [editdata, setEditdate] = useState("<p>리뷰 작성 시 광고 및 욕설, 비속어나 타인을 비방하는 문구를 사용하시면 삭제될 수 있습니다.</p>");
+    const [editdata, setEditdate] = useState();
     const edit = localStorage.getItem('edit');
     const dateInst = new Date();
     var dateMonth = dateInst.getMonth() + 1;
@@ -85,6 +85,11 @@ function Write(){
                                 <CKEditor
                                     editor={ ClassicEditor }
                                     data={editdata}
+                                    config={{
+                                        // 여기에 config 입력
+                                        //toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList'],
+                                        placeholder: "리뷰 작성 시 광고 및 욕설, 비속어나 타인을 비방하는 문구를 사용하시면 삭제될 수 있습니다.",
+                                      }}
                                     onReady={ editor => {
                                         // You can store the "editor" and use when it is needed.
                                         console.log( 'Editor is ready to use!', editor );

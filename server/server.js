@@ -196,22 +196,37 @@ app.post("/Like/reviewE",(req, res)=>{
 });
 
 
-//사용자가 작성한 리뷰가져오기
-app.post("/reviewE/list",(req,res)=>{
+//Mypage: 사용자가 작성한 리뷰가져오기(short)
+app.post("/reviewS/list",(req,res)=>{
   const userID = req.body.userID;
-  const sqlSelect = "SELECT * FROM REVIEW_E JOIN  moviedata ON REVIEW_E.movieCODE = moviedata.movieCODE WHERE REVIEW_E.userID = ?";
-
-  //console.log(userID);
+  const sqlSelect = "SELECT * FROM REVIEW_S JOIN  moviedata ON REVIEW_S.movieCODE = moviedata.movieCODE WHERE REVIEW_S.userID = ? ORDER BY REVIEW_S.preparationDate DESC";
   db.query(sqlSelect, userID , (err, result)=>{
     res.send(result);
   })
 });
 
-//리뷰내용
+//Mypage: 사용자가 작성한 리뷰가져오기(express)
+app.post("/reviewE/list",(req,res)=>{
+  const userID = req.body.userID;
+  const sqlSelect = "SELECT * FROM REVIEW_E JOIN  moviedata ON REVIEW_E.movieCODE = moviedata.movieCODE WHERE REVIEW_E.userID = ? ORDER BY REVIEW_E.preparationDate DESC";
+  db.query(sqlSelect, userID , (err, result)=>{
+    res.send(result);
+  })
+});
+
+//Write: 리뷰 ID에 해당하는 리뷰 내용 가져오기(short)
+app.post("/reviewS/edit",(req,res)=>{
+  const reviewID = req.body.reviewID;
+  const sqlSelect = "SELECT * FROM REVIEW_S R JOIN  moviedata M ON R.movieCODE = M.movieCODE WHERE R.reviewID = ?";
+
+  db.query(sqlSelect, reviewID , (err, result)=>{
+      res.send(result);
+  })
+});
+
+//Write: 리뷰 ID에 해당하는 리뷰 내용 가져오기(express)
 app.post("/reviewE/edit",(req,res)=>{
   const reviewID = req.body.reviewID;
-  // console.log(userID);
-  // console.log(reviewID);
   const sqlSelect = "SELECT * FROM REVIEW_E R JOIN  moviedata M ON R.movieCODE = M.movieCODE WHERE R.reviewID = ?";
 
   db.query(sqlSelect, reviewID , (err, result)=>{
@@ -219,7 +234,7 @@ app.post("/reviewE/edit",(req,res)=>{
   })
 });
 
-//리뷰Short
+//Write: 리뷰Short 작성하기
 app.post("/shortsubmit",(req,res)=>{
   const title = req.body.title
   console.log(title);
@@ -269,7 +284,7 @@ app.post("/shortsubmit",(req,res)=>{
   })
 });
 
-//리뷰 Express
+//Write: 리뷰 Express 작성하기
 app.post("/expresssubmit",(req,res)=>{
   const title = req.body.title
   console.log(title);
@@ -325,7 +340,7 @@ app.post("/expresssubmit",(req,res)=>{
 
 });
 
-//리뷰 가져오기
+//ExpressReview: 해당 영화 리뷰E 가져오기
 app.get('/getshortreview',(req,res)=>{
   db.query("SELECT R.reviewID,R.userID,M.title,R.reviewContent,R.preparationDate FROM REVIEW_S R JOIN moviedata M ON R.movieCODE = M.movieCODE",
     (err,result)=>{
@@ -333,7 +348,7 @@ app.get('/getshortreview',(req,res)=>{
     }
   )
 });
-
+//ShortReview: 해당 영화 리뷰S 가져오기
 app.get('/getexpressreview',(req,res)=>{
   db.query("SELECT E.reviewID,E.userID,M.title,E.reviewContent,E.reviewTitle,E.preparationDate FROM REVIEW_E E JOIN moviedata M ON E.movieCODE = M.movieCODE",
     (err,result)=>{

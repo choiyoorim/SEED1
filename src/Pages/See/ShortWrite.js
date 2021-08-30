@@ -1,5 +1,4 @@
-import React,{useState} from 'react';
-import Navi from '../../Components/Navi'
+import React, {useEffect, useState }from "react";
 import Button from "../../Components/Button";
 import BasicButtonGroup from "../../Components/SelectButton";
 import './ShortWrite.css'
@@ -9,6 +8,8 @@ function ShortWrite(number){
     const [shortReviewMovieTitle,setShortReviewMovieTitle] = useState('');
     const [shortReviewContent,setShortReviewContent] = useState('');
     const userID = localStorage.getItem('userID');
+    const reviewID = localStorage.getItem('reviewID');
+    const edit = localStorage.getItem('edit');
     const dateInst = new Date();
     var dateMonth = dateInst.getMonth() + 1;
     if(dateMonth<=9) dateMonth = "0" + dateMonth;
@@ -46,6 +47,19 @@ function ShortWrite(number){
         setShortReviewContent(content);
         console.log(content);
     }
+
+    useEffect(()=>{
+        if(edit==='true'){
+            Axios.post("http://localhost:3002/reviewS/edit", {
+            reviewID: reviewID
+            }).then((response)=>{
+                setShortReviewMovieTitle(response.data[0].title)
+                setShortReviewContent(response.data[0].reviewContent)
+                localStorage.setItem('edit', false);
+            })
+        } 
+    }, []);
+
     return(
         <>
             <div className="Write_main">
@@ -54,10 +68,10 @@ function ShortWrite(number){
                 </div>
                 <div className="form-wrap">
                     <form onSubmit={submitShortReview}>
-                        <input className="movietitle-input" type='text' placeholder='영화 제목' onChange={getMovieTitle}/>
+                        <input className="movietitle-input" type='text' placeholder='영화 제목' value={shortReviewMovieTitle} onChange={getMovieTitle}/>
                         <p className="inst"> “........”에 대한 한 줄 리뷰를 작성하세요.</p>
                         <div classname="text-wrap">
-                            <textarea className="text-input" placeholder="리뷰 작성 시 광고 및 욕설, 비속어나 타인을 비방하는 문구를 사용하시면 삭제될 수 있습니다." onChange={getContent}></textarea>
+                            <textarea className="text-input" placeholder="리뷰 작성 시 광고 및 욕설, 비속어나 타인을 비방하는 문구를 사용하시면 삭제될 수 있습니다." value={shortReviewContent} onChange={getContent}></textarea>
                             <div className="button-wrap">
                                 <Button id="shortWriteBtn" className="submit-button" size ="lg" type="submit">저장</Button>
                             </div>
