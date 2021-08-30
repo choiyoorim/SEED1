@@ -6,10 +6,26 @@ import { IconContext } from 'react-icons';
 import './../../Components/color.css'
 import  '../Mypage/Mypage.css';
 import user from '../../Components/Movie_poster/movie1.png';
+import {ReviewCategory} from '../reviewCategory';
 
 function Mypage(){
 
-    const [movieReviewList, setReviewList] = useState([]);
+    const [movieReviewList_E, setReviewList] = useState([]);
+
+    const [categoryMenu, setCategoryMenu] = useState(false);
+    const [background, setBackground] = useState();
+    const [color, setColor] = useState();
+    const openCategory = () => {
+        setCategoryMenu(true);
+        setBackground('var(--seed-yelow)');
+        setColor('var(--seed-text-black)')
+    }
+    const closeCategory = () => {
+        setCategoryMenu(false);
+        setBackground();
+        setColor();
+    }
+
     const id= localStorage.getItem('userID');
     const name = localStorage.getItem('userNickname');
 
@@ -27,26 +43,22 @@ function Mypage(){
         localStorage.setItem('reviewID', res);
         localStorage.setItem('edit', true);
         window.location.replace("/write");
-
-    //     Axios.post("http://localhost:3002/reviewE/edit", {
-    //         userID: id, 
-    //         reviewID: reviewID
-    //     }).then((response)=>{
-    //     console.log(response);
-    //   });
     }
 
   
 
     return (
-        <section id="mypageSection">
+        <section id="mypageSection" onClick={closeCategory}>
             <div className="setting">
                 <span>
                     <img id = "mypage_user_img" src={user} width="50" height="50"/>
                 </span>
                 <span id="mypage_username">{name}</span>
-                <span id="mypage_total">Total <span>187</span></span>
-                <span id="mypage_today">Today <span>5</span></span>
+                <div className="setting-block">
+                    <span id="mypage_total">Total <span>187</span></span>
+                    <span id="mypage_today">Today <span>5</span></span>
+                </div>
+                
             </div>
 
             <div className="popularSeeds">
@@ -61,7 +73,17 @@ function Mypage(){
             </div>
 
             <div className="user_write">
-            <h3>Seeds</h3>
+                <h3 onMouseOver={openCategory} style={{background: background, color: color}}>Seeds</h3>
+                <ul className={categoryMenu ? 'category active' : 'category'}>
+                    <li className="category-text">최신 글</li>
+                    {ReviewCategory.map((item, index)=>{
+                        return (
+                            <li className={item.cName}>
+                                {item.title}
+                            </li>
+                        );
+                    })}
+                </ul>
                 <div className="write_info">
                     <div className="myseeds">
                         <span id="Wmovie">영화</span>
@@ -71,7 +93,7 @@ function Mypage(){
                     </div>
                     <form id="written">
                         <ul>
-                    {movieReviewList.map((list) => {
+                    {movieReviewList_E.map((list) => {
                         return (
                         <li className={list.reviewID} onClick={() => edit(list.reviewID)}>
                             <span id="Wmovie">{list.title}</span>
@@ -82,8 +104,8 @@ function Mypage(){
                     ) })}
                         </ul>
                         </form>
-                    </div>
                 </div>
+            </div>
             
         </section>
     );

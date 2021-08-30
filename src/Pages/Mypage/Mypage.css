@@ -29,10 +29,12 @@
     margin: 20px 20px 0 10px;
 }
 #mypage_today{
+    font-size: 13px;
     float: right;
     margin: 20px 10px 0 10px;
 }
 #mypage_total{
+    font-size: 13px;
     float: right;
     margin: 20px 10px 0 10px;
 }
@@ -46,15 +48,43 @@
 .user_write, .popularSeeds{
     width: auto;
     min-width: 1000px;
-    margin: 60px 100px 10px 100px;
     padding-bottom: 0px;
     padding-left: 3%;
+}
+.popularSeeds{
+    margin: 60px 100px 10px 100px;
 }
 .user_write{
     padding-left: 3%;
     padding-right: 10%;
     padding-bottom: 30px;
+}
 
+.category{
+    position: absolute;
+    list-style: none;
+    margin: 0 0 10px 30px;
+    padding: 0;
+    background-color: black;
+    width: 120px;
+    display: none;
+    border: 2px solid var(--seed-backCover);
+    font-size: 13px;
+}
+.category.active{
+    display: block;
+}
+
+.category-text{
+    text-align: center;
+    margin: 6px 0;
+    padding: 1px 0;
+    color: var(--seed-main-color);
+    border: 1px solid black;
+}
+.category-text:hover{
+    color: var(--seed-yelow);
+    border: 1px solid var(--seed-yelow);
 }
 .PSeedsContainer{
     position: relative;
@@ -74,11 +104,13 @@
     margin: 0 0 14px 44px;
 }
 .user_write h3{
-    margin-left: 40px;
-    width: 100px;
+    margin: 0 0 4px 40px;
+    width: 80px;
+    padding: 8px;
     color: var(--seed-main-color);
-    text-align: left;
-
+    text-align: center;
+    border: 2px solid var(--seed-backCover);
+    border-radius: 30px;
 }
 .popularSeeds h3{
     margin-left: 40px;
@@ -87,55 +119,50 @@
     text-align: left;
 
 }
-.user_write .write_info{
-    margin-left: 10px;
+.write_info{
+    margin: 16px 0 0 10px;
     font-size: 14px;
+    left: 50%;
 }
 #Wmovie{
     float: left;
-    margin: 0 46px 0 0;
+    margin: 0 20px 0 0;
     width: 160px;
     text-align: left;
+    overflow: hidden;
 }
 #Wtitle{
     float: left;
     margin: 0 16px;
     width: 300px;
     text-align: center;
+    overflow: hidden;
 }
 #Wdate{
     float: right;
     margin: 0 16px;
-    width: 220px;
+    width: 140px;
     text-align: center;
+    overflow: hidden;
 }
 #Wnum{
     float: right;
     margin: 0 16px;
     width: 100px;
     text-align: right;
+    overflow: hidden;
 }
 
 #written{
     margin-left: 40px;
     color: var(--seed-main-color);
-    /* height: 360px;
-    overflow-y: scroll; */
+    font-size: 13px;
 }
-/* #written::-webkit-scrollbar{
-    width: 5px;
-}
-#written::-webkit-scrollbar-thumb{
-    background-color: var(--seed-yelow);
-}
-#written::-webkit-scrollbar-track{
-    background-color: var(--seed-backCover);
-} */
 #written ul{
     padding: 0;
 }
 #written li{
-    height: 30px;
+    height: 34px;
     margin: 5px 5px;
     border-top: 1px solid var(--seed-main-color);
     list-style: none;
@@ -144,3 +171,22 @@
 #written li:hover{
     background-color: var(--seed-backCover);
 }
+
+@media(max-width: 900px){
+    #mypage_total, #mypage_today{
+        font-size: 10px;
+        float: none;
+    }
+    .setting-block{
+        display: block;
+        position: absolute;
+        margin-top: 60px;
+    }
+}
+@media(max-width: 650px){
+    .setting{
+        margin: 150px 140px 10px 40px; 
+    }
+}
+
+  
