@@ -74,7 +74,7 @@ function CategoryReviewList({history}) {
     return (
         <div className="user_write">
             <h3 onMouseOver={openCategory} onMouseOut={closeCategory} style={{background: background, color: color}}>Seeds</h3>
-            <div>
+            <div className="categoryMenu">
                 <ul className={categoryMenu ? 'category active' : 'category'} onMouseOver={openCategory} onMouseOut={closeCategory}>
                     <li className="category-text">최신 글</li>
                     {ReviewCategory.map((item, index)=>{
@@ -91,8 +91,8 @@ function CategoryReviewList({history}) {
                     <div className="myseeds">
                         <span className="Wmovie">영화</span>
                         <span className="Wtitle">{writeInfo}</span>
-                        <span className="Wnum">조회수</span>
                         <span className="Wdate">작성일</span>
+                        <span className="Wnum">조회수</span>
                     </div>
             
                     <form id="written">
@@ -104,8 +104,8 @@ function CategoryReviewList({history}) {
                                 <span className={IsShort ? "Wtitle" : "Wtitle extend"}>{list.reviewTitle}
                                     <span className={IsShort ? "Wcontent" :"Wcontent extend"}>{list.reviewContent}</span>
                                 </span>
+                                <span className="Wdate">{list.date}</span>
                                 <span className="Wnum">{list.viewCount}</span>
-                                <span className="Wdate">{list.preparationDate}</span>
                             </li>
                         ) })}
                     </ul>

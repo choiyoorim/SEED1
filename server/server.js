@@ -178,7 +178,7 @@ app.get('/user/logout', (req,res)=>{
 //좋아요 개수 INSERT
 
 
-//사용자가 좋아요한 리뷰 목록 가져오기
+//Like: 사용자가 좋아요한 리뷰 목록 가져오기
 app.post("/Like/reviewS",(req, res)=>{
   const userID =  req.body.userID;
   const sqlSelect = "SELECT * FROM LIKE_S JOIN REVIEW_S ON LIKE_S.reviewID = REVIEW_S.reviewID WHERE LIKE_S.userID = ?";
@@ -196,25 +196,24 @@ app.post("/Like/reviewE",(req, res)=>{
 });
 
 
-//Mypage: 사용자가 작성한 리뷰가져오기(short)
+//Mypage: 사용자가 작성한 리뷰가져오기
 app.post("/reviewS/list",(req,res)=>{
   const userID = req.body.userID;
-  const sqlSelect = "SELECT * FROM REVIEW_S JOIN  moviedata ON REVIEW_S.movieCODE = moviedata.movieCODE WHERE REVIEW_S.userID = ? ORDER BY REVIEW_S.preparationDate DESC";
+  const sqlSelect = "SELECT R.reviewID, M.title, R.reviewContent, R.viewCount, DATE_FORMAT(R.preparationDate, '%Y-%m-%d') AS date FROM REVIEW_S R JOIN  moviedata M ON R.movieCODE = M.movieCODE WHERE R.userID = ? ORDER BY R.preparationDate DESC";
   db.query(sqlSelect, userID , (err, result)=>{
     res.send(result);
   })
 });
 
-//Mypage: 사용자가 작성한 리뷰가져오기(express)
 app.post("/reviewE/list",(req,res)=>{
   const userID = req.body.userID;
-  const sqlSelect = "SELECT * FROM REVIEW_E JOIN  moviedata ON REVIEW_E.movieCODE = moviedata.movieCODE WHERE REVIEW_E.userID = ? ORDER BY REVIEW_E.preparationDate DESC";
+  const sqlSelect = "SELECT R.reviewID, M.title, R.reviewTitle, R.reviewContent, R.viewCount, DATE_FORMAT(R.preparationDate, '%Y-%m-%d') AS date FROM REVIEW_E R JOIN  moviedata M ON R.movieCODE = M.movieCODE WHERE R.userID = ? ORDER BY R.preparationDate DESC";
   db.query(sqlSelect, userID , (err, result)=>{
     res.send(result);
   })
 });
 
-//Write: 리뷰 ID에 해당하는 리뷰 내용 가져오기(short)
+//Write: 리뷰 ID에 해당하는 리뷰 내용 가져오기
 app.post("/reviewS/edit",(req,res)=>{
   const reviewID = req.body.reviewID;
   const sqlSelect = "SELECT * FROM REVIEW_S R JOIN  moviedata M ON R.movieCODE = M.movieCODE WHERE R.reviewID = ?";
@@ -224,7 +223,6 @@ app.post("/reviewS/edit",(req,res)=>{
   })
 });
 
-//Write: 리뷰 ID에 해당하는 리뷰 내용 가져오기(express)
 app.post("/reviewE/edit",(req,res)=>{
   const reviewID = req.body.reviewID;
   const sqlSelect = "SELECT * FROM REVIEW_E R JOIN  moviedata M ON R.movieCODE = M.movieCODE WHERE R.reviewID = ?";

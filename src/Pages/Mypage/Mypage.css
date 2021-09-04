@@ -59,7 +59,6 @@
     padding-right: 10%;
     padding-bottom: 30px;
 }
-
 .category{
     position: absolute;
     list-style: none;
@@ -101,7 +100,7 @@
 
 .myseeds{
     height: 20px;
-    margin: 0 0 14px 44px;
+    margin: 0 6px 14px 44px;
 }
 .user_write h3{
     margin: 0 0 1px 40px;
@@ -121,6 +120,7 @@
 }
 .write_info{
     margin: 16px 0 0 10px;
+    height: 300px;
     font-size: 14px;
     left: 50%;
 }
@@ -134,7 +134,7 @@
 .Wtitle{
     float: left;
     margin: 0 16px;
-    width: 330px;
+    width: 420px;
     text-align: center;
     overflow: hidden;
 }
@@ -150,7 +150,7 @@
 .Wcontent{
     float: left;
     margin: 0 16px;
-    width: 330px;
+    width: 390px;
     text-align: center;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -176,16 +176,16 @@
 }
 .Wdate{
     float: right;
-    margin: 0 16px;
+    margin: 0 0 0 16px;
     width: 140px;
-    text-align: center;
+    text-align: right;
     overflow: hidden;
 }
 .Wnum{
     float: right;
     margin: 0 16px;
     width: 60px;
-    text-align: right;
+    text-align: center;
     overflow: hidden;
 }
 
@@ -200,33 +200,23 @@
 }
 #written li{
     padding: 4px 0 0 0;
-}
-#written span{
-    font-weight: lighter;
-}
-/* #written li{
-    height: 34px;
     margin: 5px 5px;
     border-top: 1px solid var(--seed-main-color);
     list-style: none;
     overflow: hidden;
-} */
+}
+#written span{
+    font-weight: lighter;
+}
 #written li:hover{
     background-color: var(--seed-backCover);
 }
 .short{
     height: 34px;
-    margin: 5px 5px;
-    border-top: 1px solid var(--seed-main-color);
-    list-style: none;
-    overflow: hidden;
+    
 }
 .express{
     height: 70px;
-    margin: 5px 5px;
-    border-top: 1px solid var(--seed-main-color);
-    list-style: none;
-    overflow: hidden;
 }
 
 @media(max-width: 900px){
