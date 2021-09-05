@@ -18,12 +18,15 @@ import MemberInfo from './Pages/Memberinfo/MemberInfo';
 import ContactUs from './Pages/Email/ContactUs';
 import MovieDetail from './Pages/See/MovieDetail';
 import ReviewDetail from './Pages/See/ReviewDetail';
+import ShortReview from './Pages/See/ShortReview'
+import ExpressReview from './Pages/See/ExpressReview';
 import ShortReview from './Pages/See/ShortReview';
 import ReviewSelect from './Pages/ReviewSelect/ReviewSelect';
-//import ExpressReview from './Pages/See/ExpressReview';
+
+
 import ChatHome from './Pages/Chat/ChatHome';
 import Chat from './Pages/Chat/Chat';
-//import ExpressReviewContent from './Pages/See/ExpressReviewContent';
+import ExpressReviewContent from './Pages/See/ExpressReviewContent';
 
 const App = () =>{
   const [userName,setUserName] = useState();
@@ -40,8 +43,8 @@ const App = () =>{
         <Route path="/write" component={Write}/>
         <Route path="/find" component={Find} />
         <Route path="/shortreview" component={ShortReview}/>
-        {/* <Route path="/expressreview" component={ExpressReview}/> */}
-        {/* <Route path="/expressreviewcontent/:id" component={ExpressReviewContent}/> */}
+        <Route path="/expressreview" component={ExpressReview}/>
+        <Route path="/expressreviewcontent/:id" component={ExpressReviewContent}/>
         <Route path="/signup" component={SignUp}/>
         <Route path="/memberinfo" component={MemberInfo} />
         <Route path="/contactUs" component={ContactUs} />
