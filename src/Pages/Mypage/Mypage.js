@@ -39,7 +39,7 @@ function Mypage(){
   
 
     return (
-        <section>
+        <section id="mypageSection">
             <div className="setting">
                 <span>
                     <img id = "mypage_user_img" src={user} width="50" height="50"/>

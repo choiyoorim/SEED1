@@ -8,17 +8,18 @@
 }
 
 .form-wrap{
-    width:900px;
+    width:60%;
     margin: 0 auto;
     background-color: var(--seed-subColor);
-    padding:20px;
+    padding:40px;
+    border-radius: 30px;
     box-sizing: border-box;
 }
 
 .movie-search{
     position:relative;
     margin: 0 auto;
-    width:895px;
+    width:50%;
     height:40px;
     margin-bottom:20px;
 }

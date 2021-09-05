@@ -8,8 +8,8 @@ import { IoChatboxEllipsesOutline } from "react-icons/io5";
 
 export const SideBar = [
   {
-    title: '글쓰기',
-    path: '/ShortWrite',
+    title: '리뷰 작성하기',
+    path: '/reviewSelect',
     icon: <IoCreateOutline />,
     cName: 'nav-text'
   },

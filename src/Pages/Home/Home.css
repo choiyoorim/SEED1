@@ -18,7 +18,7 @@
 #joinLink:hover{
     cursor: pointer;
     color: white;
-    background-color: darkgray;
+    background-color: #ffbb00;
 }
 
 #logoIntro{
@@ -36,7 +36,7 @@
 #joinLink{
     font-weight: 600;
     display: inline-block;
-    padding: 40px 50px 40px 50px;
+    padding: 40px 60px 40px 60px;
     background-color: white;
     color: black;
     border: 1px solid black;
@@ -44,11 +44,6 @@
     margin-bottom: 75px;
 }
 
-#joinLink:hover{
-    cursor: pointer;
-    color: white;
-    background-color: darkgray;
-}
 
 #recoTitle{
     font-size: 1.5rem;
@@ -71,10 +66,12 @@
 }
 
 #introtitle{
-    color: white;
-    font-family: 'Noto Sans KR', Courier, monospace;
-    font-size: 1.2rem;
+    color: #ffbb00;
+    font-family: 'Rock Salt', Courier, monospace;
+    font-size: 3rem;
+    font-weight: 700;
     margin-right: 0;
+    margin-bottom: 30px;
     font-weight: 700;
 }
 
@@ -90,6 +87,7 @@
 #intro2{
     text-align: right;
     margin-right: 10%;
+    margin-bottom: 100px;
 }
 
 #para2{
@@ -102,12 +100,18 @@
     margin-left: 10%;
 }
 
+#title2{
+    text-align: right;
+    padding-left: 200px;
+}
+
+
 #para3{
     float: left;
 }
 
 .intropara{
-    width: 320px;
+    width: 340px;
 }
 
 #posterdiv{
