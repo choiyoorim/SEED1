@@ -54,7 +54,7 @@ function ShortWrite(number){
                 </div>
                 <div className="form-wrap">
                     <form onSubmit={submitShortReview}>
-                        <input className="movietitle-input" type='text' placeholder='영화 제목' onChange={getMovieTitle}/>
+                        <input className="movietitle-input" id="movititleInputShort" type='text' placeholder='영화 제목' onChange={getMovieTitle}/>
                         <p className="inst"> “........”에 대한 한 줄 리뷰를 작성하세요.</p>
                         <div classname="text-wrap">
                             <textarea className="text-input" placeholder="리뷰 작성 시 광고 및 욕설, 비속어나 타인을 비방하는 문구를 사용하시면 삭제될 수 있습니다." onChange={getContent}></textarea>

@@ -110,7 +110,7 @@ function Navi({history}) {
                     <li onClick={isAuth} key={index} className={item.cName}>
                       <Link to={item.path}>
                         {item.icon}
-                        <span><p class="itemtitle">{item.title}</p></span>
+                        <span><p class="itemtitle" id="sideitemtitle">{item.title}</p></span>
                       </Link>
                     </li>
                     );

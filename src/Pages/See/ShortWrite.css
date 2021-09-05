@@ -16,7 +16,7 @@
     color:var(--seed-backgroundColor)
 }
 
-.movietitle-input{
+#movititleInputShort{
     position: relative;
     align-self: left;
     width:85%;

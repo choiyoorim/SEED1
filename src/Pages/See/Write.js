@@ -75,9 +75,14 @@ function Write(){
         <>
             <section>
                 <div className="Write_main">
+                    <div id="writeTopDiv">
                     <div className="select-button-wrap">
                         <BasicButtonGroup num={1}></BasicButtonGroup>
                     </div>
+                        <p id="writeLogo">Seed.</p>
+                        </div>
+
+
                     <div className="form-wrap">
                         <form onSubmit={submitExpressReview}>
                             <input className="movietitle-input" type='text' placeholder='영화 제목' value={expressReviewMovieTitle} onChange={getMovieTitle}/>

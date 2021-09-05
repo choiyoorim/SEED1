@@ -147,20 +147,19 @@ font-weight: 700;
 }
 
 #logoutBtn{
-  padding: 5px 20px 5px 20px;
+  padding: 6px 25px 6px 25px;
   font-family: 'Noto Sans KR', Courier, monospace;
   font-weight: 700;
-  font-size: 1rem;
-  color: black;
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 50px;
+  font-size: 0.9rem;
+  color: white;
+  background-color: rgb(44, 44, 44);
+  border: 1px solid white;
+  border-radius: 100px;
 }
 
 #logoutBtn:hover{
   cursor: pointer;
-  color:white;
-  background-color: #ffbb00;
+  background-color: black;
 }
 
 /* 사이드바 */
@@ -258,8 +257,9 @@ font-weight: 700;
   border-radius: 4px;
 }
 .nav-text a:hover{
-background-color: var(--seed-backCover);
+  color: #ffbb00;
 }
+
 .nav-menu-items {
   width:100%;
   padding-left: 5px;
@@ -276,6 +276,7 @@ background-color: var(--seed-backCover);
 .nav_bottom {
   text-decoration: none;
   font-family: 'Noto Sans KR', Courier, monospace;
+  margin-top: -20px;
 }
 
 .nav_bottom > button{
@@ -291,3 +292,9 @@ background-color: var(--seed-backCover);
 /* .itemtitle:hover{
   color: grey;
 } */
+
+#sideitemtitle{
+  margin-left: 10px;
+  font-family: 'Noto Sans KR', Courier, monospace;
+  font-weight: 700;
+}

@@ -31,7 +31,7 @@ function Like() {
                 <h3 id="h3like">좋아요 누른 글</h3>
                 <div class="likes_container list">
                     <div><h4 id="h4f">short</h4><h4 id="h4s">express</h4></div>
-                    <form id="like">
+                    <form id="like" class="likeform">
                     <ul>
                         {movieReviewList_S.map((list) => {
                             return (
@@ -41,7 +41,7 @@ function Like() {
                         ) })}
                     </ul>
                     </form>
-                    <form id="like2">
+                    <form id="like2" class="likeform">
                     <ul>
                         {movieReviewList_E.map((list) => {
                             return (
