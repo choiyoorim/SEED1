@@ -80,7 +80,7 @@ function Write(){
                         <BasicButtonGroup num={1}></BasicButtonGroup>
                     </div>
                         <p id="writeLogo">Seed.</p>
-                        </div>
+                    </div>
 
 
                     <div className="form-wrap">
@@ -110,9 +110,9 @@ function Write(){
                                 <input className="keyword-input" type='text' placeholder='#'/>
                                 <div className="check">
                                     <input className="check-box" type="checkbox" value="spoiler"></input>
-                                    <a className="check-inst">스포일러</a>
+                                    <a className="check-inst">스포일러 포함</a>
                                 </div>
-                                <Button className="submit-button" size="sm" type="submit">저장</Button>
+                                <Button id="wrtieBtn" className="submit-button" size="sm" type="submit">발행</Button>
                             </div>
                         </form>
                     </div>
