@@ -12,15 +12,16 @@ function CategoryReviewList({history}) {
     const [categoryMenu, setCategoryMenu] = useState(false);
     const [background, setBackground] = useState();
     const [color, setColor] = useState();
+    const[display, setDisplay] = useState('none');
     const openCategory = () => {
-        setCategoryMenu(true);
-        setBackground('var(--seed-yelow)');
-        setColor('var(--seed-text-black)')
-    };
-    const closeCategory = () => {
-        setCategoryMenu(false);
-        setBackground();
-        setColor();
+        if(!categoryMenu){
+            setBackground('var(--seed-yelow)');
+            setColor('var(--seed-text-black)')
+        } else{
+            setBackground();
+            setColor();
+        }
+        setCategoryMenu(!categoryMenu);
     };
 
     const [type, setType] = useState();
@@ -42,25 +43,31 @@ function CategoryReviewList({history}) {
           setReviewList(response.data);
         });
     };
+
+    const openShortList = ()=>{
+        shortReviewList();
+        setWriteInfo("Short 리뷰");
+        setIsShort(true);
+    }
+
+    const opsnExpressList = () =>{
+        expressReviewList();
+        setWriteInfo("Express 리뷰");
+        setIsShort(false);
+    }
     
     const openReviewList = (categoryType) =>{
-        setType(categoryType);
-        if(categoryType==="short"){
-            shortReviewList();
-            setWriteInfo("Short 리뷰");
-            setIsShort(true);
+        if(categoryType==="writing"){
+            setDisplay('block')
+            openShortList();
+        }else{
+            setDisplay('none')
         }
-        if(categoryType==="express"){
-            expressReviewList();
-            setWriteInfo("Express 리뷰");
-            setIsShort(false);
-        }
-        
     };
 
     const edit=(res, categoryType)=>{
         localStorage.setItem('reviewID', res);
-        localStorage.setItem('edit', true);
+        localStorage.setItem('edit', 'true');
 
         if(categoryType==="short"){
             history.push("/shortWrite");
@@ -73,10 +80,10 @@ function CategoryReviewList({history}) {
 
     return (
         <div className="user_write">
-            <h3 onMouseOver={openCategory} onMouseOut={closeCategory} style={{background: background, color: color}}>Seeds</h3>
+            <h3 onClick={openCategory} style={{background: background, color: color}}>Seeds</h3>
             <div className="categoryMenu">
-                <ul className={categoryMenu ? 'category active' : 'category'} onMouseOver={openCategory} onMouseOut={closeCategory}>
-                    <li className="category-text">최신 글</li>
+                <ul className={categoryMenu ? 'category active' : 'category'}>
+                    <li className="category-text" onClick={()=>setDisplay('none')}>최신 글</li>
                     {ReviewCategory.map((item, index)=>{
                         return (
                             <li className={item.cName} onClick={()=>openReviewList(item.type)}>
@@ -86,7 +93,10 @@ function CategoryReviewList({history}) {
                     })}
                 </ul>
             </div>
-            
+            <div className="shortOrExpress" style={{display: display}}>
+                <span className="shortList" onClick={openShortList}>short</span>
+                <span className="expressList" onClick={opsnExpressList}>express</span>
+            </div>
             <div className="write_info">
                     <div className="myseeds">
                         <span className="Wmovie">영화</span>
