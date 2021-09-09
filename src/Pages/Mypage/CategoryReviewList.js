@@ -83,7 +83,7 @@ function CategoryReviewList({history}) {
             <h3 onClick={openCategory} style={{background: background, color: color}}>Seeds</h3>
             <div className="categoryMenu">
                 <ul className={categoryMenu ? 'category active' : 'category'}>
-                    <li className="category-text" onClick={()=>setDisplay('none')}>최신 글</li>
+                    {/* <li className="category-text" onClick={()=>setDisplay('none')}>최신 글</li> */}
                     {ReviewCategory.map((item, index)=>{
                         return (
                             <li className={item.cName} onClick={()=>openReviewList(item.type)}>

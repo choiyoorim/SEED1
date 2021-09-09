@@ -59,6 +59,9 @@
     padding-right: 10%;
     padding-bottom: 30px;
 }
+.user_write h3:hover{
+    background-color: var(--seed-yelow-hover);
+}
 .shortOrExpress{
     height:30px;
     margin: 0px 0 10px 50px;
@@ -76,6 +79,9 @@
 }
 .expressList:hover{
     color: var(--seed-yelow);
+}
+.categoryMenu{
+    margin-top: 10px;
 }
 .category{
     position:relative;
@@ -103,12 +109,12 @@
     vertical-align: middle;
     font-weight: lighter;
     color: var(--seed-main-color);
-    border: 1px solid black;
+    border-bottom: 1px solid black;
     float: left;
 }
 .category-text:hover{
     color: var(--seed-yelow);
-    border: 1px solid var(--seed-yelow);
+    border-bottom: 1px solid var(--seed-yelow-hover);
 }
 .PSeedsContainer{
     position: relative;
