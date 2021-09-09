@@ -48,12 +48,14 @@ function CategoryReviewList({history}) {
         shortReviewList();
         setWriteInfo("Short 리뷰");
         setIsShort(true);
+        setType('short');
     }
 
     const opsnExpressList = () =>{
         expressReviewList();
         setWriteInfo("Express 리뷰");
         setIsShort(false);
+        setType('express');
     }
     
     const openReviewList = (categoryType) =>{
