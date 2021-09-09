@@ -99,7 +99,7 @@
     display: block;
 }
 
-.category-text{
+.rootCategory{
     text-align: center;
     margin: 0;
     padding: 1px;
@@ -112,7 +112,7 @@
     border-bottom: 1px solid black;
     float: left;
 }
-.category-text:hover{
+.rootCategory:hover{
     color: var(--seed-yelow);
     border-bottom: 1px solid var(--seed-yelow-hover);
 }

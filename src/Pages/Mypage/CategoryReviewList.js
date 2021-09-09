@@ -86,7 +86,7 @@ function CategoryReviewList({history}) {
                     {/* <li className="category-text" onClick={()=>setDisplay('none')}>최신 글</li> */}
                     {ReviewCategory.map((item, index)=>{
                         return (
-                            <li className={item.cName} onClick={()=>openReviewList(item.type)}>
+                            <li className="rootCategory" onClick={()=>openReviewList(item.type)}>
                                 {item.title}
                             </li>
                         );
