@@ -293,11 +293,10 @@ app.post("/shortsubmit/update",(req,res)=>{
       console.log(err);
       res.json({success:false, err})
     } else{
-      //console.log('업데이트합니다.')
       res.status(200).json({success:true})
     }
   })
-})
+});
 
 //Write: 리뷰 Express 작성하기
 app.post("/expresssubmit",(req,res)=>{
@@ -353,6 +352,23 @@ app.post("/expresssubmit",(req,res)=>{
     }
   })
 
+});
+
+//Write: 리뷰 Express 수정하기
+app.post("/expresssubmit/update",(req,res)=>{
+  const title = req.body.title;
+  const content = req.body.content;
+  const reviewID = req.body.reviewID;
+
+  db.query("UPDATE REVIEW_E SET reviewTitle = ?, reviewContent = ?, modification = '1' WHERE reviewID = ?",
+   [title, content, reviewID], (err,result)=>{
+    if(!err){
+      res.status(200).json({success:true})
+    } else{
+      console.log(err);
+      res.json({success:false, err})
+    }
+  })
 });
 
 //ExpressReview: 해당 영화 리뷰E 가져오기

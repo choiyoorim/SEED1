@@ -12,6 +12,8 @@ function Write(){
     const [expressReviewTitle,setExpressReviewTitle] = useState('');
     const [expressReviewMovieTitle,setExpressReviewMovieTitle] = useState('');
     const [expressReviewContent,setExpressReviewContent] = useState('');
+    const [isFirst, setIsFirst] = useState(true);   //처음 작성 여부(처음이면 insert, 아니면 update)
+    const [visibilityButton, setVisibilityButton] = useState('visible');
     const userID = localStorage.getItem('userID');
     const reviewID = localStorage.getItem('reviewID');
     const [editdata, setEditdate] = useState();
@@ -26,23 +28,41 @@ function Write(){
 
     var date = yyyy + "-" + dateMonth + "-" + dateDay;
     const submitExpressReview = () =>{
-        console.log('실행중');
-        Axios.post('http://localhost:3002/expresssubmit',{
-            title:expressReviewTitle,
-            movietitle:expressReviewMovieTitle,
-            content:expressReviewContent,
-            id:userID,
-            date:date
-            // reviewid:reviewID,
-            // edit:edit
-        }).then((res)=>{
-            if(res.data.success){
-                alert('작성 완료')
-            }
-            else{
-                console.log('오류')
-            }
-        })
+        if(isFirst){
+            Axios.post('http://localhost:3002/expresssubmit',{
+                title:expressReviewTitle,
+                movietitle:expressReviewMovieTitle,
+                content:expressReviewContent,
+                id:userID,
+                date:date
+            }).then((res)=>{
+                if(res.data.success){
+                    alert('작성 완료')
+                }
+                else{
+                    alert('제출하는 과정에서 오류가 발생했습니다.');
+                    console.log('오류')
+                }
+            })
+        }
+        else{
+            Axios.post('http://localhost:3002/expresssubmit/update',{
+                title:expressReviewTitle,
+                content:expressReviewContent,
+                reviewID:reviewID
+            }).then((res)=>{
+                // console.log(res);
+                if(res.data.success){
+                    setIsFirst(true);
+                    alert('수정 완료');
+                    window.location.href = '/mypage';
+                } else{
+                    alert('제출하는 과정에서 오류가 발생했습니다.');
+                    console.log('오류');
+                }
+            })
+        }
+        
     };
 
     const getTitle = (e) =>{
@@ -61,26 +81,30 @@ function Write(){
     useEffect(()=>{
         if(edit==='true'){
             Axios.post("http://localhost:3002/reviewE/edit", {
-            reviewID: reviewID
+                reviewID: reviewID
             }).then((response)=>{
                 setExpressReviewMovieTitle(response.data[0].title)
                 setExpressReviewTitle(response.data[0].reviewTitle)
                 setEditdate(response.data[0].reviewContent)
-                localStorage.setItem('edit', false);
             })
+            setIsFirst(false);
+            setVisibilityButton('hidden');
+            localStorage.setItem('edit', 'false');
         } 
+
     }, []);
 
     return(
         <>
             <section>
                 <div className="Write_main">
-                    <div className="select-button-wrap">
+                    <div className="select-button-wrap" style={{visibility: visibilityButton}}>
                         <BasicButtonGroup num={1}></BasicButtonGroup>
                     </div>
                     <div className="form-wrap">
                         <form onSubmit={submitExpressReview}>
-                            <input className="movietitle-input" type='text' placeholder='영화 제목' value={expressReviewMovieTitle} onChange={getMovieTitle}/>
+                            {isFirst? <input className="movietitle-input" type='text' placeholder='영화 제목' value={expressReviewMovieTitle} onChange={getMovieTitle}/>
+                            : <input className="movietitle-input" type='text' placeholder='영화 제목' value={expressReviewMovieTitle} readOnly/>}
                             <input className="title-input" type='text' placeholder='제목' value={expressReviewTitle} onChange={getTitle}/>
                                 <CKEditor
                                     editor={ ClassicEditor }

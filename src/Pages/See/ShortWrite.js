@@ -23,11 +23,11 @@ function ShortWrite(){
     var date = yyyy + "-" + dateMonth + "-" + dateDay;
     const submitShortReview = () =>{
         if(isFirst){
-            Axios.post('http://localhost:3002/shortsubmit',{
-            title:shortReviewMovieTitle,
-            content:shortReviewContent,
-            id:userID,
-            date:date
+                Axios.post('http://localhost:3002/shortsubmit',{
+                title:shortReviewMovieTitle,
+                content:shortReviewContent,
+                id:userID,
+                date:date
             }).then((res)=>{
                 if(res.data.success){
                     alert('작성 완료');
@@ -41,39 +41,42 @@ function ShortWrite(){
         }
         else{
             Axios.post('http://localhost:3002/shortsubmit/update',{
-            content:shortReviewContent,
-            reviewID:reviewID
+                content:shortReviewContent,
+                reviewID:reviewID
             }).then((res)=>{
-                console.log(res);
+                // console.log(res);
+                // console.log(res.data);
+                // console.log(res.data.success);
+
                 if(res.data.success){
                     setIsFirst(true);
                     alert('수정 완료');
+                    // window.location.replace('/mypage');
                     window.location.href = '/mypage';
                 } else{
                     alert('제출하는 과정에서 오류가 발생했습니다.');
                     console.log('오류');
                 }
-            })
+            });
         }
-    }
+    };
     
     const getMovieTitle = (e) =>{
         const movietitle = e.target.value;
         setShortReviewMovieTitle(movietitle);
         console.log(movietitle);
-    }
+    };
 
     const getContent = (e) =>{
         const content = e.target.value;
         setShortReviewContent(content);
         console.log(content);
-    }
+    };
 
     useEffect(()=>{
         if(edit==='true'){
-            //console.log('한번')
             Axios.post("http://localhost:3002/reviewS/edit", {
-            reviewID: reviewID
+                reviewID: reviewID
             }).then((response)=>{
                 setShortReviewMovieTitle(response.data[0].title)
                 setShortReviewContent(response.data[0].reviewContent)
@@ -81,9 +84,8 @@ function ShortWrite(){
             setIsFirst(false);
             setVisibilityButton('hidden');
             localStorage.setItem('edit', 'false');
-        } 
-
-    }, []);
+        }
+    },[]);
 
     return(
         <>
