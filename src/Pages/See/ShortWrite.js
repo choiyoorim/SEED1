@@ -1,14 +1,17 @@
-import React,{useState} from 'react';
-import Navi from '../../Components/Navi'
+import React, {useEffect, useState }from "react";
 import Button from "../../Components/Button";
 import BasicButtonGroup from "../../Components/SelectButton";
 import './ShortWrite.css'
 import Axios from 'axios';
 
-function ShortWrite(number){
+function ShortWrite(){
     const [shortReviewMovieTitle,setShortReviewMovieTitle] = useState('');
     const [shortReviewContent,setShortReviewContent] = useState('');
+    const [isFirst, setIsFirst] = useState(true);   //처음 작성 여부(처음이면 insert, 아니면 update)
+    const [visibilityButton, setVisibilityButton] = useState('visible');
     const userID = localStorage.getItem('userID');
+    const reviewID = localStorage.getItem('reviewID');
+    const edit = localStorage.getItem('edit');
     const dateInst = new Date();
     var dateMonth = dateInst.getMonth() + 1;
     if(dateMonth<=9) dateMonth = "0" + dateMonth;
@@ -18,34 +21,72 @@ function ShortWrite(number){
     const yyyy = dateInst.getFullYear().toString();
 
     var date = yyyy + "-" + dateMonth + "-" + dateDay;
-    console.log(date);
     const submitShortReview = () =>{
-        console.log('실행중')
-        Axios.post('http://localhost:3002/shortsubmit',{
-            title:shortReviewMovieTitle,
-            content:shortReviewContent,
-            id:userID,
-            date:date
-        }).then((res)=>{
-            if(res.data.success){
-                alert('작성 완료')
-            }
-            else{
-                console.log('오류')
-            }
-        })
-    }
+        if(isFirst){
+                Axios.post('http://localhost:3002/shortsubmit',{
+                title:shortReviewMovieTitle,
+                content:shortReviewContent,
+                id:userID,
+                date:date
+            }).then((res)=>{
+                if(res.data.success){
+                    alert('작성 완료');
+                    //window.location.replace('/mypage');
+                }
+                else{
+                    alert('제출하는 과정에서 오류가 발생했습니다.');
+                    console.log('오류');
+                }
+            });
+        }
+        else{
+            Axios.post('http://localhost:3002/shortsubmit/update',{
+                content:shortReviewContent,
+                reviewID:reviewID
+            }).then((res)=>{
+                // console.log(res);
+                // console.log(res.data);
+                // console.log(res.data.success);
+
+                if(res.data.success){
+                    setIsFirst(true);
+                    alert('수정 완료');
+                    // window.location.replace('/mypage');
+                    window.location.href = '/mypage';
+                } else{
+                    alert('제출하는 과정에서 오류가 발생했습니다.');
+                    console.log('오류');
+                }
+            });
+        }
+    };
+    
     const getMovieTitle = (e) =>{
         const movietitle = e.target.value;
         setShortReviewMovieTitle(movietitle);
         console.log(movietitle);
-    }
+    };
 
     const getContent = (e) =>{
         const content = e.target.value;
         setShortReviewContent(content);
         console.log(content);
-    }
+    };
+
+    useEffect(()=>{
+        if(edit==='true'){
+            Axios.post("http://localhost:3002/reviewS/edit", {
+                reviewID: reviewID
+            }).then((response)=>{
+                setShortReviewMovieTitle(response.data[0].title)
+                setShortReviewContent(response.data[0].reviewContent)
+            })
+            setIsFirst(false);
+            setVisibilityButton('hidden');
+            localStorage.setItem('edit', 'false');
+        }
+    },[]);
+
     return(
         <>
             <div className="Write_main">

@@ -14,6 +14,7 @@ import {withRouter} from 'react-router-dom';
 function Navi({history}) {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () =>setSidebar(!sidebar);
+  const closeSidebar = () =>setSidebar(false);
 
   const nickname = localStorage.getItem('userNickname');  
   const auth= localStorage.getItem('auth');
@@ -74,7 +75,7 @@ function Navi({history}) {
               <FaIcons.FaBars onClick={showSidebar} />
             </Link>
           </div>
-          <div>
+          <div onClick={closeSidebar}>
             <h1 class="logo" onClick={moveHome}>Seed.</h1>
             <ul class="menu">
               <li><Link to="/see" className="menus">See</Link></li>
@@ -93,7 +94,7 @@ function Navi({history}) {
           <nav className={sidebar ? 'nav-menu active' : 'nav-menu'} onClick={showSidebar}>
             <div class="navbar-toggle">
               <Link to="#" className="close-bars">
-              <AiIcons.AiOutlineClose onClick={showSidebar} />
+              <AiIcons.AiOutlineClose onClick={closeSidebar} />
             </Link>
             </div>
             <div class="nav_user_info">
@@ -103,7 +104,7 @@ function Navi({history}) {
               <span className="sideBar_like user-info"><p>좋아요 <b>103</b></p></span>
             </div>
             <div class="nav_sidebar_menu">
-              <ul className="nav-menu-items" onClick={showSidebar}>
+              <ul className="nav-menu-items">
                 {/* SideBar를 순서대로 담기*/}
                 {SideBar.map((item, index) => {
                   return (

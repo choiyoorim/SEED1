@@ -14,11 +14,13 @@ export const ReviewCategory = [
   {
     title: '카드뉴스',
     path: '/',
-    cName: 'category-text'
+    cName: 'category-text',
+    type: 'card'
   },
   {
     title: '영상',
     path: '/',
-    cName: 'category-text'
+    cName: 'category-text',
+    type: 'video'
   }
 ];
