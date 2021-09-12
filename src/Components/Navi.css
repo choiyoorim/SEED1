@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 @import url('../Components/color.css');
+
 body{
   overflow-y: scroll;
   overflow-x: hidden;
 }
+
 .navi_wrapper{
   position: fixed;
-  font-family: 'Anton', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 700;
   height: 75px;
   border: 1px solid var(--seed-main-color);
   color: var(--seed-main-color);

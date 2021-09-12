@@ -99,8 +99,8 @@ function Navi({history}) {
             <div class="nav_user_info">
               <img id = "sideBar_user_img" src={user} width="50" height="50"/>
               <div className="sideBar_user_name"><p>{nickname}</p></div>
-              <span className ="sideBar_sub user-info"><p>구독자 23</p></span>
-              <span className="sideBar_like user-info"><p>좋아요 103</p></span>
+              <span className ="sideBar_sub user-info"><p>구독자 <b>23</b></p></span>
+              <span className="sideBar_like user-info"><p>좋아요 <b>103</b></p></span>
             </div>
             <div class="nav_sidebar_menu">
               <ul className="nav-menu-items" onClick={showSidebar}>
