@@ -1,6 +1,8 @@
 @import url("../../Components/color.css");
 
 .setting{
+    font-family: 'Noto Sans KR', Courier, monospace;
+    font-weight: 700;
     display: block;
     position: relative;
     height: 60px;
