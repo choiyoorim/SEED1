@@ -1,10 +1,12 @@
 import React, { Component, useEffect, useState }from "react";
 import Axios from 'axios';
 import {ReviewCategory} from '../reviewCategory';
+
 import './../../Components/color.css'
 import  '../Mypage/Mypage.css';
 import {withRouter} from 'react-router-dom';
-
+import ReviewPosts from "./ReviewPosts";
+import ReactPaginate from "react-paginate";
 
 
 function CategoryReviewList({history}) {
@@ -13,6 +15,24 @@ function CategoryReviewList({history}) {
     const [background, setBackground] = useState();
     const [color, setColor] = useState();
     const[display, setDisplay] = useState('none');
+
+
+    const [type, setType] = useState();
+    const [writeInfo, setWriteInfo] = useState();
+    const [IsShort, setIsShort] = useState(false);
+
+
+    const [movieReviewList, setReviewList] = useState([]);
+    const [pageNumber, setPageNumber] = useState(0);
+    const reviewPerPage = 5;
+    const pagesVisited = pageNumber * reviewPerPage;
+    const displayReviews = movieReviewList
+        .slice(pagesVisited, pagesVisited+reviewPerPage);
+    const pageCount = Math.ceil(movieReviewList.length / reviewPerPage);
+    const changePage =({selected}) =>{
+        setPageNumber(selected);
+    }
+
     const openCategory = () => {
         if(!categoryMenu){
             setBackground('var(--seed-yelow)');
@@ -24,11 +44,6 @@ function CategoryReviewList({history}) {
         setCategoryMenu(!categoryMenu);
     };
 
-    const [type, setType] = useState();
-    const [writeInfo, setWriteInfo] = useState();
-    const [IsShort, setIsShort] = useState(false);
-
-    const [movieReviewList, setReviewList] = useState([]);
     const shortReviewList = () =>{
         Axios.post("http://localhost:3002/reviewS/list", {
             userID: id
@@ -78,7 +93,6 @@ function CategoryReviewList({history}) {
             history.push("/write");
         }
     };
-    
 
     return (
         <div className="user_write">
@@ -99,28 +113,26 @@ function CategoryReviewList({history}) {
                 <span className="shortList" onClick={openShortList}>short</span>
                 <span className="expressList" onClick={opsnExpressList}>express</span>
             </div>
-            <div className="write_info">
-                    <div className="myseeds">
-                        <span className="Wmovie">영화</span>
-                        <span className="Wtitle">{writeInfo}</span>
-                        <span className="Wdate">작성일</span>
-                        <span className="Wnum">조회수</span>
-                    </div>
-            
-                    <form id="written">
-                        <ul>
-                        {movieReviewList.map((list) => {
-                            return (
-                            <li className={type} onClick={() => edit(list.reviewID, type)}>
-                                <span className="Wmovie">{list.title}</span>
-                                <span className={IsShort ? "Wtitle" : "Wtitle extend"}>{list.reviewTitle}
-                                    <span className={IsShort ? "Wcontent" :"Wcontent extend"}>{list.reviewContent}</span>
-                                </span>
-                                <span className="Wdate">{list.date}</span>
-                                <span className="Wnum">{list.viewCount}</span>
-                            </li>
-                        ) })}
-                    </ul>
+            <div className="write_info" style={{display: display}}>
+                <div className="myseeds">
+                    <span className="Wmovie">영화</span>
+                    <span className="Wtitle">{writeInfo}</span>
+                    <span className="Wdate">작성일</span>
+                    <span className="Wnum">조회수</span>
+                </div>
+                <form id="written">
+                    <ReviewPosts posts={displayReviews} type={type} IsShort={IsShort} edit={edit}/>
+
+                    <ReactPaginate
+                        previousLabel={"이전"}
+                        nextLabel={"다음"}
+                        pageCount={pageCount}
+                        onPageChange={changePage}
+                        containerClassName={"paginationBttns"}
+                        previousLinkClassName={"previousBttn"}
+                        nextLinkClassName={"nextBttn"}
+                        disabledClassName={"paginationDisabled"}
+                        activeClassName={"paginationActive"}/>
                 </form>
             </div>
         </div>

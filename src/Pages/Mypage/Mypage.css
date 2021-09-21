@@ -226,10 +226,10 @@
     color: var(--seed-main-color);
     font-size: 13px;
 }
-#written ul{
+#written .writtenUl{
     padding: 0;
 }
-#written li{
+#written .writtenUl li{
     padding: 4px 0 0 0;
     margin: 5px 5px;
     border-top: 1px solid var(--seed-main-color);
@@ -239,7 +239,7 @@
 #written span{
     font-weight: lighter;
 }
-#written li:hover{
+.writtenUl li:hover{
     background-color: var(--seed-backCover);
 }
 .short{
@@ -267,4 +267,28 @@
     }
 }
 
-  
+.paginationBttns{
+    width: 90%;
+    height: 40px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.paginationBttns a{
+    padding: 10px;
+    margin: 3px;
+    border-radius: 5px;
+    border: 1px solid var(--seed-main-color);
+    color: var(--seed-main-color);
+    cursor: pointer;
+}
+.paginationBttns a:hover{
+    background-color: var(--seed-yelow-hover);
+}
+
+.paginationActive a{
+    background-color: var(--seed-yelow-hover);
+}
+
