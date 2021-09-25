@@ -25,9 +25,9 @@ function Write(){
     var dateDay = dateInst.getDate();
     if(dateDay<10) dateDay = "0" + dateDay; 
     const yyyy = dateInst.getFullYear().toString();
-
     var date = yyyy + "-" + dateMonth + "-" + dateDay;
-    const submitExpressReview = () =>{
+
+    const submitExpressReview = (e) =>{
         if(isFirst){
             Axios.post('http://localhost:3002/expresssubmit',{
                 title:expressReviewTitle,
@@ -62,7 +62,7 @@ function Write(){
                 }
             })
         }
-        
+        e.preventDefault();
     };
 
     const getTitle = (e) =>{

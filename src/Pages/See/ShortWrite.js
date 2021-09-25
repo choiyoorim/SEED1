@@ -19,9 +19,9 @@ function ShortWrite(){
     var dateDay = dateInst.getDate();
     if(dateDay<10) dateDay = "0" + dateDay; 
     const yyyy = dateInst.getFullYear().toString();
-
     var date = yyyy + "-" + dateMonth + "-" + dateDay;
-    const submitShortReview = () =>{
+
+    const submitShortReview = (e) =>{
         if(isFirst){
                 Axios.post('http://localhost:3002/shortsubmit',{
                 title:shortReviewMovieTitle,
@@ -59,6 +59,7 @@ function ShortWrite(){
                 }
             });
         }
+        e.preventDefault();
     };
     
     const getMovieTitle = (e) =>{
