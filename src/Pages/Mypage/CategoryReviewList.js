@@ -11,10 +11,7 @@ import ReactPaginate from "react-paginate";
 
 function CategoryReviewList({history}) {
     const id= localStorage.getItem('userID');
-    const [categoryMenu, setCategoryMenu] = useState(false);
-    const [background, setBackground] = useState();
-    const [color, setColor] = useState();
-    const[display, setDisplay] = useState('none');
+    const[shortOrExpressDisplay, setShortOrExpressDisplay] = useState('none');
 
 
     const [type, setType] = useState();
@@ -32,17 +29,6 @@ function CategoryReviewList({history}) {
     const changePage =({selected}) =>{
         setPageNumber(selected);
     }
-
-    const openCategory = () => {
-        if(!categoryMenu){
-            setBackground('var(--seed-yelow)');
-            setColor('var(--seed-text-black)')
-        } else{
-            setBackground();
-            setColor();
-        }
-        setCategoryMenu(!categoryMenu);
-    };
 
     const shortReviewList = () =>{
         Axios.post("http://localhost:3002/reviewS/list", {
@@ -66,19 +52,39 @@ function CategoryReviewList({history}) {
         setType('short');
     }
 
-    const opsnExpressList = () =>{
+    const openExpressList = () =>{
         expressReviewList();
         setWriteInfo("Express 리뷰");
         setIsShort(false);
         setType('express');
     }
+
+    const openCardList = () =>{
+        //expressReviewList();
+        setWriteInfo("카드 리뷰");
+        setIsShort(false);
+        setType('card');
+    }
+
+    const openVedioList = () =>{
+        //expressReviewList();
+        setWriteInfo("영상 리뷰");
+        setIsShort(false);
+        setType('card');
+    }
     
     const openReviewList = (categoryType) =>{
         if(categoryType==="writing"){
-            setDisplay('block')
+            setShortOrExpressDisplay('block')
             openShortList();
-        }else{
-            setDisplay('none')
+        } else if(categoryType==="card"){
+            setShortOrExpressDisplay('none')
+            openCardList();
+        } else if(categoryType==="video"){
+            setShortOrExpressDisplay('none')
+            openVedioList();
+        } else{
+            setShortOrExpressDisplay('none')
         }
     };
 
@@ -94,12 +100,16 @@ function CategoryReviewList({history}) {
         }
     };
 
+
+    useEffect(()=>{
+        openShortList();
+    }, []);
+
     return (
         <div className="user_write">
-            <h3 onClick={openCategory} style={{background: background, color: color}}>Seeds</h3>
+            {/* <h3 onClick={openCategory} style={{background: background, color: color}}>Seeds</h3> */}
             <div className="categoryMenu">
-                <ul className={categoryMenu ? 'category active' : 'category'}>
-                    {/* <li className="category-text" onClick={()=>setDisplay('none')}>최신 글</li> */}
+                <ul className='category'>
                     {ReviewCategory.map((item, index)=>{
                         return (
                             <li className="rootCategory" onClick={()=>openReviewList(item.type)}>
@@ -109,11 +119,11 @@ function CategoryReviewList({history}) {
                     })}
                 </ul>
             </div>
-            <div className="shortOrExpress" style={{display: display}}>
+            <div className="shortOrExpress" style={{display: shortOrExpressDisplay}}>
                 <span className="shortList" onClick={openShortList}>short</span>
-                <span className="expressList" onClick={opsnExpressList}>express</span>
+                <span className="expressList" onClick={openExpressList}>express</span>
             </div>
-            <div className="write_info" style={{display: display}}>
+            <div className="write_info">
                 <div className="myseeds">
                     <span className="Wmovie">영화</span>
                     <span className="Wtitle">{writeInfo}</span>

@@ -58,6 +58,7 @@
     padding-left: 3%;
     padding-right: 10%;
     padding-bottom: 30px;
+    margin-top: 60px;
 }
 .user_write h3:hover{
     background-color: var(--seed-yelow-hover);
@@ -69,10 +70,15 @@
 .shortList{
     float: left;
     padding: 5px;
+    padding-left: 16px;
+    width: 60px;
+    text-align: center;
 }
 .expressList{
     float: left;
     padding: 5px;
+    width: 60px;
+    text-align: center;
 }
 .shortList:hover{
     color: var(--seed-yelow);
@@ -91,23 +97,17 @@
     background-color: black;
     width: auto;
     height: 20px;
-    display: none;
-    /* border: 2px solid var(--seed-backCover); */
     font-size: 14px;
 }
-.category.active{
-    display: block;
-}
-
 .rootCategory{
-    text-align: center;
     margin: 0;
     padding: 1px;
     width: 80px;
     height: 20px;
-    text-align: center;
     vertical-align: middle;
+    text-align: center;
     font-weight: lighter;
+    font-size: 16px;
     color: var(--seed-main-color);
     border-bottom: 1px solid black;
     float: left;
@@ -291,4 +291,3 @@
 .paginationActive a{
     background-color: var(--seed-yelow-hover);
 }
-
