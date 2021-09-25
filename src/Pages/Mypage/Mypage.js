@@ -23,7 +23,7 @@ function Mypage(){
                 
             </div>
 
-            <div className="popularSeeds">
+            {/* <div className="popularSeeds">
             <h3>인기 글</h3>
                 <div className="PSeedsContainer">
                     <div id="PSElement"></div>
@@ -32,7 +32,7 @@ function Mypage(){
                     <div id="PSElement"></div>
                     <div id="PSElement"></div>
                 </div>
-            </div>
+            </div> */}
             <CategoryReviewList/>
         </section>
     );
