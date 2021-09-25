@@ -19,10 +19,10 @@ function ShortWrite(){
     var dateDay = dateInst.getDate();
     if(dateDay<10) dateDay = "0" + dateDay; 
     const yyyy = dateInst.getFullYear().toString();
-
     var date = yyyy + "-" + dateMonth + "-" + dateDay;
-    const submitShortReview = () =>{
-        if(isFirst){
+
+    const submitShortReview = (e) =>{
+        if(isFirst){s
                 Axios.post('http://localhost:3002/shortsubmit',{
                 title:shortReviewMovieTitle,
                 content:shortReviewContent,
@@ -31,7 +31,7 @@ function ShortWrite(){
             }).then((res)=>{
                 if(res.data.success){
                     alert('작성 완료');
-                    //window.location.replace('/mypage');
+                    window.location.href = '/mypage';
                 }
                 else{
                     alert('제출하는 과정에서 오류가 발생했습니다.');
@@ -51,7 +51,6 @@ function ShortWrite(){
                 if(res.data.success){
                     setIsFirst(true);
                     alert('수정 완료');
-                    // window.location.replace('/mypage');
                     window.location.href = '/mypage';
                 } else{
                     alert('제출하는 과정에서 오류가 발생했습니다.');
@@ -59,6 +58,7 @@ function ShortWrite(){
                 }
             });
         }
+        e.preventDefault();
     };
     
     const getMovieTitle = (e) =>{
