@@ -22,7 +22,7 @@ function ShortWrite(){
     var date = yyyy + "-" + dateMonth + "-" + dateDay;
 
     const submitShortReview = (e) =>{
-        if(isFirst){s
+        if(isFirst){
                 Axios.post('http://localhost:3002/shortsubmit',{
                 title:shortReviewMovieTitle,
                 content:shortReviewContent,
