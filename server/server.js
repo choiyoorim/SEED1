@@ -298,6 +298,22 @@ app.post("/shortsubmit/update",(req,res)=>{
   })
 });
 
+//Write: 리뷰 Short 삭제하기
+app.post("/shortsubmit/delete",(req,res)=>{
+  const reviewID = req.body.reviewID;
+
+  db.query("DELETE FROM REVIEW_S WHERE reviewID = ?",
+   reviewID, (err,result)=>{
+    if(err){
+      console.log(err);
+      res.json({success:false, err})
+    } else{
+      res.status(200).json({success:true})
+    }
+  })
+});
+
+
 //Write: 리뷰 Express 작성하기
 app.post("/expresssubmit",(req,res)=>{
   const title = req.body.title
@@ -362,6 +378,21 @@ app.post("/expresssubmit/update",(req,res)=>{
 
   db.query("UPDATE REVIEW_E SET reviewTitle = ?, reviewContent = ?, modification = '1' WHERE reviewID = ?",
    [title, content, reviewID], (err,result)=>{
+    if(!err){
+      res.status(200).json({success:true})
+    } else{
+      console.log(err);
+      res.json({success:false, err})
+    }
+  })
+});
+
+//Write: 리뷰 Express 삭제하기
+app.post("/expresssubmit/delete",(req,res)=>{
+  const reviewID = req.body.reviewID;
+
+  db.query("DELETE FROM REVIEW_E  WHERE reviewID = ?",
+   reviewID, (err,result)=>{
     if(!err){
       res.status(200).json({success:true})
     } else{
