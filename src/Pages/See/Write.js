@@ -136,7 +136,34 @@ function Write(){
                                     data={editdata}
                                     config={{
                                         // 여기에 config 입력
-                                        //toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList'],
+                                        // toolbar: {
+                                        //     items:
+                                        //     [
+                                        //       'heading', '|', 
+                                        //       'alignment',  
+                                        //       'bold', 'italic', 'highlight', 'link', 'bulletedList', 
+                                        //       'numberedList', 'imageUpload', 'blockQuote', 'insertTable', 
+                                        //       'mediaEmbed', 'undo', 'redo'
+                                        //     ],
+                            
+                                        //   },
+                                        //   image: {
+                                        //     toolbar: [
+                                        //         'imageStyle:full',
+                                        //         'imageStyle:side',
+                                        //         '|',
+                                        //         'imageTextAlternative'
+                                        //     ]
+                                        //   },
+                                        //   heading: {
+                                        //       options: [
+                                        //         //   { model: 'heading1', view: 'h1', title: '제목1', class: 'ck-heading_heading1' },
+                                        //           { model: 'heading2', view: 'h2', title: '제목2', class: 'ck-heading_heading2' },
+                                        //           { model: 'heading3', view: 'h3', title: '제목3', class: 'ck-heading_heading3' },
+                                        //           { model: 'paragraph', title: '본문', class: 'ck-heading_paragraph' },
+                                        //       ]
+                                        //   },
+                                        // plugins: [CKFinder],
                                         placeholder: "리뷰 작성 시 광고 및 욕설, 비속어나 타인을 비방하는 문구를 사용하시면 삭제될 수 있습니다.",
                                       }}
                                     onReady={ editor => {
