@@ -3,6 +3,7 @@ import './ReviewDetail.css';
 import axios from 'axios';
 import {Link} from "react-router-dom";
 import {FaHeart} from "react-icons/fa";
+import {FiHeart} from "react-icons/fi";
 import {FaEye} from "react-icons/fa";
 import {BsFillBackspaceReverseFill, BsFillPersonFill} from "react-icons/bs";
 
@@ -11,7 +12,8 @@ class ReviewDetail extends Component {
   state = {
     isLoading: true,
     review: [],
-    like: false
+    like: false,
+    isLike: false,
   };
 
   //reviewID로 리뷰 가져오기
@@ -30,8 +32,22 @@ class ReviewDetail extends Component {
     }
     this.getReview();
   }
+
+  toggleLike = () => {
+    this.state.isLike ?
+    this.setState({
+      isLike: false,
+    })
+    :
+    this.setState({
+      isLike: true,
+    });
+}
+
+
   render () {
     const {location} = this.props;
+    const { isLike } = this.state;
     return (
       <div className="ReviewDetail_container">
         <div className="review_content">
@@ -42,7 +58,13 @@ class ReviewDetail extends Component {
           </div>
           <div>
             <p><BsFillPersonFill/>  {location.state.writer}</p>
-            <button className="like_but"><FaHeart/>  {location.state.likeC}</button>
+            <div>
+              <button className="like_but" onClick={()=>this.toggleLike()}>
+                {isLike?<FaHeart style={{ color: '#ffbb00', fontSize: '20px'}}/>:<FiHeart style={{fontSize: '20px'}}/>}  
+              </button>
+              {location.state.likeC}
+            </div>
+            
             {/* <p><FaEye/>  {location.state.viewC}</p> */}
           </div>
         </div>
