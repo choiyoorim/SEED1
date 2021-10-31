@@ -522,6 +522,47 @@ app.post("/api/see/movie/reviewListS", (req, res) => {
   )
 })
 
+//구독 추가하기
+// app.post("/api/see/review/subcsribe/insert", (req, res)=>{
+//   const userID =  req.body.userID;
+//   const writerID = req.body.writerID;
+//   const sql = "INSERT INTO Subscribe (userID, writerID) VALUES (?,?)";
+//   db.query(sql, [userID, writerID], (err, result) => {
+//     if(err){
+//       console.log(err);
+//     }else {
+//       res.send(result);
+//     }
+//   })
+// })
+
+//구독자 수 가져오기
+// app.post("/subscribeNumber", (req, res) => {
+//   const writerID = req.body.writerID;
+//   const sql = "SELECT * FROM Subscribe WHERE writerID = (?)";
+//   db.query(sql, [writerID], (err, result) => {
+//       if (err) return res.status(400).send(err);
+//       return res
+//       .status(200)
+//       .json({ success: true, subscribeNumber: subscribe.length });
+//   });
+// });
+
+//회워 구독 여부 확인
+app.post("/subscribed", (req, res) => {
+  const userID =  req.body.userID;
+  const writerID = req.body.writerID;
+  const sql = "SELECT * FROM Subscribe WHERE userID = (?) AND writerID = (?)";
+  db.query(sql, [userID, writerID], (err, result) => {
+      if (err) res.status(400).send(err);
+      let sub = false;
+      if (result.length !== 0) {
+          sub = true;
+      }
+      res.status(200).json({ success: true, subscribed: sub });
+  });
+});
+
 
 app.listen(3002, ()=>{
   console.log('running on port 3002');
