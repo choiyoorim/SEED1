@@ -3,15 +3,20 @@ import './ReviewDetail.css';
 import axios from 'axios';
 import {Link} from "react-router-dom";
 import {FaHeart} from "react-icons/fa";
+import {FiHeart} from "react-icons/fi";
 import {FaEye} from "react-icons/fa";
+import {FiCheckSquare} from "react-icons/fi";
 import {BsFillBackspaceReverseFill, BsFillPersonFill} from "react-icons/bs";
+import Subscribe from '../../Components/views/Sections/Subscribe';
 
 
 class ReviewDetail extends Component {
   state = {
     isLoading: true,
     review: [],
-    like: false
+    like: false,
+    isLike: false,
+    writer: ""
   };
 
   //reviewID로 리뷰 가져오기
@@ -21,7 +26,9 @@ class ReviewDetail extends Component {
     .then((res)=>{
         this.setState({ review : res.data, isLoading: false });
     });
+    
   };
+
   
   componentDidMount(){
     const { location, history } = this.props;
@@ -30,21 +37,45 @@ class ReviewDetail extends Component {
     }
     this.getReview();
   }
+
+  toggleLike = () => {
+    this.state.isLike ?
+    this.setState({
+      isLike: false,
+    })
+    :
+    this.setState({
+      isLike: true,
+    });
+  }
+  
+
   render () {
     const {location} = this.props;
+    const { isLike, isSubscribe } = this.state;
+    //writerID 로컬 저장소에 저장
+    localStorage.setItem('writerID', location.state.writer);
     return (
       <div className="ReviewDetail_container">
         <div className="review_content">
           <h3 className="review_title">{location.state.title}</h3>
           <hr className="line"></hr>
+          <div className="subLikeBut_container">
+            <span className="userSub_box">
+              <p><BsFillPersonFill/>  {this.state.writer = location.state.writer}</p>
+            </span>
+            
+            <Subscribe/>
+
+            {/* 좋아요버튼 */}
+
+            {/* 조회수 */}
+            {/* <p><FaEye/>  {location.state.viewC}</p> */}
+          </div>
           <div className="review_text_box">
             <p className="review_text">{location.state.content}</p>
           </div>
-          <div>
-            <p><BsFillPersonFill/>  {location.state.writer}</p>
-            <button className="like_but"><FaHeart/>  {location.state.likeC}</button>
-            {/* <p><FaEye/>  {location.state.viewC}</p> */}
-          </div>
+          
         </div>
       </div>
     );

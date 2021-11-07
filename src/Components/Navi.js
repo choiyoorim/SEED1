@@ -26,8 +26,10 @@ function Navi({history}) {
     localStorage.removeItem('userID')
     localStorage.removeItem('userEmail')
     localStorage.removeItem('userNickname')
+    localStorage.removeItem('userName')
     localStorage.removeItem('reviewID')
     localStorage.removeItem('edit')
+    localStorage.removeItem('writerID')
 
 
     Axios.get('http://localhost:3002/user/logout')

@@ -14,6 +14,7 @@ function Write(){
     const [expressReviewContent,setExpressReviewContent] = useState('');
     const [isFirst, setIsFirst] = useState(true);   //처음 작성 여부(처음이면 insert, 아니면 update)
     const [visibilityButton, setVisibilityButton] = useState('visible');
+    const [displayDeleteButton, setDisplayDeleteButton] = useState('none');
     const userID = localStorage.getItem('userID');
     const reviewID = localStorage.getItem('reviewID');
     const [editdata, setEditdate] = useState();
@@ -67,6 +68,27 @@ function Write(){
         e.preventDefault();
     };
 
+    const deleteExpressReview = () =>{
+        if(isFirst){
+            setDisplayDeleteButton('none');
+        }
+        else{
+            Axios.post('http://localhost:3002/expresssubmit/delete',{
+                reviewID:reviewID
+            }).then((res)=>{
+                // console.log(res);
+                if(res.data.success){
+                    setIsFirst(true);
+                    alert("삭제되었습니다.")
+                    window.location.href = '/mypage';
+                } else{
+                    alert('제출하는 과정에서 오류가 발생했습니다.');
+                    console.log('오류');
+                }
+            })
+        }
+    };
+
     const getTitle = (e) =>{
         const title = e.target.value;
         setExpressReviewTitle(title);
@@ -82,6 +104,8 @@ function Write(){
 
     useEffect(()=>{
         if(edit==='true'){
+            setDisplayDeleteButton('block');
+
             Axios.post("http://localhost:3002/reviewE/edit", {
                 reviewID: reviewID
             }).then((response)=>{
@@ -145,6 +169,9 @@ function Write(){
                                 <Button id="wrtieBtn" className="submit-button" size="sm" type="submit">발행</Button>
                             </div>
                         </form>
+                        <div className="delete-button" onClick={deleteExpressReview} style={{display: displayDeleteButton}}>
+                            <Button size="sm" type="delete">삭제</Button>
+                        </div>
                     </div>
             </section>
         </>

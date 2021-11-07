@@ -55,6 +55,7 @@
     
 }
 
+
 #shortTextArea{
     background-color: #f8f8f8;
     border: 2px solid #d3d3d3;
@@ -64,7 +65,7 @@
 
 .button-wrap{
     float:right;
-    margin-top:20px;
+    margin-top:30px;
     position: relative;
     right:30px;
 }
