@@ -27,8 +27,6 @@ import Moviegram from './Pages/Moviegram/Moviegram';
 //import ExpressReviewContent from './Pages/See/ExpressReviewContent';
 
 const App = () =>{
-  const [userName,setUserName] = useState();
-  const [roomName,setRoomName] = useState();
   return(
     <>
     <BrowserRouter>
@@ -41,8 +39,8 @@ const App = () =>{
         <Route path="/write" component={Write}/>
         <Route path="/find" component={Find} />
         <Route path="/shortreview" component={ShortReview}/>
-        {/* <Route path="/expressreview" component={ExpressReview}/> */}
-        {/* <Route path="/expressreviewcontent/:id" component={ExpressReviewContent}/> */}
+        <Route path="/expressreview" component={ExpressReview}/>
+        <Route path="/expressreviewcontent/:id" component={ExpressReviewContent}/>
         <Route path="/signup" component={SignUp}/>
         <Route path="/memberinfo" component={MemberInfo} />
         <Route path="/contactUs" component={ContactUs} />

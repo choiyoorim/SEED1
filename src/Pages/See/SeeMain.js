@@ -8,6 +8,8 @@ import {FaHeart} from "react-icons/fa";
 import {FaEye} from "react-icons/fa";
 import Search from './SearchForm';
 import queryString from 'query-string';
+import { Link } from 'react-router-dom';
+import Button from '../../Components/Button';
 
 class SeeMain extends Component  {
   state = {
@@ -117,6 +119,7 @@ class SeeMain extends Component  {
                 />
               ))}
             </div>
+            <Link to="/shortreview"><Button className="details_movie">더보기</Button></Link>
           </div>
         )}
       </section>
