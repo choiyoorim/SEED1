@@ -366,7 +366,7 @@ app.post("/expresssubmit",(req,res)=>{
         }
       );
     }
-  })
+  });
 
 });
 
@@ -493,7 +493,7 @@ app.get("/api/see/movie", (req, res) => {
       }
     }
   )
-})
+});
 
 //MovieDetail : movieCODE로 리뷰E 목록 가져오기
 app.post("/api/see/movie/reviewListE", (req, res) => {
@@ -507,7 +507,8 @@ app.post("/api/see/movie/reviewListE", (req, res) => {
       }
     }
   )
-})
+});
+
 //MovieDetail : movieCODE로 리뷰S 목록 가져오기
 app.post("/api/see/movie/reviewListS", (req, res) => {
   const movieCODE = req.body.movieCODE;
@@ -520,36 +521,23 @@ app.post("/api/see/movie/reviewListS", (req, res) => {
       }
     }
   )
-})
+});
 
-//구독 추가하기
-// app.post("/api/see/review/subcsribe/insert", (req, res)=>{
-//   const userID =  req.body.userID;
-//   const writerID = req.body.writerID;
-//   const sql = "INSERT INTO Subscribe (userID, writerID) VALUES (?,?)";
-//   db.query(sql, [userID, writerID], (err, result) => {
-//     if(err){
-//       console.log(err);
-//     }else {
-//       res.send(result);
-//     }
-//   })
-// })
 
 //구독자 수 가져오기
-// app.post("/subscribeNumber", (req, res) => {
-//   const writerID = req.body.writerID;
-//   const sql = "SELECT * FROM Subscribe WHERE writerID = (?)";
-//   db.query(sql, [writerID], (err, result) => {
-//       if (err) return res.status(400).send(err);
-//       return res
-//       .status(200)
-//       .json({ success: true, subscribeNumber: subscribe.length });
-//   });
-// });
+app.post("/subscribe/subscribeNumber", (req, res) => {
+  const writerID = req.body.writerID;
+  const sql = "SELECT * FROM Subscribe WHERE writerID = (?)";
+  db.query(sql, [writerID], (err, result) => {
+      if (err) return res.status(400).send(err);
+      return res
+      .status(200)
+      .json({ success: true, subscribeNumber: result.length });
+  });
+});
 
-//회워 구독 여부 확인
-app.post("/subscribed", (req, res) => {
+//회원구독 여부 확인
+app.post("/subscribe/subscribed", (req, res) => {
   const userID =  req.body.userID;
   const writerID = req.body.writerID;
   const sql = "SELECT * FROM Subscribe WHERE userID = (?) AND writerID = (?)";
@@ -562,6 +550,31 @@ app.post("/subscribed", (req, res) => {
       res.status(200).json({ success: true, subscribed: sub });
   });
 });
+
+
+//구독 취소 하기
+app.post("/subscribe/unSubscribe", (req, res)=>{
+  const userID =  req.body.userID;
+  const writerID = req.body.writerID;
+  const sql = "DELETE FROM Subscribe WHERE userID = ? AND writerID = ?";
+  db.query(sql, [userID, writerID], (err, result) => {
+    if (err) return res.status(400).json({ success: false, err });
+    res.status(200).json({ success: true, result});
+  })
+});
+
+
+//구독 하기
+app.post("/subscribe/Subscribe", (req, res)=>{
+  const userID =  req.body.userID;
+  const writerID = req.body.writerID;
+  const sql = "INSERT INTO Subscribe (userID, writerID) VALUES (?,?)";
+  db.query(sql, [userID, writerID], (err, result) => {
+    if (err) return res.json({ success: false, err });
+    res.status(200).json({ success: true});
+  })
+});
+
 
 
 app.listen(3002, ()=>{
