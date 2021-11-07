@@ -1,0 +1,15 @@
+.subscribe_container{
+    float: right;
+    display: inline;
+}
+.subscribeNumber{
+    font-size: 13px;    
+}
+.subscribe_button{
+    border-radius: 5px;
+    color: black;
+    padding: 6px 16px;
+    margin: 0 10px;
+    font-weight: 500;
+    font-size: 14px;
+} 

@@ -61,20 +61,11 @@ function Subscribe(props) {
 
   return (
     <div className="subscribe_container" style={{display: (userID === writerID) ? 'none' : 'block' }} >
-      구독자수. {subscribeNumber}
-      <button
-        style={{
-          backgroundColor: `${Subscribed ? '#AAAAAA' : '#ffbb00'}`,
-          borderRadius: '5px',
-          color: 'white',
-          padding: '10px 16px',
-          fontWeight: '500',
-          fontSize: '1rem',
-          textTransform: 'uppercase',
-        }}
-        onClick={onSubscribe}
-      >
-         {Subscribed ? 'Subscribed' : 'Subscribe'} 
+      <span className="subscribeNumber">구독자  {subscribeNumber}명</span>
+      <button className="subscribe_button"
+        style={{backgroundColor: `${Subscribed ? '#AAAAAA' : '#ffbb00'}`}} 
+        onClick={onSubscribe}>
+         {Subscribed ? '구독중' : '구독'} 
       </button>
     </div>
   );

@@ -60,24 +60,22 @@ class ReviewDetail extends Component {
         <div className="review_content">
           <h3 className="review_title">{location.state.title}</h3>
           <hr className="line"></hr>
+          <div className="subLikeBut_container">
+            <span className="userSub_box">
+              <p><BsFillPersonFill/>  {this.state.writer = location.state.writer}</p>
+            </span>
+            
+            <Subscribe/>
+
+            {/* 좋아요버튼 */}
+
+            {/* 조회수 */}
+            {/* <p><FaEye/>  {location.state.viewC}</p> */}
+          </div>
           <div className="review_text_box">
             <p className="review_text">{location.state.content}</p>
           </div>
-          <div className="subLikeBut_container">
-            <div className="userSub_box">
-              <p><BsFillPersonFill/>  {this.state.writer = location.state.writer}</p>
-              <Subscribe/>
-            </div>
-              
-            <div className="Like_box">
-              <button className="like_but" onClick={()=>this.toggleLike()}>
-                {isLike?<FaHeart style={{ color: '#ffbb00', fontSize: '20px'}}/>:<FiHeart style={{fontSize: '20px'}}/>}  
-              </button>
-              <p>{location.state.likeC}</p>
-            </div>
-            
-            {/* <p><FaEye/>  {location.state.viewC}</p> */}
-          </div>
+          
         </div>
       </div>
     );
