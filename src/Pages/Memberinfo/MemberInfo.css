@@ -3,19 +3,64 @@
 @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
 
+#myInfoLogo{
+    display: block;
+    width: 150px;
+    margin-left: 370px;
+    font-size: 1.8rem;
+    font-family: 'Rock Salt', Courier, monospace;
+    color: #ffbb00;
+    font-weight: 700;
+    margin-top: 180px;
+    margin-bottom: 0px;
+    text-align: left;
+}
 
 .infoBox{
     background-color: white;
-    width: 630px;
-    height:50%;
+    width: 1200px;
+    height:30%;
     text-align: center;
     border: 1px solid black;
     margin: 0px auto;
+    margin-bottom: 50px;
     border-radius: 30px;
     padding-bottom: 30px;
 }
 
-.infodiv input{
+#firstDiv, #secondDiv, #firstTitle, #secondTitle{
+    display: inline-block;
+    width: 300px;
+    height: 550px;
+    margin-top: 60px;
+}
+
+#firstTitle, #secondTitle{
+    width: 150px;
+}
+
+#firstTitle, #secondTitle, #secondDiv{
+    vertical-align: top;
+}
+
+#firstTitle, #secondTitle{
+    margin-right: 30px;
+}
+
+#firstDiv{
+    margin-right: 70px;
+    
+}
+
+#firstTitle, #secondTitle{
+    border-right: 1px solid lightgray;
+}
+
+#firstDiv, #secondDiv{
+    /* background-color: lightgray; */
+}
+
+#firstDiv input, #secondDiv input{
     color: black;
     font-size: 1.0rem;
     font-weight: 700;
@@ -30,11 +75,6 @@
     padding:3px 5px 3px 15px;
 }
 
-.infodiv{
-    /* padding-left: 37%; */
-    text-align: center;
-    color: rgb(63, 63, 63);
-}
 
 .infopara{
     /* text-align: left; */
@@ -43,6 +83,16 @@
     margin-top: 0;
     margin-bottom: 20px;
     margin-right: 240px;
+}
+
+#nicknameModify, #pwinfo, #pwcheckinfo, #homepageInput{
+    font-family: 'Noto Sans KR', Courier, monospace;
+    font-weight: 700;
+}
+
+#IDpara, #emailtitle{
+    font-family: 'Noto Sans KR', Courier, monospace;
+    font-weight: 700;
 }
 
 #IDpara{
@@ -60,8 +110,24 @@
     margin-right: 170px;
 }
 
+#firstTitle p, #secondTitle p{
+    color: black;
+    font-family: 'Noto Sans KR', Courier, monospace;
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin-top: 9px;
+}
+
+#idinfo, #passwordinfo, #emailinfo, #nickinfo, #homepageinfo, #additionalTitle{
+    color: rgb(49, 49, 49);
+    font-family: 'Montserrat', Courier, monospace;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
 #idinfo{
-    margin-right: 270px;
+    margin-right: 250px;
 }
 
 #passwordinfo{
@@ -79,10 +145,11 @@
 }
 
 #pwinfo{
-    margin-bottom: 5px;
+    margin-bottom: 0px;
 }
 
 #pwcheckinfo{
+    margin-top: 0px;
     margin-bottom: 5px;
 }
 
@@ -97,10 +164,12 @@
 }
 
 .savebtns{
+    display: block;
+    text-align: center;
     background-color: white;
-    width: 230px;
+    width: 100px;
     color: black;
-    font-family: 'Montserrat', Times, serif;
+    font-family: 'Noto Sans KR', Times, serif;
     font-weight: 700;
     font-size: 1.0rem;
     padding-top: 10px;
@@ -109,7 +178,8 @@
     border-radius: 30px;
     box-shadow: 1px 1px 4px rgb(165, 165, 165);
     cursor: pointer;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
+    margin-left: 45%;
     text-align: center;
     /* margin-left: 20px; */
 }
@@ -124,7 +194,23 @@
     background-color: #ffbb00;
 }
 
+#requireTitle, #additionalTitle{
+    font-family: 'Noto Sans KR', Courier, monospace;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
 #nickmodifyinput{
     font-weight: 700;
     font-family: 'Noto Sans KR', Courier, monospace;
+}
+
+#homepageinfo{
+    margin-left: 10px;
+    text-align: left;
+}
+
+#homepageInput{
+    margin-right: 10px;
 }

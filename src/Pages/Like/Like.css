@@ -98,10 +98,10 @@ body{
 }
 #like li {
     height: 50px;
-    margin: 5px 5px;
     border-bottom: 1px solid var(--seed-main-color);
     list-style: none;
     font-size: 14px;
+    margin-right: 10px;
 }
 #like2 li {
     height: 80px;
@@ -120,4 +120,16 @@ body{
     margin: 5px 5px;
     border-bottom: 1px solid var(--seed-main-color);
     list-style: none;
+}
+
+#like li:hover, #like2 li:hover, #subs li:hover, #subs2 li:hover{
+    background-color: #4e4e4e;
+    cursor: pointer;
+}
+
+.likeform{
+    font-size: 1.1rem;
+    font-family: 'Noto Sans KR', Courier, monospace;
+    font-weight: 700;
+    border-radius: 10px;
 }

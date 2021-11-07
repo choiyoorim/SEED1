@@ -3,12 +3,12 @@ import React from 'react';
 export const ReviewCategory = [
   {
     title: '줄글',
-    path: '/',
+    path: '/write',
     cName: 'category-text',
     type: 'writing'
   },
   {
-    title: '카드',
+    title: '카드뉴스',
     path: '/',
     cName: 'category-text',
     type: 'card'

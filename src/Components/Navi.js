@@ -32,6 +32,7 @@ function Navi({history}) {
 
     Axios.get('http://localhost:3002/user/logout')
     window.location.replace("/")
+    alert('로그아웃되었습니다.');
     //history.push('/login');
   };
 
@@ -78,13 +79,14 @@ function Navi({history}) {
           <div onClick={closeSidebar}>
             <h1 class="logo" onClick={moveHome}>Seed.</h1>
             <ul class="menu">
-              <li><Link to="/see" className="menus">See</Link></li>
-              <li onClick={isAuth}><Link to="/like" className="menus">Like</Link></li>
-              <li onClick={isAuth}><Link to="/mypage"  className="menus">MyPage</Link></li>
+              <li><Link to="/see" className="menus"> SEE </Link></li>
+              <li onClick={isAuth}><Link to="/like" className="menus"> LIKE </Link></li>
+              <li onClick={isAuth}><Link to="/mypage"  className="menus"> MY PAGE </Link></li>
+              <li onClick={isAuth}><Link to="/moviegram"  className="menus"> MOVIEGRAM </Link></li>
             </ul>
             <div class = "user">
               <p id = "user_name" onClick={moveInfo}>{nickname}</p>
-              <button id = "user_login" style={{visibility: visibility}} onClick={moveLogin}>로그인</button>
+              <button id="user_login" style={{visibility: visibility}} onClick={moveLogin}>Login</button>
               <img id = "user_img" src={user} width="40" height="40"/>
             </div>
           </div>
@@ -100,8 +102,8 @@ function Navi({history}) {
             <div class="nav_user_info">
               <img id = "sideBar_user_img" src={user} width="50" height="50"/>
               <div className="sideBar_user_name"><p>{nickname}</p></div>
-              <span className ="sideBar_sub user-info"><p>구독자 23</p></span>
-              <span className="sideBar_like user-info"><p>좋아요 103</p></span>
+              <span className ="sideBar_sub user-info"><p>구독자 <b>23</b></p></span>
+              <span className="sideBar_like user-info"><p>좋아요 <b>103</b></p></span>
             </div>
             <div class="nav_sidebar_menu">
               <ul className="nav-menu-items">
@@ -111,7 +113,7 @@ function Navi({history}) {
                     <li onClick={isAuth} key={index} className={item.cName}>
                       <Link to={item.path}>
                         {item.icon}
-                        <span><p class="itemtitle">{item.title}</p></span>
+                        <span><p class="itemtitle" id="sideitemtitle">{item.title}</p></span>
                       </Link>
                     </li>
                     );

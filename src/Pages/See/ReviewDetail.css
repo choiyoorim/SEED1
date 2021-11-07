@@ -12,12 +12,13 @@
     color:#e5e5e5;
     font-family: 'Noto Sans KR', Courier, monospace;
     font-weight: 700;
+    margin-top: 100px;
 }
 
 hr{
     background-color:#ffbb00;
     border-color: #ffbb00;
-    width:100%; height:1px;
+    width:70%; height:1px;
 }
 
 .like_but{
@@ -27,9 +28,10 @@ hr{
 }
 
 .review_text_box{
+    margin-left: 15%;
     color:#262626;
     background-color: #e5e5e5;
-    width:100%; 
+    width:70%; 
     height: 100%;
     min-height: 400px;
     font-family: 'Noto Sans KR', Courier, monospace;

@@ -92,7 +92,7 @@ class SeeMain extends Component  {
               ))}
             </div>
             </div>
-            <h3 className="review_text_like"><FaHeart/> 가 많은 리뷰_E TOP 2</h3>
+            <h3 className="review_text_like"><FaHeart/> 가 많은 Express 리뷰 TOP 2</h3>
             <div className="topReviews" id="map">
               {topLikeReviewsE.map(review => (
                 <Review
@@ -106,7 +106,7 @@ class SeeMain extends Component  {
                 />
               ))}
             </div>
-            <h3 className="review_text_like"><FaHeart/>가 많은 리뷰_S TOP 2</h3>
+            <h3 className="review_text_like"><FaHeart/>가 많은 Short 리뷰 TOP 2</h3>
             <div className="topReviews" id="map">
               {topLikeReviewsS.map(review => (
                 <ReviewS

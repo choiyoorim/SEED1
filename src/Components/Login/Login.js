@@ -15,7 +15,6 @@ function Login() {
     Axios.defaults.withCredentials = true;
 
     const login = () => {
-        //e.preventDefault();
         Axios.post('http://localhost:3002/user/login', {
           userID: id, 
           userPW: password,
@@ -30,8 +29,11 @@ function Login() {
                 localStorage.setItem('userID', response.data.result[0].userID)
                 localStorage.setItem('userNickname', response.data.result[0].userNickname)
                 localStorage.setItem('userEmail', response.data.result[0].userEmail)
+
                 setLoginStatus(response.data.message);
-                window.location.replace("/see")
+                let nowUserID = localStorage.getItem('userID');
+                window.location.replace("/see");
+                alert(nowUserID+'님, 환영합니다!');
                 //history.push('/see');
             }
         });
@@ -87,7 +89,6 @@ function Login() {
                 {/* {loginStatus && (<button onClick={userAuthenticated}>인증하세요</button>)} */}
                 <p id="divPara">─────────────　OR　─────────────</p>
                 <button id="googleLogin"><img id="googleIcon" src={googleLogin}></img>Google로 로그인하기</button>
-                {/* <p id="joinMsg">Not Member yet? <Link to="/signup"><p id="joinPara"> JOIN</p></Link></p> */}
             </form>
         </div>
         </>

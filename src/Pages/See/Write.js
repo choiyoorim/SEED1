@@ -37,6 +37,7 @@ function Write(){
                 date:date
             }).then((res)=>{
                 if(res.data.success){
+                    console.log('write success')
                     alert('작성 완료')
                     window.location.href = '/mypage';
                 }
@@ -102,6 +103,10 @@ function Write(){
                     <div className="select-button-wrap" style={{visibility: visibilityButton}}>
                         <BasicButtonGroup num={1}></BasicButtonGroup>
                     </div>
+                        <p id="writeLogo">Seed.</p>
+                </div>
+
+
                     <div className="form-wrap">
                         <form onSubmit={submitExpressReview}>
                             {isFirst? <input className="movietitle-input" type='text' placeholder='영화 제목' value={expressReviewMovieTitle} onChange={getMovieTitle}/>
@@ -135,13 +140,12 @@ function Write(){
                                 <input className="keyword-input" type='text' placeholder='#'/>
                                 <div className="check">
                                     <input className="check-box" type="checkbox" value="spoiler"></input>
-                                    <a className="check-inst">스포일러</a>
+                                    <a className="check-inst">스포일러 포함</a>
                                 </div>
-                                <Button className="submit-button" size="sm" type="submit">저장</Button>
+                                <Button id="wrtieBtn" className="submit-button" size="sm" type="submit">발행</Button>
                             </div>
                         </form>
                     </div>
-                </div>
             </section>
         </>
     );
