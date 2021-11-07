@@ -45,8 +45,8 @@ const ExpressReview = () => {
               : null}
           </div>
           */}
-
-          <table className="reviewInfo">
+          <h1 className="titleofreview">Express Review List</h1>
+          <table className="reviewInfoTable">
             <tbody>
               <tr>
                 <td id="no">No.</td>

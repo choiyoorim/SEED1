@@ -62,6 +62,7 @@
     padding-left: 7%;
     padding-right: 10%;
     padding-bottom: 30px;
+    margin-top: 60px;
 }
 .user_write h3:hover{
     cursor: hover;
@@ -74,10 +75,15 @@
 .shortList{
     float: left;
     padding: 5px;
+    padding-left: 16px;
+    width: 60px;
+    text-align: center;
 }
 .expressList{
     float: left;
     padding: 5px;
+    width: 60px;
+    text-align: center;
 }
 .shortList:hover, .expressList:hover{
     cursor: pointer;
@@ -107,14 +113,8 @@ li.express:hover{
     background-color: black;
     width: auto;
     height: 20px;
-    display: none;
-    /* border: 2px solid var(--seed-backCover); */
     font-size: 14px;
 }
-.category.active{
-    display: block;
-}
-
 .rootCategory{
     font-family: 'Noto Sans KR', Courier, monospace;
     font-weight: 700;
@@ -123,9 +123,10 @@ li.express:hover{
     padding: 1px;
     width: 80px;
     height: 20px;
-    text-align: center;
     vertical-align: middle;
+    text-align: center;
     font-weight: lighter;
+    font-size: 16px;
     color: var(--seed-main-color);
     border-bottom: 1px solid black;
     float: left;
@@ -259,10 +260,10 @@ li.express:hover{
     color: var(--seed-main-color);
     font-size: 13px;
 }
-#written ul{
+#written .writtenUl{
     padding: 0;
 }
-#written li{
+#written .writtenUl li{
     padding: 4px 0 0 0;
     margin: 5px 5px;
     border-top: 1px solid var(--seed-main-color);
@@ -275,7 +276,7 @@ li.express:hover{
     font-weight: 700;
     font-size: 0.8rem;
 }
-#written li:hover{
+.writtenUl li:hover{
     background-color: var(--seed-backCover);
     cursor: pointer;
 }
@@ -308,7 +309,32 @@ li.express:hover{
     }
 }
 
-  
+
 #myReviewContent:hover{
     cursor: pointer;
+}
+
+.paginationBttns{
+    width: 90%;
+    height: 40px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.paginationBttns a{
+    padding: 10px;
+    margin: 3px;
+    border-radius: 5px;
+    border: 1px solid var(--seed-main-color);
+    color: var(--seed-main-color);
+    cursor: pointer;
+}
+.paginationBttns a:hover{
+    background-color: var(--seed-yelow-hover);
+}
+
+.paginationActive a{
+    background-color: var(--seed-yelow-hover);
 }

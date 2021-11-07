@@ -3,6 +3,8 @@ import './RList.css';
 import Navi from '../../Components/Navi';
 import ShortReviewList from './ShortReviewList';
 import Axios from 'axios';
+import { Link } from 'react-router-dom';
+import Button from '../../Components/Button';
 //import { Link } from 'react-router-dom';
 
 const ShortReview = () => {
@@ -46,8 +48,8 @@ const ShortReview = () => {
               : null}
           </div>
           */}
-
-          <table className="reviewInfo">
+          <h1 className="titleofreview">Short Review List</h1>
+          <table className="reviewInfoTable">
             <tbody>
               <tr>
                 <td id="no">No.</td>
@@ -63,6 +65,9 @@ const ShortReview = () => {
               })}
             </tbody>
           </table>
+          <div className="button-wrap">
+            <Link to="/expressreview"><Button>Express Review 더보기</Button></Link>
+          </div>
         </div>
       );
     }

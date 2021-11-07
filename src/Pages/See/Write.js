@@ -25,10 +25,9 @@ function Write(){
     var dateDay = dateInst.getDate();
     if(dateDay<10) dateDay = "0" + dateDay; 
     const yyyy = dateInst.getFullYear().toString();
-
     var date = yyyy + "-" + dateMonth + "-" + dateDay;
 
-    const submitExpressReview = () =>{
+    const submitExpressReview = (e) =>{
         if(isFirst){
             Axios.post('http://localhost:3002/expresssubmit',{
                 title:expressReviewTitle,
@@ -40,6 +39,7 @@ function Write(){
                 if(res.data.success){
                     console.log('write success')
                     alert('작성 완료')
+                    window.location.href = '/mypage';
                 }
                 else{
                     alert('제출하는 과정에서 오류가 발생했습니다.');
@@ -64,7 +64,7 @@ function Write(){
                 }
             })
         }
-        
+        e.preventDefault();
     };
 
     const getTitle = (e) =>{
