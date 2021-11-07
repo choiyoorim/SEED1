@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 @import url('../Components/color.css');
+
 body{
   overflow-y: scroll;
   overflow-x: hidden;
 }
+
 .navi_wrapper{
   position: fixed;
-  font-family: 'Anton', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 700;
   height: 75px;
   border: 1px solid var(--seed-main-color);
   color: var(--seed-main-color);
@@ -73,7 +76,7 @@ h1{
 position:absolute;
 left: 250px;
 margin-right: 10px;
-width: 500px;
+width: 1000px;
 padding-top: 10px;
 font-family: 'Montserrat', Courier, monospace;
 font-size: 0.7rem;
@@ -81,19 +84,20 @@ font-weight: 700;
 }
 
 .menu li{
-  padding: 0 50px;
+  padding: 0 70px;
   margin-top:5px;
   display: block;
   float: left;
   padding-left: 50px;
 }
+
 .menu a{
   color: var(--seed-main-color);
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   font-weight:700;
   text-decoration: none;
-  margin-top: 10px;
-  padding-top: 100px;
+  margin-top: 25px;
+  padding-top: 110px;
 }
 
 .menus{
@@ -114,10 +118,16 @@ font-weight: 700;
 }
 
 #user_login{
+  position: relative;
+  left: 840px;
+  bottom: 5px;
+  font-family: 'Montserrat', Courier, monospace;
+  font-weight: 700;
+  font-size: 0.9rem;
   border-radius: 30px;
-  padding: 5px 20px 5px 20px;
+  padding: 8px 20px 8px 20px;
+  border: 1px solid #ababab;
 }
-
 
 
 #user_name:hover{
@@ -126,9 +136,8 @@ font-weight: 700;
 }
 
 #user_login:hover{
-  background-color: #ffbb00;
+  background-color: #ffd86e;
   cursor: pointer;
-  color: white;
 }
 
 
@@ -147,20 +156,19 @@ font-weight: 700;
 }
 
 #logoutBtn{
-  padding: 5px 20px 5px 20px;
+  padding: 6px 25px 6px 25px;
   font-family: 'Noto Sans KR', Courier, monospace;
   font-weight: 700;
-  font-size: 1rem;
-  color: black;
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 50px;
+  font-size: 0.9rem;
+  color: white;
+  background-color: rgb(44, 44, 44);
+  border: 1px solid white;
+  border-radius: 100px;
 }
 
 #logoutBtn:hover{
   cursor: pointer;
-  color:white;
-  background-color: #ffbb00;
+  background-color: black;
 }
 
 /* 사이드바 */
@@ -258,8 +266,9 @@ font-weight: 700;
   border-radius: 4px;
 }
 .nav-text a:hover{
-background-color: var(--seed-backCover);
+  color: #ffbb00;
 }
+
 .nav-menu-items {
   width:100%;
   padding-left: 5px;
@@ -276,6 +285,7 @@ background-color: var(--seed-backCover);
 .nav_bottom {
   text-decoration: none;
   font-family: 'Noto Sans KR', Courier, monospace;
+  margin-top: -20px;
 }
 
 .nav_bottom > button{
@@ -291,3 +301,9 @@ background-color: var(--seed-backCover);
 /* .itemtitle:hover{
   color: grey;
 } */
+
+#sideitemtitle{
+  margin-left: 10px;
+  font-family: 'Noto Sans KR', Courier, monospace;
+  font-weight: 700;
+}

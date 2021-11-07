@@ -13,13 +13,12 @@ function ReviewSelect(){
         <div id="ReviewSelectBox">
             <h2 id="rsTitle">어떤 리뷰를 쓰고 싶으세요?</h2>
             <div class="nav_sidebar_menu">
-              <ul className="nav-menu-items">
+              <ul className="nav-menu-items" id="navul">
                 {ReviewCategory.map((item, index) => {
                   return (
                     <li key={index} className={item.cName}>
                       <Link to={item.path}>
-                        {item.icon}
-                        <span><p class="itemtitle">{item.title}</p></span>
+                        <span><p class="itemtitle" id="itemtitlep">{item.title}</p></span>
                       </Link>
                     </li>
                     );
