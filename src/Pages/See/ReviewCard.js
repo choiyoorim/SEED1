@@ -35,6 +35,7 @@ function ReviewCard({ history, id, writer, title, likeC, viewC, content }) {
           }}
         >
           <div className="review__data">
+            <div id="reviewImage"></div>
             <h3 className="review__title">{title}</h3>
             <p className="review__writer"><BsFillPersonFill/>  {writer}</p>
             <p className="review_likeC"><FaHeart/>  {likeC}</p>

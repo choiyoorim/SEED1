@@ -99,12 +99,12 @@ function ShortWrite(){
                 <div className="form-wrap">
                     <form onSubmit={submitShortReview}>
                         <p className="inst"> <input id="shortMovieNameInput" placeholder="영화 제목" onChange={getMovieTitle}></input>에 대한 한 줄 리뷰를 작성하세요.</p>
-                        <div classname="text-wrap">
+                        <span classname="text-wrap">
                             <textarea id="shortTextArea" className="text-input" placeholder="리뷰 작성 시 광고 및 욕설, 비속어나 타인을 비방하는 문구를 사용하시면 삭제될 수 있습니다." onChange={getContent}></textarea>
-                            <div className="button-wrap">
+                            <span className="button-wrap">
                                 <Button id="shortWriteBtn" className="submit-button" size ="lg" type="submit">저장</Button>
-                            </div>
-                        </div>
+                            </span>
+                        </span>
                     </form>
                     <input className="keyword-input" type='text' placeholder='#'/>
                     <span id="shortReviewBottomDiv">
