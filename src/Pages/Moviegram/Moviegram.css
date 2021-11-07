@@ -1,0 +1,43 @@
+#moviegramBack{
+    text-align: center;
+    align-items: center;
+    padding-top: 120px;
+}
+
+#MoviegramContainer{
+    width: 60%;
+    height: 500px;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    background-color: white;
+    text-align: center;
+    border: 1px soild white;
+    border-radius: 30px;
+}
+
+#profileImage{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 250px;
+    height: 250px;
+    background-color:white;
+    border: 1px solid white;
+    border-radius: 100%;
+    margin-top: 150px;
+    margin-bottom: 30px;
+}
+
+#profileNickname{
+    color: white;
+    font-family: 'Noto Sans KR', Courier, monospace;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+#profileInfor{
+    margin-top: 20px;
+    font-weight: 700;
+}

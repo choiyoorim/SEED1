@@ -111,7 +111,7 @@ function CategoryReviewList({history}) {
                         <ul>
                         {movieReviewList.map((list) => {
                             return (
-                            <li className={type} onClick={() => edit(list.reviewID, type)}>
+                            <li id="myReviewContent" className={type} onClick={() => edit(list.reviewID, type)}>
                                 <span className="Wmovie">{list.title}</span>
                                 <span className={IsShort ? "Wtitle" : "Wtitle extend"}>{list.reviewTitle}
                                     <span className={IsShort ? "Wcontent" :"Wcontent extend"}>{list.reviewContent}</span>

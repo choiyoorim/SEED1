@@ -27,6 +27,7 @@ function Write(){
     const yyyy = dateInst.getFullYear().toString();
 
     var date = yyyy + "-" + dateMonth + "-" + dateDay;
+
     const submitExpressReview = () =>{
         if(isFirst){
             Axios.post('http://localhost:3002/expresssubmit',{
@@ -37,6 +38,7 @@ function Write(){
                 date:date
             }).then((res)=>{
                 if(res.data.success){
+                    console.log('write success')
                     alert('작성 완료')
                 }
                 else{

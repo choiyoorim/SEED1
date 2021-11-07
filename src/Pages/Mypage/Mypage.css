@@ -57,11 +57,14 @@
     margin: 60px 100px 10px 100px;
 }
 .user_write{
-    padding-left: 3%;
+    font-family: 'Noto Sans KR', Courier, monospace;
+    font-weight: 700;
+    padding-left: 7%;
     padding-right: 10%;
     padding-bottom: 30px;
 }
 .user_write h3:hover{
+    cursor: hover;
     background-color: var(--seed-yelow-hover);
 }
 .shortOrExpress{
@@ -76,16 +79,27 @@
     float: left;
     padding: 5px;
 }
-.shortList:hover{
+.shortList:hover, .expressList:hover{
+    cursor: pointer;
     color: var(--seed-yelow);
 }
-.expressList:hover{
-    color: var(--seed-yelow);
+
+li.rootCategory{
+    font-family: 'Noto Sans KR', Courier, monospace;
+    font-weight: 700;
+    padding-bottom: 4px;
+}
+
+li.express:hover{
+    cursor: pointer;
 }
 .categoryMenu{
     margin-top: 10px;
 }
+
 .category{
+    font-family: 'Noto Sans KR', Courier, monospace;
+    font-weight: 700;
     position:relative;
     list-style: none;
     margin: 3px 0 10px 50px;
@@ -102,6 +116,8 @@
 }
 
 .rootCategory{
+    font-family: 'Noto Sans KR', Courier, monospace;
+    font-weight: 700;
     text-align: center;
     margin: 0;
     padding: 1px;
@@ -115,10 +131,13 @@
     float: left;
 }
 .rootCategory:hover{
+    cursor:pointer;
     color: var(--seed-yelow);
     border-bottom: 1px solid var(--seed-yelow-hover);
 }
 .PSeedsContainer{
+    font-family: 'Noto Sans KR', Courier, monospace;
+    font-weight: 700;
     position: relative;
     margin-left: 50px;
     height: 230px;
@@ -145,12 +164,16 @@
     border-radius: 30px;
 }
 .popularSeeds h3{
+    font-family: 'Noto Sans KR', Courier, monospace;
+    font-weight: 700;
     margin-left: 40px;
     width: 100px;
     color: var(--seed-main-color);
     text-align: left;
 }
 .write_info{
+    font-family: 'Noto Sans KR', Courier, monospace;
+    font-weight: 700;
     margin: 16px 0 0 10px;
     height: 300px;
     font-size: 14px;
@@ -170,6 +193,9 @@
     width: 420px;
     text-align: center;
     overflow: hidden;
+    padding-top: 0;
+    margin-top: 0;
+    vertical-align: top;
 }
 .Wtitle.extend{
     float: left;
@@ -180,7 +206,10 @@
     text-overflow: ellipsis;
     white-space:nowrap;
 }
+
 .Wcontent{
+    font-family: 'Noto Sans KR', Courier, monospace;
+    font-weight: 700;
     float: left;
     margin: 0 16px;
     width: 390px;
@@ -188,6 +217,8 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space:nowrap;
+    padding-top: 0;
+    margin-top: 0;
 }
 .Wcontent.extend {
     float: left;
@@ -239,12 +270,20 @@
     overflow: hidden;
 }
 #written span{
-    font-weight: lighter;
+    /* padding-top: 10px; */
+    font-family: 'Noto Sans KR', Courier, monospace;
+    font-weight: 700;
+    font-size: 0.8rem;
 }
 #written li:hover{
     background-color: var(--seed-backCover);
+    cursor: pointer;
 }
 .short{
+    font-family: 'Noto Sans KR', Courier, monospace;
+    font-weight: 700;
+    padding-top: 10px;
+    vertical-align: center;
     height: 34px;
     
 }
@@ -270,3 +309,6 @@
 }
 
   
+#myReviewContent:hover{
+    cursor: pointer;
+}

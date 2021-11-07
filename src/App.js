@@ -23,6 +23,7 @@ import ReviewSelect from './Pages/ReviewSelect/ReviewSelect';
 //import ExpressReview from './Pages/See/ExpressReview';
 import ChatHome from './Pages/Chat/ChatHome';
 import Chat from './Pages/Chat/Chat';
+import Moviegram from './Pages/Moviegram/Moviegram';
 //import ExpressReviewContent from './Pages/See/ExpressReviewContent';
 
 const App = () =>{
@@ -59,6 +60,7 @@ const App = () =>{
         </Route>
         <Route path="/chat" exact render={()=> <Chat userName={userName} roomName={roomName} />}>
         </Route>
+        <Route path="/moviegram" component={Moviegram}/>
     </BrowserRouter>
     </>
   );

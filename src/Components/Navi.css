@@ -76,7 +76,7 @@ h1{
 position:absolute;
 left: 250px;
 margin-right: 10px;
-width: 500px;
+width: 1000px;
 padding-top: 10px;
 font-family: 'Montserrat', Courier, monospace;
 font-size: 0.7rem;
@@ -84,19 +84,20 @@ font-weight: 700;
 }
 
 .menu li{
-  padding: 0 50px;
+  padding: 0 70px;
   margin-top:5px;
   display: block;
   float: left;
   padding-left: 50px;
 }
+
 .menu a{
   color: var(--seed-main-color);
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   font-weight:700;
   text-decoration: none;
-  margin-top: 10px;
-  padding-top: 100px;
+  margin-top: 25px;
+  padding-top: 110px;
 }
 
 .menus{
@@ -117,10 +118,16 @@ font-weight: 700;
 }
 
 #user_login{
+  position: relative;
+  left: 840px;
+  bottom: 5px;
+  font-family: 'Montserrat', Courier, monospace;
+  font-weight: 700;
+  font-size: 0.9rem;
   border-radius: 30px;
-  padding: 5px 20px 5px 20px;
+  padding: 8px 20px 8px 20px;
+  border: 1px solid #ababab;
 }
-
 
 
 #user_name:hover{
@@ -129,9 +136,8 @@ font-weight: 700;
 }
 
 #user_login:hover{
-  background-color: #ffbb00;
+  background-color: #ffd86e;
   cursor: pointer;
-  color: white;
 }
 
 
