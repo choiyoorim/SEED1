@@ -8,10 +8,10 @@ export const ReviewCategory = [
     type: 'writing'
   },
   {
-    title: '카드뉴스',
+    title: '무비그램',
     path: '/',
     cName: 'category-text',
-    type: 'card'
+    type: 'moviegram'
   },
   {
     title: '영상',
