@@ -575,6 +575,21 @@ app.post("/subscribe/Subscribe", (req, res)=>{
   })
 });
 
+//리뷰수정 여부 가져오기
+app.post("/modification/isModification", (req, res) => {
+  const reviewID = req.body.reviewID;
+  const sql = "SELECT * FROM REVIEW_E WHERE reviewID=? AND modification=1";
+  db.query(sql, reviewID, (err, result) => {
+    console.log(result);
+    if (err) res.status(400).send(err);
+    
+    let mod = false;
+    if (result.length !== 0) {
+        mod = true;
+    }
+    res.status(200).json({ success: true, modificated: mod });
+  });
+});
 
 
 app.listen(3002, ()=>{

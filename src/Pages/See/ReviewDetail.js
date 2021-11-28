@@ -8,6 +8,7 @@ import {FaEye} from "react-icons/fa";
 import {FiCheckSquare} from "react-icons/fi";
 import {BsFillBackspaceReverseFill, BsFillPersonFill} from "react-icons/bs";
 import Subscribe from '../../Components/views/Sections/Subscribe';
+import Modification from '../../Components/views/Sections/Modification';
 
 
 class ReviewDetail extends Component {
@@ -38,16 +39,16 @@ class ReviewDetail extends Component {
     this.getReview();
   }
 
-  toggleLike = () => {
-    this.state.isLike ?
-    this.setState({
-      isLike: false,
-    })
-    :
-    this.setState({
-      isLike: true,
-    });
-  }
+  // toggleLike = () => {
+  //   this.state.isLike ?
+  //   this.setState({
+  //     isLike: false,
+  //   })
+  //   :
+  //   this.setState({
+  //     isLike: true,
+  //   });
+  // }
   
 
   render () {
@@ -55,6 +56,7 @@ class ReviewDetail extends Component {
     const { isLike, isSubscribe } = this.state;
     //writerID 로컬 저장소에 저장
     localStorage.setItem('writerID', location.state.writer);
+    localStorage.setItem('seeReviewID', location.state.id);
     return (
       <div className="ReviewDetail_container">
         <div className="review_content">
@@ -66,6 +68,7 @@ class ReviewDetail extends Component {
             </span>
             
             <Subscribe/>
+            <Modification/>
 
             {/* 좋아요버튼 */}
 
