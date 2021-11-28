@@ -7,14 +7,16 @@ function MemberInfo(){
     const localUsername = localStorage.getItem('userNickname');
     // const localUserPW = localStorage.getItem('userPW');
     const localUserEmail = localStorage.getItem('userEmail');
+    const localUserWebsite = localStorage.getItem('userWebsite');
+    const localUserBaio = localStorage.getItem('userBaio');
 
     const [passwordReg, setPasswordReg] = useState('');
-    const [nicknameReg, setNicknameReg] = useState('');
+    const [nicknameReg, setNicknameReg] = useState(localUsername);
     const [passwordCheck, setPasswordCheck] = useState('');
+    const [websiteReg, setWebsiteReg] = useState(localUserWebsite);
+    const [baioReg, setBaioReg] = useState(localUserBaio);
 
     const modify = () =>{
-
-        
         const password_check = /^[a-z0-9]{3,19}$/g;
         if(!password_check.test(passwordReg)){
             return alert('비밀번호는 4자 이상 20자 이하여야 합니다.')
@@ -29,11 +31,15 @@ function MemberInfo(){
         Axios.post('http://localhost:3002/modify', {
           userID: localUserID,
           userPW: passwordReg,
-          userNickname: nicknameReg
+          userNickname: nicknameReg,
+          userWebsite: websiteReg,
+          userBaio: baioReg
         }).then((response)=>{
           console.log(response);
           if(response.data.modified){
             localStorage.setItem('userNickname', nicknameReg);
+            localStorage.setItem('userWebsite', websiteReg);
+            localStorage.setItem('userBaio', baioReg);
             alert('회원정보 수정 완료!');
             window.location.replace("/memberInfo");
           }
@@ -45,48 +51,65 @@ function MemberInfo(){
              <div id="space"></div>
              <p id="myInfoLogo">My Info</p>
 
-             <div class="infoBox">
-                 <div id="firstTitle"><p>필수 정보</p></div>
-             <div id="firstDiv">
-                    <h2 id="idinfo">ID</h2>
-                    <p class="infopara" id="IDpara">{localUserID}</p>
-                    <br/>
-                    <h2 id="nickinfo">Nickname</h2>
-                    <input id="nicknameModify" 
-                        placeholder={localUsername} 
-                        onChange={(e)=>{setNicknameReg(e.target.value);}}>
-                    </input>
-                    <br/>
+            <div class="accountEditBox">
+                <div id="profileBox">
+                <p id="profileImageEdit">이미지</p>
+                </div>
+                <div id="accountBox">
+                    <h2 id="accountId">{localUserID}</h2><br/>
+                    <p id="changeImage">프로필 사진 바꾸기</p>
 
-                    <h2 id="passwordinfo">Password</h2>
-                    <input 
-                        type="password"  
-                        id="pwinfo"
-                        onChange={(e)=>{setPasswordReg(e.target.value);}}>
-                    </input><br/>
+                    <div class="editInfoBox"> 
+                        <div class="infoHeadDiv"><h3 class="editHead">닉네임</h3> </div>
+                        <input class="editInputs" 
+                        placeholder={localUsername}
+                        onChange={(e)=>{setNicknameReg(e.target.value);}}></input><br/>
+                    </div>
+                    
+                    <div class="editInfoBox">
+                        <h3 class="editHead">사이트</h3>
+                        <input class="editInputs" 
+                        value={websiteReg}
+                        placeholder={localUserWebsite}
+                        onChange={(e)=>{setWebsiteReg(e.target.value);}}></input><br/>
+                    </div>
+                   
+                   <div class="editInfoBox">
+                        <h3 class="editHead">바이오</h3>
+                        <input class="editInputs" 
+                        value={baioReg}
+                        placeholder={localUserBaio}
+                        onChange={(e)=>{setBaioReg(e.target.value);}}></input><br/>
+                   </div>
+
+                    <div class="editInfoBox">
+                        <h3 class="editHead">이메일</h3>
+                        <input class="editInputs" value={localUserEmail} readOnly></input><br/>
+                    </div>
+
+                    <div class="editInfoBox">
+                        <h3 class="editHead" id="비밀번호변경">비밀번호 변경</h3><br/>
+
+                        <div id="pwInputBox">
+                        <input 
+                            class="editInputs"
+                            type="password"  
+                            onChange={(e)=>{setPasswordReg(e.target.value);}}>
+                        </input>
 
                     <input 
+                        class="editInputs"
+                        id="passwordCheck1MoreInput"
                         type="password"
-                        id="pwcheckinfo"
                         onChange={(e)=>{setPasswordCheck(e.target.value);}}
                     ></input>
+                        </div>
 
-                    <br/><br/>
-                    <h2 id="emailinfo">Email</h2>
-                    <p class="infopara" id="emailtitle">{localUserEmail}</p>
-                    <br/>
-             </div>
+                    </div>
 
-            <div id="secondTitle"><p>추가 정보</p></div>
-            <div id="secondDiv">
-                    <h2 id="homepageinfo">Home page</h2>
-                    <input id="homepageInput"></input>
-
-                    <br/>
+                    <button class="savebtns" type="submit" onClick={modify}>저장</button>
+                </div>
             </div>
-
-                <button class="savebtns" type="submit" onClick={modify}>저장</button>
-             </div>
         </>
     );
 }

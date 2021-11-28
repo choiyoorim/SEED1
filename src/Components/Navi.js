@@ -18,6 +18,8 @@ function Navi({history}) {
 
   const nickname = localStorage.getItem('userNickname');  
   const auth= localStorage.getItem('auth');
+  const following = localStorage.getItem('following');
+  const followers = localStorage.getItem('followers');
 
 
   const logout = () =>{
@@ -61,7 +63,7 @@ function Navi({history}) {
   const isAuth=()=>{
     if(!auth){
       moveHome();
-      alert("seed를 이용하기 전에 로그인 해야합니다.");
+      alert("로그인이 필요합니다.");
     }
     localStorage.setItem('edit', false);
   };
@@ -102,8 +104,8 @@ function Navi({history}) {
             <div class="nav_user_info">
               <img id = "sideBar_user_img" src={user} width="50" height="50"/>
               <div className="sideBar_user_name"><p>{nickname}</p></div>
-              <span className ="sideBar_sub user-info"><p>구독자 <b>23</b></p></span>
-              <span className="sideBar_like user-info"><p>좋아요 <b>103</b></p></span>
+              <span className ="sideBar_sub user-info"><p>구독자 <b>{followers}</b></p></span>
+              <span className="sideBar_like user-info"><p>팔로우 <b>{following}</b></p></span>
             </div>
             <div class="nav_sidebar_menu">
               <ul className="nav-menu-items">

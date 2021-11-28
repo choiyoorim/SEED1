@@ -39,6 +39,8 @@ app.post('/modify', (req, res)=>{
   const userID = req.body.userID;
   const userPW = req.body.userPW;
   const userNickname = req.body.userNickname;
+  const userWebsite = req.body.userWebsite;
+  const userBaio = req.body.userBaio;
 
   bcrypt.hash(userPW, saltRounds, (err, hash)=>{
     if(err){
@@ -52,8 +54,8 @@ app.post('/modify', (req, res)=>{
     if(userPW === ''){
       // pw 변경 안했을 경우 닉네임만 수정
       db.query(
-        "UPDATE USER SET userNickname=? WHERE userID=?",
-        [userNickname, userID],
+        "UPDATE USER SET userNickname=?, userWebsite=?, userBaio=? WHERE userID=?",
+        [userNickname, userWebsite, userBaio, userID],
         (err, result) =>{
           console.log(err);
         }
@@ -65,8 +67,8 @@ app.post('/modify', (req, res)=>{
     }else{
       // PW, nickname 모두 수정한 경우
       db.query(
-        "UPDATE USER SET userPW=?, userNickname=? WHERE userID=?",
-        [hash, userNickname, userID],
+        "UPDATE USER SET userPW=?, userNickname=?, userWebsite=?, userBaio=? WHERE userID=?",
+        [hash, userNickname, userWebsite, userBaio, userID],
         (err, result) =>{
           console.log(err);
         }
@@ -133,6 +135,8 @@ app.get("/user/login", (req, res)=>{
 app.post("/user/login", (req, res)=>{
   const userID = req.body.userID;
   const userPW = req.body.userPW;
+  const followingQuery = "SELECT COUNT(*) FROM Subscribe WHERE userID = ?";
+  const followerQuery = "SELECT COUNT(*) FROM Subscribe WHERE writerID = ?";
 
   db.query(
     "SELECT * FROM USER WHERE userID = ?",
@@ -152,6 +156,7 @@ app.post("/user/login", (req, res)=>{
             })
             req.session.user = result;
             res.json({auth: true, token: token, result: result});
+
           } else{
             res.json({auth: false, message: "아이디와 비밀번호가 일치하지 않습니다."});
             //res.send({message: "아이디와 비밀번호가 일치하지 않습니다."});
@@ -163,6 +168,8 @@ app.post("/user/login", (req, res)=>{
       }
     }
   );
+
+
 });
 
 //로그아웃

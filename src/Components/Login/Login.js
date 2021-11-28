@@ -29,6 +29,8 @@ function Login() {
                 localStorage.setItem('userID', response.data.result[0].userID)
                 localStorage.setItem('userNickname', response.data.result[0].userNickname)
                 localStorage.setItem('userEmail', response.data.result[0].userEmail)
+                localStorage.setItem('userWebsite', response.data.result[0].userWebsite)
+                localStorage.setItem('userBaio', response.data.result[0].userBaio)
 
                 setLoginStatus(response.data.message);
                 let nowUserID = localStorage.getItem('userID');
