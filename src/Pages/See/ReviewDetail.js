@@ -39,21 +39,8 @@ class ReviewDetail extends Component {
     this.getReview();
   }
 
-  // toggleLike = () => {
-  //   this.state.isLike ?
-  //   this.setState({
-  //     isLike: false,
-  //   })
-  //   :
-  //   this.setState({
-  //     isLike: true,
-  //   });
-  // }
-  
-
   render () {
     const {location} = this.props;
-    const { isLike, isSubscribe } = this.state;
     //writerID 로컬 저장소에 저장
     localStorage.setItem('writerID', location.state.writer);
     localStorage.setItem('seeReviewID', location.state.id);
