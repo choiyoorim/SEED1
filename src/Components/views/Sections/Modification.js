@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
-// import './Subscribe.css';
-function Modification(props) {
+import './Modification.css'
+import {withRouter} from 'react-router-dom';
+
+function Modification({history}) {
   const [isModification, setIsModification] = useState(false);
   const reviewID = localStorage.getItem('seeReviewID');
+  const isUser = (localStorage.getItem('writerID') === localStorage.getItem('userID'));
 
   useEffect(() => {
 
@@ -18,15 +21,27 @@ function Modification(props) {
         }
       }
     );
+
   }, []);
+
+  const onMofify = () =>{
+    localStorage.setItem('edit', 'true');
+    history.push("/write");
+  };
 
   return (
     <div className="modification">
         <p 
         style={{display: isModification ? 'block' : 'none' ,
         color:'white'}}>수정됨</p>
+        <button className="modification_button"
+        style={{display: isUser ? 'block' : 'none'}}
+        onClick={onMofify}>
+          수정
+      </button>
     </div>
+    
   );
 }
 
-export default Modification;
+export default withRouter(Modification);
