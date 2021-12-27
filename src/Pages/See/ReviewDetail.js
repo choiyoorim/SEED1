@@ -15,11 +15,10 @@ class ReviewDetail extends Component {
   state = {
     isLoading: true,
     review: [],
-    like: false,
-    isLike: false,
-    writer: ""
+    like: false
   };
 
+  //오류:동작 안함
   //reviewID로 리뷰 가져오기
   getReview = async () => {
     const movieCODE = this.props.match.params.id;
@@ -27,7 +26,6 @@ class ReviewDetail extends Component {
     .then((res)=>{
         this.setState({ review : res.data, isLoading: false });
     });
-    
   };
 
   
@@ -42,8 +40,10 @@ class ReviewDetail extends Component {
   render () {
     const {location} = this.props;
     //writerID 로컬 저장소에 저장
-    localStorage.setItem('writerID', location.state.writer);
+    //seeReviewID는 ReviewDetail페이지에서 보고있는 리뷰 ID
+    localStorage.setItem('writerID', location.state.writer);  //undefind
     localStorage.setItem('seeReviewID', location.state.id);
+
     return (
       <div className="ReviewDetail_container">
         <div className="review_content">

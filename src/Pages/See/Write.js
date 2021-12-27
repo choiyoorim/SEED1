@@ -16,7 +16,8 @@ function Write(){
     const [visibilityButton, setVisibilityButton] = useState('visible');
     const [displayDeleteButton, setDisplayDeleteButton] = useState('none');
     const userID = localStorage.getItem('userID');
-    const reviewID = localStorage.getItem('reviewID');
+    // const reviewID = localStorage.getItem('reviewID');
+    const reviewID = localStorage.getItem('seeReviewID');
     const [editdata, setEditdate] = useState();
     const edit = localStorage.getItem('edit');
     const dateInst = new Date();

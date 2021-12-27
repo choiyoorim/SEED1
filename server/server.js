@@ -591,6 +591,14 @@ app.post("/modification/isModification", (req, res) => {
   });
 });
 
+app.post("/getMovieCode", (req, res) => {
+  const title = req.body.title;
+  const sql = "SELECT movieCODE FROM moviedata where title=?";
+  db.query(sql, title, (err, result) => {
+    if (err) return res.json({ success: false, err });
+    res.status(200).json({ success: true});
+  });
+});
 
 app.listen(3002, ()=>{
   console.log('running on port 3002');

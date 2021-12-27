@@ -88,17 +88,17 @@ function CategoryReviewList({history}) {
         }
     };
 
-    const edit=(res, categoryType)=>{
-        localStorage.setItem('reviewID', res);
-        localStorage.setItem('edit', 'true');
+    // const edit=(reviewid, categoryType)=>{
+    //     localStorage.setItem('reviewID', reviewid);
+    //     localStorage.setItem('edit', 'true');
 
-        if(categoryType==="short"){
-            history.push("/shortWrite");
-        }
-        if(categoryType==="express"){
-            history.push("/write");
-        }
-    };
+    //     if(categoryType==="short"){
+    //         history.push("/shortWrite");
+    //     }
+    //     else if(categoryType==="express"){
+    //         history.push("/write");
+    //     }
+    // };
 
 
     useEffect(()=>{
@@ -131,7 +131,7 @@ function CategoryReviewList({history}) {
                     <span className="Wnum">조회수</span>
                 </div>
                 <form id="written">
-                    <ReviewPosts posts={displayReviews} type={type} IsShort={IsShort} edit={edit}/>
+                    <ReviewPosts posts={displayReviews}/>
 
                     <ReactPaginate
                         previousLabel={"이전"}

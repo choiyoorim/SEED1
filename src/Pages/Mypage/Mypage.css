@@ -181,59 +181,42 @@ li.express:hover{
     left: 50%;
     display:block;
 }
+
 .Wmovie{
     float: left;
     margin: 0 20px 0 0;
     width: 160px;
     text-align: left;
     overflow: hidden;
+    color: white;
 }
+
 .Wtitle{
     float: left;
     margin: 0 16px;
-    width: 420px;
-    text-align: center;
-    overflow: hidden;
-    padding-top: 0;
-    margin-top: 0;
-    vertical-align: top;
-}
-.Wtitle.extend{
-    float: left;
-    margin: 0 16px;
-    width: 420px;
+    width: 468px;
     text-align: center;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space:nowrap;
+    color: white;
 }
 
-.Wcontent{
-    font-family: 'Noto Sans KR', Courier, monospace;
-    font-weight: 700;
-    float: left;
-    margin: 0 16px;
-    width: 390px;
-    text-align: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space:nowrap;
-    padding-top: 0;
-    margin-top: 0;
-}
-.Wcontent.extend {
+.Wcontent {
     float: left;
     margin: 0 16px;
     width: 400px;
     padding-top: 4px;    
     text-align: left;
     font-size: 11px;
+    font-weight: 100;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal; 
     line-height: 1.4em; 
     height: 4.2em; 
     text-align: left; 
+    color: white;
     word-wrap: break-word;
     display: -webkit-box; 
     -webkit-line-clamp: 3; 
@@ -245,6 +228,7 @@ li.express:hover{
     width: 140px;
     text-align: right;
     overflow: hidden;
+    color: white;
 }
 .Wnum{
     float: right;
@@ -252,6 +236,7 @@ li.express:hover{
     width: 60px;
     text-align: center;
     overflow: hidden;
+    color: white;
 }
 
 
@@ -263,23 +248,26 @@ li.express:hover{
 #written .writtenUl{
     padding: 0;
 }
-#written .writtenUl li{
+.mypageToDetail{
+    margin: 0;
+    padding: 0;
     padding: 4px 0 0 0;
     margin: 5px 5px;
     border-top: 1px solid var(--seed-main-color);
     list-style: none;
     overflow: hidden;
 }
-#written span{
-    /* padding-top: 10px; */
+.mypageToDetail:hover{
+    background-color: var(--seed-backCover);
+    cursor: pointer;
+}
+.mypageToDetail td{
+    font-weight: 300;
     font-family: 'Noto Sans KR', Courier, monospace;
     font-weight: 700;
     font-size: 0.8rem;
 }
-.writtenUl li:hover{
-    background-color: var(--seed-backCover);
-    cursor: pointer;
-}
+
 .short{
     font-family: 'Noto Sans KR', Courier, monospace;
     font-weight: 700;
@@ -338,3 +326,5 @@ li.express:hover{
 .paginationActive a{
     background-color: var(--seed-yelow-hover);
 }
+
+
