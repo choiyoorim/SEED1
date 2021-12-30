@@ -53,7 +53,8 @@ class ReviewDetail extends Component {
             </span>
             
             <Subscribe/>
-            <Modification/>
+            {location.state.title === undefined ? <></> : <Modification/>}
+            
 
             {/* 좋아요버튼 */}
 
