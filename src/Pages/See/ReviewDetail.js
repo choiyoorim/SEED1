@@ -18,8 +18,6 @@ class ReviewDetail extends Component {
     like: false
   };
 
-  //오류:동작 안함
-  //reviewID로 리뷰 가져오기
   getReview = async () => {
     const movieCODE = this.props.match.params.id;
     await axios.post('//localhost:3002/api/see/movie/review', {movieCODE})
@@ -41,7 +39,7 @@ class ReviewDetail extends Component {
     const {location} = this.props;
     //writerID 로컬 저장소에 저장
     //seeReviewID는 ReviewDetail페이지에서 보고있는 리뷰 ID
-    localStorage.setItem('writerID', location.state.writer);  //undefind
+    localStorage.setItem('writerID', location.state.writer);
     localStorage.setItem('seeReviewID', location.state.id);
 
     return (
