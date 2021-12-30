@@ -199,7 +199,7 @@ app.post("/Like/reviewE",(req, res)=>{
 //Mypage: 사용자가 작성한 리뷰가져오기
 app.post("/reviewS/list",(req,res)=>{
   const userID = req.body.userID;
-  const sqlSelect = "SELECT R.reviewID, M.title, R.reviewContent, R.viewCount, DATE_FORMAT(R.preparationDate, '%Y. %m. %d') AS date FROM REVIEW_S R JOIN  moviedata M ON R.movieCODE = M.movieCODE WHERE R.userID = ? ORDER BY R.preparationDate DESC";
+  const sqlSelect = "SELECT R.reviewID, R.userID, M.title, R.movieCODE, R.reviewContent, R.viewCount, DATE_FORMAT(R.preparationDate, '%Y. %m. %d') AS date FROM REVIEW_S R JOIN  moviedata M ON R.movieCODE = M.movieCODE WHERE R.userID = ? ORDER BY R.preparationDate DESC";
   db.query(sqlSelect, userID , (err, result)=>{
     res.send(result);
   })
@@ -207,7 +207,7 @@ app.post("/reviewS/list",(req,res)=>{
 
 app.post("/reviewE/list",(req,res)=>{
   const userID = req.body.userID;
-  const sqlSelect = "SELECT R.reviewID, M.title, R.reviewTitle, R.reviewContent, R.viewCount, DATE_FORMAT(R.preparationDate, '%Y. %m. %d') AS date FROM REVIEW_E R JOIN  moviedata M ON R.movieCODE = M.movieCODE WHERE R.userID = ? ORDER BY R.preparationDate DESC";
+  const sqlSelect = "SELECT R.reviewID, R.userID, M.title, R.movieCODE, R.reviewTitle, R.reviewContent, R.viewCount, DATE_FORMAT(R.preparationDate, '%Y. %m. %d') AS date FROM REVIEW_E R JOIN  moviedata M ON R.movieCODE = M.movieCODE WHERE R.userID = ? ORDER BY R.preparationDate DESC";
   db.query(sqlSelect, userID , (err, result)=>{
     res.send(result);
   })
