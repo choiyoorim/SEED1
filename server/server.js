@@ -387,6 +387,21 @@ app.post("/expresssubmit/update",(req,res)=>{
   })
 });
 
+//ReviewDetails: 리뷰 Short 삭제하기
+app.post("/short/delete",(req,res)=>{
+  const reviewID = req.body.reviewID;
+
+  db.query("DELETE FROM REVIEW_S  WHERE reviewID = ?",
+   reviewID, (err,result)=>{
+    if(!err){
+      res.status(200).json({success:true})
+    } else{
+      console.log(err);
+      res.json({success:false, err})
+    }
+  })
+});
+
 //Write: 리뷰 Express 삭제하기
 app.post("/expresssubmit/delete",(req,res)=>{
   const reviewID = req.body.reviewID;

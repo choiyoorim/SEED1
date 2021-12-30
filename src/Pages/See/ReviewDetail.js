@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './ReviewDetail.css';
 import axios from 'axios';
+import Button from "../../Components/Button"
 import {Link} from "react-router-dom";
 import {FaHeart} from "react-icons/fa";
 import {FiHeart} from "react-icons/fi";
@@ -10,6 +11,8 @@ import {BsFillBackspaceReverseFill, BsFillPersonFill} from "react-icons/bs";
 import Subscribe from '../../Components/views/Sections/Subscribe';
 import Modification from '../../Components/views/Sections/Modification';
 
+const reviewID = localStorage.getItem('seeReviewID');
+const userID = localStorage.getItem('userID');
 
 class ReviewDetail extends Component {
   state = {
@@ -35,6 +38,20 @@ class ReviewDetail extends Component {
     this.getReview();
   }
 
+  deleteShortReview = async () => {
+    await axios.post('http://localhost:3002/short/delete',{
+        reviewID:reviewID
+    }).then((res)=>{
+        if(res.data.success){
+            alert("삭제되었습니다.")
+            window.location.href = '/mypage';
+        } else{
+            alert('제출하는 과정에서 오류가 발생했습니다.');
+            console.log('오류');
+        }
+      })
+    }
+
   render () {
     const {location} = this.props;
     //writerID 로컬 저장소에 저장
@@ -53,7 +70,14 @@ class ReviewDetail extends Component {
             </span>
             
             <Subscribe/>
+
             {location.state.title === undefined ? <></> : <Modification/>}
+
+            {location.state.writer === userID ? 
+            <div className="delete-button" onClick={this.deleteShortReview}>
+            <Button size="sm" type="delete">삭제</Button>
+          </div>
+          : <></>}
             
 
             {/* 좋아요버튼 */}
