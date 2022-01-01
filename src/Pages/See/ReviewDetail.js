@@ -11,7 +11,6 @@ import {BsFillBackspaceReverseFill, BsFillPersonFill} from "react-icons/bs";
 import Subscribe from '../../Components/views/Sections/Subscribe';
 import Modification from '../../Components/views/Sections/Modification';
 
-const reviewID = localStorage.getItem('seeReviewID');
 const userID = localStorage.getItem('userID');
 
 class ReviewDetail extends Component {
@@ -38,10 +37,11 @@ class ReviewDetail extends Component {
     this.getReview();
   }
 
-  deleteShortReview = async () => {
-    await axios.post('http://localhost:3002/short/delete',{
+  deleteShortReview (reviewID) {
+    if(window.confirm("정말로 삭제하시겠습니까?")){
+      axios.post('http://localhost:3002/short/delete',{
         reviewID:reviewID
-    }).then((res)=>{
+      }).then((res)=>{
         if(res.data.success){
             alert("삭제되었습니다.")
             window.location.href = '/mypage';
@@ -50,7 +50,10 @@ class ReviewDetail extends Component {
             console.log('오류');
         }
       })
+    } else{
+      alert("삭제 요청이 취소되었습니다.");
     }
+  }
 
   render () {
     const {location} = this.props;
@@ -73,8 +76,8 @@ class ReviewDetail extends Component {
 
             {location.state.title === undefined ? <></> : <Modification/>}
 
-            {location.state.writer === userID ? 
-            <div className="delete-button" onClick={this.deleteShortReview}>
+            {(location.state.writer === userID && location.state.title === undefined) ? 
+            <div className="delete-button" onClick={()=>this.deleteShortReview(location.state.id)}>
             <Button size="sm" type="delete">삭제</Button>
           </div>
           : <></>}
