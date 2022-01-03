@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './ReviewDetail.css';
 import axios from 'axios';
+import Button from "../../Components/Button"
 import {Link} from "react-router-dom";
 import {FaHeart} from "react-icons/fa";
 import {FiHeart} from "react-icons/fi";
@@ -8,25 +9,23 @@ import {FaEye} from "react-icons/fa";
 import {FiCheckSquare} from "react-icons/fi";
 import {BsFillBackspaceReverseFill, BsFillPersonFill} from "react-icons/bs";
 import Subscribe from '../../Components/views/Sections/Subscribe';
+import Modification from '../../Components/views/Sections/Modification';
 
+const userID = localStorage.getItem('userID');
 
 class ReviewDetail extends Component {
   state = {
     isLoading: true,
     review: [],
-    like: false,
-    isLike: false,
-    writer: ""
+    like: false
   };
 
-  //reviewID로 리뷰 가져오기
   getReview = async () => {
     const movieCODE = this.props.match.params.id;
     await axios.post('//localhost:3002/api/see/movie/review', {movieCODE})
     .then((res)=>{
         this.setState({ review : res.data, isLoading: false });
     });
-    
   };
 
   
@@ -38,23 +37,31 @@ class ReviewDetail extends Component {
     this.getReview();
   }
 
-  toggleLike = () => {
-    this.state.isLike ?
-    this.setState({
-      isLike: false,
-    })
-    :
-    this.setState({
-      isLike: true,
-    });
+  deleteShortReview (reviewID) {
+    if(window.confirm("정말로 삭제하시겠습니까?")){
+      axios.post('http://localhost:3002/short/delete',{
+        reviewID:reviewID
+      }).then((res)=>{
+        if(res.data.success){
+            alert("삭제되었습니다.")
+            window.location.href = '/mypage';
+        } else{
+            alert('제출하는 과정에서 오류가 발생했습니다.');
+            console.log('오류');
+        }
+      })
+    } else{
+      alert("삭제 요청이 취소되었습니다.");
+    }
   }
-  
 
   render () {
     const {location} = this.props;
-    const { isLike, isSubscribe } = this.state;
     //writerID 로컬 저장소에 저장
+    //seeReviewID는 ReviewDetail페이지에서 보고있는 리뷰 ID
     localStorage.setItem('writerID', location.state.writer);
+    localStorage.setItem('seeReviewID', location.state.id);
+
     return (
       <div className="ReviewDetail_container">
         <div className="review_content">
@@ -66,6 +73,15 @@ class ReviewDetail extends Component {
             </span>
             
             <Subscribe/>
+
+            {location.state.title === undefined ? <></> : <Modification/>}
+
+            {(location.state.writer === userID && location.state.title === undefined) ? 
+            <div className="delete-button" onClick={()=>this.deleteShortReview(location.state.id)}>
+            <Button size="sm" type="delete">삭제</Button>
+          </div>
+          : <></>}
+            
 
             {/* 좋아요버튼 */}
 

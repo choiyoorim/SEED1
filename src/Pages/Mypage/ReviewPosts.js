@@ -1,24 +1,43 @@
+import { Movie } from "@material-ui/icons";
+import Axios from 'axios';
 import React from "react";
 import './Mypage.css';
+import ReviewECard from './ReivewECard';
 
-const ReviewPosts = ({ posts, loading, type, IsShort, edit }) => {
+const getmovieCode = (title) =>{
+  Axios.post("http://localhost:3002/getMovieCode", {
+      title: title
+    }).then((response)=>{
+      return response.data;
+  });
+};
+
+const ReviewPosts = ({ posts, loading }) => {
     return (
         <>
       { loading &&
         <div> loading... </div>
       }
-      <ul className="writtenUl">
+      <div className="writtenUl">
         { posts.map(list=>(
-          <li key={list.reviewID} onClick={() => edit(list.reviewID, type)} className={type}>
-            <span className="Wmovie">{list.title}</span>
-            <span className={IsShort ? "Wtitle" : "Wtitle extend"}>{list.reviewTitle}
-                <span className={IsShort ? "Wcontent" :"Wcontent extend"}>{list.reviewContent}</span>
-            </span>
-            <span className="Wdate">{list.date}</span>
-            <span className="Wnum">{list.viewCount}</span>
-        </li>
+          React.createElement(ReviewECard,
+            {
+              key: list.reviewID,
+              id: list.reviewID,
+              writer: list.userID,
+              title: list.reviewTitle,
+              likeC: list.likeCount,
+              viewC: list.viewCount,
+              content: list.reviewContent,
+              pubDate: list.date,
+              movieCode: getmovieCode(list.title),
+              movieTitle: list.title
+              //list에 movieCode가 없음
+            }
+        )
+
         ))}
-      </ul>
+      </div>
       </>
       );
 

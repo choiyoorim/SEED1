@@ -16,7 +16,8 @@ function Write(){
     const [visibilityButton, setVisibilityButton] = useState('visible');
     const [displayDeleteButton, setDisplayDeleteButton] = useState('none');
     const userID = localStorage.getItem('userID');
-    const reviewID = localStorage.getItem('reviewID');
+    // const reviewID = localStorage.getItem('reviewID');
+    const reviewID = localStorage.getItem('seeReviewID');
     const [editdata, setEditdate] = useState();
     const edit = localStorage.getItem('edit');
     const dateInst = new Date();
@@ -73,19 +74,23 @@ function Write(){
             setDisplayDeleteButton('none');
         }
         else{
-            Axios.post('http://localhost:3002/expresssubmit/delete',{
-                reviewID:reviewID
-            }).then((res)=>{
-                // console.log(res);
-                if(res.data.success){
-                    setIsFirst(true);
-                    alert("삭제되었습니다.")
-                    window.location.href = '/mypage';
-                } else{
-                    alert('제출하는 과정에서 오류가 발생했습니다.');
-                    console.log('오류');
-                }
-            })
+            if(window.confirm("정말로 삭제하시겠습니까?")){
+                Axios.post('http://localhost:3002/expresssubmit/delete',{
+                    reviewID:reviewID
+                }).then((res)=>{
+                    // console.log(res);
+                    if(res.data.success){
+                        setIsFirst(true);
+                        alert("삭제되었습니다.")
+                        window.location.href = '/mypage';
+                    } else{
+                        alert('제출하는 과정에서 오류가 발생했습니다.');
+                        console.log('오류');
+                    }
+                })
+            } else{
+                alert("삭제 요청이 취소되었습니다.");
+            }
         }
     };
 

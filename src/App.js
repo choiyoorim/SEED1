@@ -20,11 +20,11 @@ import MovieDetail from './Pages/See/MovieDetail';
 import ReviewDetail from './Pages/See/ReviewDetail';
 import ShortReview from './Pages/See/ShortReview';
 import ReviewSelect from './Pages/ReviewSelect/ReviewSelect';
-//import ExpressReview from './Pages/See/ExpressReview';
-import ChatHome from './Pages/Chat/ChatHome';
-import Chat from './Pages/Chat/Chat';
+import ExpressReview from './Pages/See/ExpressReview';
+// import ChatHome from './Pages/Chat/ChatHome';
+// import Chat from './Pages/Chat/Chat';
 import Moviegram from './Pages/Moviegram/Moviegram';
-//import ExpressReviewContent from './Pages/See/ExpressReviewContent';
+import ExpressReviewContent from './Pages/See/ExpressReviewContent';
 
 const App = () =>{
   return(
@@ -48,7 +48,7 @@ const App = () =>{
         <Route path="/movie/:id" component={MovieDetail}/>
         <Route path="/review/:id" component={ReviewDetail}/>
         <Route path="/reviewSelect" component={ReviewSelect}/>
-        <Route path="/chathome">
+        {/* <Route path="/chathome">
           <ChatHome 
             userName={userName} 
             roomName={roomName}
@@ -57,7 +57,7 @@ const App = () =>{
           />
         </Route>
         <Route path="/chat" exact render={()=> <Chat userName={userName} roomName={roomName} />}>
-        </Route>
+        </Route> */}
         <Route path="/moviegram" component={Moviegram}/>
     </BrowserRouter>
     </>
