@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './ReviewListCard.css'
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
@@ -9,8 +9,10 @@ import {withRouter} from 'react-router-dom';
 
 
 function ReviewListCard({ history, id, writer, title, likeC, viewC, content, pubDate, movieCode }) {
-
-  const auth= localStorage.getItem('auth');
+  
+  const user = JSON.parse(sessionStorage.getItem('user'));
+  const [auth, setAuth] = useState(false);
+  // const auth= localStorage.getItem('auth');
 
   const isAuth = ()=>{
     if(!auth){
@@ -20,6 +22,12 @@ function ReviewListCard({ history, id, writer, title, likeC, viewC, content, pub
     }
     localStorage.setItem('edit', false);
   }
+
+  useEffect(()=>{
+    if(user){
+      setAuth(user.data.auth);
+    }
+  });
 
     return (
       <table className="reviewlist_card" id="reviewlist_card_outside" onClick={isAuth}>
