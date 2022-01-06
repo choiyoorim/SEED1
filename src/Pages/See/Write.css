@@ -7,49 +7,101 @@
     margin-top : 20px;
 }
 
+#writeTopDiv{
+    margin-top: 50px;
+    margin-bottom: -15;
+    padding-bottom: 0;
+}
+
+#writeLogo{
+    display: inline-block;
+    color: #ffbb00;
+    width: 20%;
+    text-align: right;
+    font-family: 'Rock Salt', Courier, monospace;
+    font-weight: 700;
+    font-size: 1.4rem;
+
+    position: relative;
+    top: 15px;
+    margin-bottom: -10px;
+    padding-left: 350px;
+}
+
 .form-wrap{
-    width:900px;
+    width:60%;
     margin: 0 auto;
-    background-color: var(--seed-subColor);
-    padding:20px;
+    background-color: white;
+    padding:40px;
+    padding-left: 130px;
+    padding-right: 100px;
+    border-radius: 30px;
     box-sizing: border-box;
+    text-align: left;
+    font-family: 'Noto Sans KR', Courier, monospace;
+    font-weight: 700;
 }
 
 .movie-search{
     position:relative;
     margin: 0 auto;
-    width:895px;
+    width:50%;
     height:40px;
     margin-bottom:20px;
 }
 
 .select-button-wrap{
+    display: inline-block;
+    width: 20%;
     position:relative;
-    left:250px;
-    margin-top:20px;
-    margin-bottom:30px;
+    
+    padding-bottom: 10px;
+    border: none;
+}
+
+.movietitle-input, .title-input{
+    font-family: 'Noto Sans KR', Courier, monospace;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: none;
+    border-bottom: solid 1px #ababab;
+    padding-bottom: 15px;
+    padding-left: 10px;
+    padding-top: 15px;
 }
 
 .movietitle-input{
     position: relative;
     align-self: left;
-    width:300px;
+    width:500px;
     height:20px;
+    margin-top: 20px;
     margin-bottom:20px;
 }
 
 .title-input{
+    display: block;
     position: relative;
     align-self: left;
-    width:850px;
-    height:40px;
+    width:900px;
+    height:20px;
     margin-bottom:20px;
     color: var(--seed-text-black);
+    margin-bottom: 35px;
 }
 
 .content-area{
     width:80%;
     min-height:500px;
+}
+
+CKEditor{
+    font-family: 'Noto Sans KR', Courier, monospace;
+    font-size: 1rem;
+    font-weight: 700;
+    height: 700px;
+    max-height: 800px;
+    margin-bottom: 50px;
 }
 
 .check-inst{
@@ -60,20 +112,52 @@
 .setting-wrap{
     width: 860px;
     margin: auto;
+    margin-top: 30px;
     display: grid;
-    grid-template-columns: 670px 2fr 1fr; /* 균일한 크기로 3등분 */
+    grid-template-columns: 600px 2fr 1fr; /* 균일한 크기로 3등분 */
      /* 40px로 24등분 -> <main> 영역의 전체 height가 계산된다면 height 지정 후 1fr로 사용하셔도 좋습니다.*/
     box-sizing:border-box;
     gap:10px;
 }
 
 .setting-wrap>.keyword-input{
-    height:20px;
-    width:98%;
+    border: 1px solid #ababab;
+    border-radius: 50px;
+    height:40px;
+    width:90%;
+    font-family: 'Noto Sans KR', Courier, monospace;
+    font-weight: 700;
+    font-size: 1rem;
+    padding-left: 15px;
+}
+
+.setting-wrap > .check-inst{
+    padding-top: 10px;
+    width: 100%;
+}
+
+.check-inst{
+    vertical-align: 4px;
+    padding-left: 3px;
+}
+
+.check{
+    padding-top: 10px;
 }
 
 .setting-wrap>.submit-button{
     position:relative;
+}
+
+.sc-bdnxRM.kMaCaC{
+    position: relative;
+    top: -5px;
+    font-weight: 700;
+}
+
+.sc-bdnxRM.kMaCaC:hover{
+    color: white;
+    background-color: #a77a00;
 }
 
 .submit-area{
@@ -88,6 +172,8 @@
 
 .ck-editor{
     min-height: 500px;
+    max-height: 800px;
+    height: 700px;
     color:black;
 }
 

@@ -3,10 +3,11 @@
     --seed-text-black: #000000;
 
     --seed-backgroundColor: #262626;
-    --seed-backCover:#c4c4c460;
+    --seed-backCover:#9d9d9d42;
     
 
     --seed-subColor:#F3F0E5;
     --seed-subSideColor:#C4C4C4;
-    --seed-yelow: #ffd311;
+    --seed-yelow: #ffbb00;
+    --seed-yelow-hover: #7a725e;
 }

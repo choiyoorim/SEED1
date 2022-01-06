@@ -2,13 +2,13 @@
     position: relative;
     top:200px;
 }
-.reviewInfo{
-    margin-top: 100px;
+.reviewInfoTable{
+    margin-top: 150px;
     width: 80%;
     margin-left: 10%;
 }
 #reviewInfo{
-    margin-top: 100px;
+    margin-top: 150px;
     width: 80%;
     margin-left: 10%;
 }
@@ -38,6 +38,18 @@ tr{
 }
 #hr{
     width: 80%;
+}
+.titleofreview{
+    position:relative;
+    top:120px;
+    margin-right:0px;
+    left:-500px;
+}
+.button-wrap{
+    position:relative;
+    top:20px;
+    left:-170px;
+
 }
 /*
 .List {

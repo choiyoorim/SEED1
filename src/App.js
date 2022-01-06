@@ -18,15 +18,15 @@ import MemberInfo from './Pages/Memberinfo/MemberInfo';
 import ContactUs from './Pages/Email/ContactUs';
 import MovieDetail from './Pages/See/MovieDetail';
 import ReviewDetail from './Pages/See/ReviewDetail';
-import ShortReview from './Pages/See/ShortReview'
-//import ExpressReview from './Pages/See/ExpressReview';
-import ChatHome from './Pages/Chat/ChatHome';
-import Chat from './Pages/Chat/Chat';
-//import ExpressReviewContent from './Pages/See/ExpressReviewContent';
+import ShortReview from './Pages/See/ShortReview';
+import ReviewSelect from './Pages/ReviewSelect/ReviewSelect';
+import ExpressReview from './Pages/See/ExpressReview';
+// import ChatHome from './Pages/Chat/ChatHome';
+// import Chat from './Pages/Chat/Chat';
+import Moviegram from './Pages/Moviegram/Moviegram';
+import ExpressReviewContent from './Pages/See/ExpressReviewContent';
 
 const App = () =>{
-  const [userName,setUserName] = useState();
-  const [roomName,setRoomName] = useState();
   return(
     <>
     <BrowserRouter>
@@ -39,15 +39,16 @@ const App = () =>{
         <Route path="/write" component={Write}/>
         <Route path="/find" component={Find} />
         <Route path="/shortreview" component={ShortReview}/>
-        {/* <Route path="/expressreview" component={ExpressReview}/> */}
-        {/* <Route path="/expressreviewcontent/:id" component={ExpressReviewContent}/> */}
+        <Route path="/expressreview" component={ExpressReview}/>
+        <Route path="/expressreviewcontent/:id" component={ExpressReviewContent}/>
         <Route path="/signup" component={SignUp}/>
         <Route path="/memberinfo" component={MemberInfo} />
         <Route path="/contactUs" component={ContactUs} />
         <Route path="/login" component={Login}/>
         <Route path="/movie/:id" component={MovieDetail}/>
         <Route path="/review/:id" component={ReviewDetail}/>
-        <Route path="/chathome">
+        <Route path="/reviewSelect" component={ReviewSelect}/>
+        {/* <Route path="/chathome">
           <ChatHome 
             userName={userName} 
             roomName={roomName}
@@ -56,7 +57,8 @@ const App = () =>{
           />
         </Route>
         <Route path="/chat" exact render={()=> <Chat userName={userName} roomName={roomName} />}>
-        </Route>
+        </Route> */}
+        <Route path="/moviegram" component={Moviegram}/>
     </BrowserRouter>
     </>
   );

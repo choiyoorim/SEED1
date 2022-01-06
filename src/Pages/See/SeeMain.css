@@ -2,11 +2,36 @@
     margin-top: 130px;
     display: flex;
     justify-content: center;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 #map{
     margin-left: 5%;
 }
+
+.search_bar{
+    font-family: 'Noto Sans KR', Courier, monospace;
+    font-weight: 700;
+    padding: 5px 20px 5px 20px;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    margin-right: 5px;
+    margin-bottom: 50px;
+    width: 50%;
+    color: white;
+    background-color: white;
+    border: 1px solid #ffbb00;
+    border-radius: 100px;
+    font-size:x-large;
+}
+
+.search_but:hover{
+    cursor: pointer;
+    background-color: #ffbb00;
+    color: white;
+}
+
 
 .loader {
     width: 100%;
@@ -60,14 +85,16 @@
 }
 
 .topReviews .review_card {
+    font-family: 'Noto Sans KR', Courier, monospace;
     margin-bottom: 50px;
     font-weight: 300;
     padding: 20px;
+    /* padding-left: 30px; */
+    padding-bottom: 40px;
     border-radius: 5px;
     color: #adaeb9;
-    width:40%;
-    border: solid;
-    border-color: #e5e5e5;
+    display: inline-block;
+    border: 1px solid white;
     align-items: flex-start;
     justify-content: space-between;
   }
@@ -89,4 +116,10 @@
     padding:0;
     border-radius: 15px;
     margin-bottom: 100px;
+  }
+
+  .review_text_like{
+      font-family: 'Noto Sans KR', Courier, monospace;
+      font-weight: 700;
+      margin-bottom: 30px;
   }

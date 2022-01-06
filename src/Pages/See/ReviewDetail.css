@@ -1,4 +1,7 @@
+
 .ReviewDetail_container{
+    font-family: 'Noto Sans KR', Courier, monospace;
+    font-weight: 700;
     position: absolute;
     margin-top: 100px;
     margin-left: 10%;
@@ -7,28 +10,48 @@
 
 .review_title{
     color:#e5e5e5;
+    font-family: 'Noto Sans KR', Courier, monospace;
+    font-weight: 700;
+    margin-top: 100px;
 }
 
 hr{
     background-color:#ffbb00;
     border-color: #ffbb00;
-    width:100%; height:1px;
+    width:70%; height:1px;
 }
 
-.like_but{
-    background-color: black;
-    border: none;
-    color: #e5e5e5;
+.subLikeBut_container{
+    display:flex;
+    width: 100%;
+    display: table-cell;
+    vertical-align: middle;
+}
+.userSub_box{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+.userSub_box p{
+    float: left;
+    margin: 8px;
 }
 
 .review_text_box{
+    margin-left: 15%;
     color:#262626;
     background-color: #e5e5e5;
-    width:100%; 
+    width:70%; 
     height: 100%;
     min-height: 400px;
+    font-family: 'Noto Sans KR', Courier, monospace;
+    font-weight: 700;
 }
 
 .review_text{
+    font-family: 'Noto Sans KR', Courier, monospace;
+    font-weight: 700;
+    padding: 20px;
     text-align: left;
+    margin: 6px 0 0 0;
 }

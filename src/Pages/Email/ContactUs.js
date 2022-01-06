@@ -36,10 +36,11 @@ export default function ContactUs() {
   };
 
   return (
-    <section>
-      <div className="contact">
+    <section id="contactSection">
+      <div className="contact" id="contactBox">
+        <p id="contactLogo">contact us</p>
         <p> 
-          사이트에 대한 의견, 불편사항 등을 보내주세요. seed가 발전하는데 큰 도움이 될 것입니다.
+          사이트에 대한 의견이나 불편사항 등을 보내주세요. <br/>여러분의 의견은 SEED의 발전에 큰 도움이 됩니다.
         </p>
         <form className="contact-form" onSubmit={sendEmail}>
           <input type="hidden" name="contact_number"/>
@@ -51,7 +52,7 @@ export default function ContactUs() {
           <input type="text" name="title" onChange={(e)=>{setTitle(e.target.value);}}/>
           <label>Message</label>
           <textarea name="message" onChange={(e)=>{setContents(e.target.value);}}/>
-          <input type="submit" value="Send" />
+          <input type="submit" id="contactUsBtn" value="Send" />
         </form>
       </div>      
     </section>

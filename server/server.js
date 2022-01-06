@@ -178,7 +178,7 @@ app.get('/user/logout', (req,res)=>{
 //좋아요 개수 INSERT
 
 
-//사용자가 좋아요한 리뷰 목록 가져오기
+//Like: 사용자가 좋아요한 리뷰 목록 가져오기
 app.post("/Like/reviewS",(req, res)=>{
   const userID =  req.body.userID;
   const sqlSelect = "SELECT * FROM LIKE_S JOIN REVIEW_S ON LIKE_S.reviewID = REVIEW_S.reviewID WHERE LIKE_S.userID = ?";
@@ -196,22 +196,35 @@ app.post("/Like/reviewE",(req, res)=>{
 });
 
 
-//사용자가 작성한 리뷰가져오기
-app.post("/reviewE/list",(req,res)=>{
+//Mypage: 사용자가 작성한 리뷰가져오기
+app.post("/reviewS/list",(req,res)=>{
   const userID = req.body.userID;
-  const sqlSelect = "SELECT * FROM REVIEW_E JOIN  moviedata ON REVIEW_E.movieCODE = moviedata.movieCODE WHERE REVIEW_E.userID = ?";
-
-  //console.log(userID);
+  const sqlSelect = "SELECT R.reviewID, R.userID, M.title, R.movieCODE, R.reviewContent, R.viewCount, DATE_FORMAT(R.preparationDate, '%Y. %m. %d') AS date FROM REVIEW_S R JOIN  moviedata M ON R.movieCODE = M.movieCODE WHERE R.userID = ? ORDER BY R.preparationDate DESC";
   db.query(sqlSelect, userID , (err, result)=>{
     res.send(result);
   })
 });
 
-//리뷰내용
+app.post("/reviewE/list",(req,res)=>{
+  const userID = req.body.userID;
+  const sqlSelect = "SELECT R.reviewID, R.userID, M.title, R.movieCODE, R.reviewTitle, R.reviewContent, R.viewCount, DATE_FORMAT(R.preparationDate, '%Y. %m. %d') AS date FROM REVIEW_E R JOIN  moviedata M ON R.movieCODE = M.movieCODE WHERE R.userID = ? ORDER BY R.preparationDate DESC";
+  db.query(sqlSelect, userID , (err, result)=>{
+    res.send(result);
+  })
+});
+
+//Write: 리뷰 ID에 해당하는 리뷰 내용 가져오기
+app.post("/reviewS/edit",(req,res)=>{
+  const reviewID = req.body.reviewID;
+  const sqlSelect = "SELECT * FROM REVIEW_S R JOIN  moviedata M ON R.movieCODE = M.movieCODE WHERE R.reviewID = ?";
+
+  db.query(sqlSelect, reviewID , (err, result)=>{
+      res.send(result);
+  })
+});
+
 app.post("/reviewE/edit",(req,res)=>{
   const reviewID = req.body.reviewID;
-  // console.log(userID);
-  // console.log(reviewID);
   const sqlSelect = "SELECT * FROM REVIEW_E R JOIN  moviedata M ON R.movieCODE = M.movieCODE WHERE R.reviewID = ?";
 
   db.query(sqlSelect, reviewID , (err, result)=>{
@@ -219,7 +232,7 @@ app.post("/reviewE/edit",(req,res)=>{
   })
 });
 
-//리뷰Short
+//Write: 리뷰Short 작성하기
 app.post("/shortsubmit",(req,res)=>{
   const title = req.body.title
   console.log(title);
@@ -269,7 +282,39 @@ app.post("/shortsubmit",(req,res)=>{
   })
 });
 
-//리뷰 Express
+//Write: 리뷰 Short 수정하기
+app.post("/shortsubmit/update",(req,res)=>{
+  const content = req.body.content;
+  const reviewID = req.body.reviewID;
+
+  db.query("UPDATE REVIEW_S SET reviewContent = ?, modification = '1' WHERE reviewID = ?",
+   [content, reviewID], (err,result)=>{
+    if(err){
+      console.log(err);
+      res.json({success:false, err})
+    } else{
+      res.status(200).json({success:true})
+    }
+  })
+});
+
+//Write: 리뷰 Short 삭제하기
+app.post("/shortsubmit/delete",(req,res)=>{
+  const reviewID = req.body.reviewID;
+
+  db.query("DELETE FROM REVIEW_S WHERE reviewID = ?",
+   reviewID, (err,result)=>{
+    if(err){
+      console.log(err);
+      res.json({success:false, err})
+    } else{
+      res.status(200).json({success:true})
+    }
+  })
+});
+
+
+//Write: 리뷰 Express 작성하기
 app.post("/expresssubmit",(req,res)=>{
   const title = req.body.title
   console.log(title);
@@ -321,11 +366,58 @@ app.post("/expresssubmit",(req,res)=>{
         }
       );
     }
-  })
+  });
 
 });
 
-//리뷰 가져오기
+//Write: 리뷰 Express 수정하기
+app.post("/expresssubmit/update",(req,res)=>{
+  const title = req.body.title;
+  const content = req.body.content;
+  const reviewID = req.body.reviewID;
+
+  db.query("UPDATE REVIEW_E SET reviewTitle = ?, reviewContent = ?, modification = '1' WHERE reviewID = ?",
+   [title, content, reviewID], (err,result)=>{
+    if(!err){
+      res.status(200).json({success:true})
+    } else{
+      console.log(err);
+      res.json({success:false, err})
+    }
+  })
+});
+
+//ReviewDetails: 리뷰 Short 삭제하기
+app.post("/short/delete",(req,res)=>{
+  const reviewID = req.body.reviewID;
+
+  db.query("DELETE FROM REVIEW_S  WHERE reviewID = ?",
+   reviewID, (err,result)=>{
+    if(!err){
+      res.status(200).json({success:true})
+    } else{
+      console.log(err);
+      res.json({success:false, err})
+    }
+  })
+});
+
+//Write: 리뷰 Express 삭제하기
+app.post("/expresssubmit/delete",(req,res)=>{
+  const reviewID = req.body.reviewID;
+
+  db.query("DELETE FROM REVIEW_E  WHERE reviewID = ?",
+   reviewID, (err,result)=>{
+    if(!err){
+      res.status(200).json({success:true})
+    } else{
+      console.log(err);
+      res.json({success:false, err})
+    }
+  })
+});
+
+//ExpressReview: 해당 영화 리뷰E 가져오기
 app.get('/getshortreview',(req,res)=>{
   db.query("SELECT R.reviewID,R.userID,M.title,R.reviewContent,R.preparationDate FROM REVIEW_S R JOIN moviedata M ON R.movieCODE = M.movieCODE",
     (err,result)=>{
@@ -333,7 +425,7 @@ app.get('/getshortreview',(req,res)=>{
     }
   )
 });
-
+//ShortReview: 해당 영화 리뷰S 가져오기
 app.get('/getexpressreview',(req,res)=>{
   db.query("SELECT E.reviewID,E.userID,M.title,E.reviewContent,E.reviewTitle,E.preparationDate FROM REVIEW_E E JOIN moviedata M ON E.movieCODE = M.movieCODE",
     (err,result)=>{
@@ -416,7 +508,7 @@ app.get("/api/see/movie", (req, res) => {
       }
     }
   )
-})
+});
 
 //MovieDetail : movieCODE로 영화 정보 가져오기
 app.post("/api/see/movie/info", (req, res) => {
@@ -444,7 +536,7 @@ app.post("/api/see/movie/reviewListE", (req, res) => {
       }
     }
   )
-})
+});
 
 //MovieDetail : movieCODE로 리뷰S 목록 가져오기
 app.post("/api/see/movie/reviewListS", (req, res) => {
@@ -458,8 +550,84 @@ app.post("/api/see/movie/reviewListS", (req, res) => {
       }
     }
   )
-})
+});
 
+
+//구독자 수 가져오기
+app.post("/subscribe/subscribeNumber", (req, res) => {
+  const writerID = req.body.writerID;
+  const sql = "SELECT * FROM Subscribe WHERE writerID = (?)";
+  db.query(sql, [writerID], (err, result) => {
+      if (err) return res.status(400).send(err);
+      return res
+      .status(200)
+      .json({ success: true, subscribeNumber: result.length });
+  });
+});
+
+//회원구독 여부 확인
+app.post("/subscribe/subscribed", (req, res) => {
+  const userID =  req.body.userID;
+  const writerID = req.body.writerID;
+  const sql = "SELECT * FROM Subscribe WHERE userID = (?) AND writerID = (?)";
+  db.query(sql, [userID, writerID], (err, result) => {
+      if (err) res.status(400).send(err);
+      let sub = false;
+      if (result.length !== 0) {
+          sub = true;
+      }
+      res.status(200).json({ success: true, subscribed: sub });
+  });
+});
+
+
+//구독 취소 하기
+app.post("/subscribe/unSubscribe", (req, res)=>{
+  const userID =  req.body.userID;
+  const writerID = req.body.writerID;
+  const sql = "DELETE FROM Subscribe WHERE userID = ? AND writerID = ?";
+  db.query(sql, [userID, writerID], (err, result) => {
+    if (err) return res.status(400).json({ success: false, err });
+    res.status(200).json({ success: true, result});
+  })
+});
+
+
+//구독 하기
+app.post("/subscribe/Subscribe", (req, res)=>{
+  const userID =  req.body.userID;
+  const writerID = req.body.writerID;
+  const sql = "INSERT INTO Subscribe (userID, writerID) VALUES (?,?)";
+  db.query(sql, [userID, writerID], (err, result) => {
+    if (err) return res.json({ success: false, err });
+    res.status(200).json({ success: true});
+  })
+});
+
+//리뷰수정 여부 가져오기
+app.post("/modification/isModification", (req, res) => {
+  const reviewID = req.body.reviewID;
+  const sql = "SELECT * FROM REVIEW_E WHERE reviewID=? AND modification=1";
+  db.query(sql, reviewID, (err, result) => {
+    console.log(result);
+    if (err) res.status(400).send(err);
+    
+    let mod = false;
+    if (result.length !== 0) {
+        mod = true;
+    }
+    res.status(200).json({ success: true, modificated: mod });
+  });
+});
+
+app.post("/getMovieCode", (req, res) => {
+  const title = req.body.title;
+  const sql = "SELECT movieCODE FROM moviedata where title=?";
+  db.query(sql, title, (err, result) => {
+    if (err) return res.json({ success: false, err });
+    res.status(200).json({ success: true});
+  });
+});
 
 app.listen(3002, ()=>{
   console.log('running on port 3002');

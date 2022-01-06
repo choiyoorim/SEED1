@@ -14,7 +14,7 @@ function MemberInfo(){
 
     const modify = () =>{
 
-        // 유효성 검사
+        
         const password_check = /^[a-z0-9]{3,19}$/g;
         if(!password_check.test(passwordReg)){
             return alert('비밀번호는 4자 이상 20자 이하여야 합니다.')
@@ -43,11 +43,11 @@ function MemberInfo(){
     return(
         <>
              <div id="space"></div>
+             <p id="myInfoLogo">My Info</p>
 
              <div class="infoBox">
-                 <p id="signupLogo">My Info</p>
-                <div class="infodiv">
-
+                 <div id="firstTitle"><p>필수 정보</p></div>
+             <div id="firstDiv">
                     <h2 id="idinfo">ID</h2>
                     <p class="infopara" id="IDpara">{localUserID}</p>
                     <br/>
@@ -60,8 +60,7 @@ function MemberInfo(){
 
                     <h2 id="passwordinfo">Password</h2>
                     <input 
-                        type="password" 
-                        // placeholder={localUserPW} 
+                        type="password"  
                         id="pwinfo"
                         onChange={(e)=>{setPasswordReg(e.target.value);}}>
                     </input><br/>
@@ -76,13 +75,17 @@ function MemberInfo(){
                     <h2 id="emailinfo">Email</h2>
                     <p class="infopara" id="emailtitle">{localUserEmail}</p>
                     <br/>
+             </div>
+
+            <div id="secondTitle"><p>추가 정보</p></div>
+            <div id="secondDiv">
                     <h2 id="homepageinfo">Home page</h2>
-                    <input></input>
+                    <input id="homepageInput"></input>
 
                     <br/>
-                </div><br/>
+            </div>
 
-                <button class="savebtns" type="submit" onClick={modify}>save</button>
+                <button class="savebtns" type="submit" onClick={modify}>저장</button>
              </div>
         </>
     );

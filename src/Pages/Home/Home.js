@@ -11,18 +11,18 @@ function Home(){
         <p id="logo">Seed</p>
         <p id="logoIntro">Best Movie Review Application</p>
         <p id="joinmsg">Are you not a member yet?</p>
-        <Link to="/signup"><div id="joinLink">Join <br/> to <br/> SEED</div></Link>
+        <Link to="/signup"><div id="joinLink">Join <br/> to <br/> <b>SEED</b></div></Link>
         <hr id="line"></hr>
         <div id="frame">
-            <p id="introtitle">Why SEED?</p>
+            <p id="introtitle">why seed?</p>
         <div class="intro" id="intro1">
              <h2 class="introtitle">다함께 즐기세요.</h2>
              <p class="intropara">Mobile, Desktop 등 다양한 디바이스에서 리뷰하고 공유하세요.</p>
         </div>
 
         <div class="intro" id="intro2">
-             <h2 class="introtitle">글을 저장하세요.</h2>
-             <p class="intropara" id="para2">마음에 드는 리뷰가 있다면 간편하게 저장하고, 오프라인에서도 확인하세요.</p>
+             <h2 class="introtitle" id="title2">글을 저장하세요.</h2>
+             <p class="intropara" id="para2">마음에 드는 리뷰가 있다면 간편하게 저장하고, <br/>오프라인에서도 확인하세요.</p>
              <br/>
         </div>
 
