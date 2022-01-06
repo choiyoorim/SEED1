@@ -21,9 +21,20 @@ const isAuth=()=>{
 
 class MovieDetail extends React.Component{
     state = {
+        movie: [],
         reviewsE: [],
         reviewsS: []
       };
+
+    //영화 정보 가져오기
+    getMovieInfo = async () => {
+        const movieCODE = this.props.match.params.id;
+        await axios.post('//localhost:3002/api/see/movie/info', {movieCODE})
+        .then((res)=>{
+            this.setState({ movie : res.data[0]});
+        });
+    };
+
     //리뷰E 가져오기
     getReviewsE = async () => {
         const movieCODE = this.props.match.params.id;
@@ -47,13 +58,13 @@ class MovieDetail extends React.Component{
         /*if(location.state === undefined) {
             history.push("/");
         }*/
+        this.getMovieInfo();
         this.getReviewsE();
         this.getReviewsS();
     } 
 
     render() {
-        const {location} = this.props;
-        const {reviewsE, reviewsS} = this.state;
+        const {reviewsE, reviewsS, movie} = this.state;
         return (
             <div className="MovieDetail_Container">
                 <div className="detail_container">
@@ -61,9 +72,9 @@ class MovieDetail extends React.Component{
                     <img className="detail_img" src={location.state.poster} alt={location.state.title} title={location.state.title}/>
                     */}
                     <div className="detail_movie_data">
-                        <h3 className="movie_title">{location.state.title}</h3>
-                        <h5 className="movie_year">{location.state.year}</h5>
-                        <p className="movie_summary">{location.state.summary}</p>
+                        <h3 className="movie_title">{movie.title}</h3>
+                        <h5 className="movie_year">{movie.year}</h5>
+                        <p className="movie_summary">{movie.plot}</p>
                         <Link to="/write"><button onClick={isAuth} className="movieTOWrite_but">리뷰 작성하기</button></Link>
                     </div>
                 </div>
@@ -74,8 +85,7 @@ class MovieDetail extends React.Component{
                             <td className="mdNo">No.</td>
                             <td className="mdTItle"> Title</td>
                             <td className="mdWriter"><BsFillPersonFill/></td>
-                            <td className="mdLike"><FaHeart/></td>
-                            {/* <td className="mdNO"><FaEye/></td>*/}
+                            <td className="mdNO"><FaEye/></td>
                         </tr>
                     </table>
                     <hr className="line"></hr>

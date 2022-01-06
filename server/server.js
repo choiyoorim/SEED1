@@ -418,6 +418,20 @@ app.get("/api/see/movie", (req, res) => {
   )
 })
 
+//MovieDetail : movieCODE로 영화 정보 가져오기
+app.post("/api/see/movie/info", (req, res) => {
+  const movieCODE = req.body.movieCODE;
+  const sql = "SELECT * FROM REVIEW_E WHERE movieCODE = (?)";
+  db.query(sql, [movieCODE], (err, result) => {
+      if(err){
+        console.log(err);
+      }else {
+        res.send(result);
+      }
+    }
+  )
+})
+
 //MovieDetail : movieCODE로 리뷰E 목록 가져오기
 app.post("/api/see/movie/reviewListE", (req, res) => {
   const movieCODE = req.body.movieCODE;
@@ -431,6 +445,7 @@ app.post("/api/see/movie/reviewListE", (req, res) => {
     }
   )
 })
+
 //MovieDetail : movieCODE로 리뷰S 목록 가져오기
 app.post("/api/see/movie/reviewListS", (req, res) => {
   const movieCODE = req.body.movieCODE;
