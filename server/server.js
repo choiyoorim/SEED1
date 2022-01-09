@@ -27,8 +27,8 @@ app.use(
     resave: false,
     saveUninialized: false,
     cookie: {
-      //쿠키 유지 시간: 24시간
-      expires: 60*60*24*1000,
+      //쿠키 유지 시간: 10일
+      expires: 60*60*24*10,
       httpOnly: true,
     },
   })
@@ -60,6 +60,7 @@ app.post('/modify', (req, res)=>{
       );
       res.send({
         modified: true,
+        userPW: hash,
         modifyMessage: "회원 정보 수정 완료"
       });
     }else{
@@ -73,6 +74,7 @@ app.post('/modify', (req, res)=>{
       );
       res.send({
         modified: true,
+        userPW: hash,
         modifyMessage: "회원 정보 수정 완료"
       });
     }

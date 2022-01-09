@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import './ReviewDetail.css';
 import axios from 'axios';
 import Button from "../../Components/Button"
@@ -11,13 +11,15 @@ import {BsFillBackspaceReverseFill, BsFillPersonFill} from "react-icons/bs";
 import Subscribe from '../../Components/views/Sections/Subscribe';
 import Modification from '../../Components/views/Sections/Modification';
 
-const userID = localStorage.getItem('userID');
+const user = JSON.parse(sessionStorage.getItem('user'));
+// const userID = localStorage.getItem('userID');
 
 class ReviewDetail extends Component {
   state = {
     isLoading: true,
     review: [],
-    like: false
+    like: false,
+    userID:''
   };
 
   getReview = async () => {
@@ -33,6 +35,10 @@ class ReviewDetail extends Component {
     const { location, history } = this.props;
     if(location.state === undefined) {
         history.push("/");
+    }
+    //sessionStorage에 user가 있는 경우 정보 가져오기
+    if(user){
+      this.setState({userID: user.data.result[0].userID});
     }
     this.getReview();
   }
@@ -76,7 +82,7 @@ class ReviewDetail extends Component {
 
             {location.state.title === undefined ? <></> : <Modification/>}
 
-            {(location.state.writer === userID && location.state.title === undefined) ? 
+            {(location.state.writer === this.state.userID && location.state.title === undefined) ? 
             <div className="delete-button" onClick={()=>this.deleteShortReview(location.state.id)}>
             <Button size="sm" type="delete">삭제</Button>
           </div>

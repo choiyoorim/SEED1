@@ -8,16 +8,8 @@ import {FaEye} from "react-icons/fa";
 import {BsFillPersonFill} from "react-icons/bs";
 import {Link} from "react-router-dom";
 
-const auth= localStorage.getItem('auth');
-
-
-const isAuth=()=>{
-    if(!auth){
-    window.location.replace("/ee")
-      alert("seed를 이용하기 전에 로그인 해야합니다.");
-    }
-    localStorage.setItem('edit', false);
-  };
+const user = JSON.parse(sessionStorage.getItem('user'));
+// const auth= localStorage.getItem('auth');
 
 class MovieDetail extends React.Component{
     state = {
@@ -63,6 +55,14 @@ class MovieDetail extends React.Component{
         this.getReviewsS();
     } 
 
+    isAuth(){
+        if(!user){
+            window.location.replace("/see")
+            alert("seed를 이용하기 전에 로그인 해야합니다.");
+        }
+        localStorage.setItem('edit', false);
+    }
+
     render() {
         const {reviewsE, reviewsS, movie} = this.state;
         return (
@@ -75,7 +75,7 @@ class MovieDetail extends React.Component{
                         <h3 className="movie_title">{movie.title}</h3>
                         <h5 className="movie_year">{movie.year}</h5>
                         <p className="movie_summary">{movie.plot}</p>
-                        <Link to="/write"><button onClick={isAuth} className="movieTOWrite_but">리뷰 작성하기</button></Link>
+                        <Link to="/write"><button onClick={this.isAuth} className="movieTOWrite_but">리뷰 작성하기</button></Link>
                     </div>
                 </div>
                 <div className="reviewlist">

@@ -5,11 +5,14 @@ import ReviewPosts from "./ReviewPosts";
 import {ReviewCategory} from '../reviewCategory';
 import './../../Components/color.css'
 import  '../Mypage/Mypage.css';
-import user from '../../Components/Movie_poster/movie1.png';
+import userimg from '../../Components/Movie_poster/movie1.png';
 
 function Mypage(){
-    const name = localStorage.getItem('userNickname');
-    const id= localStorage.getItem('userID');
+    const user = JSON.parse(sessionStorage.getItem('user'));
+    const userID = user.data.result[0].userID;
+    const userName = user.data.result[0].userNickname;
+    // const name = localStorage.getItem('userNickname');
+    // const id= localStorage.getItem('userID');
     const[shortOrExpressDisplay, setShortOrExpressDisplay] = useState('none');
     const [writeInfo, setWriteInfo] = useState();
 
@@ -27,14 +30,14 @@ function Mypage(){
 
     const shortReviewList = () =>{
         Axios.post("http://localhost:3002/reviewS/list", {
-            userID: id
+            userID: userID
           }).then((response)=>{
           setReviewList(response.data);
         });
     };
     const expressReviewList = () =>{
         Axios.post("http://localhost:3002/reviewE/list", {
-            userID: id
+            userID: userID
           }).then((response)=>{
           setReviewList(response.data);
         });
@@ -83,9 +86,9 @@ function Mypage(){
         <section id="mypageSection" >
             <div className="setting">
                 <span>
-                    <img id = "mypage_user_img" src={user} width="50" height="50"/>
+                    <img id = "mypage_user_img" src={userimg} width="50" height="50"/>
                 </span>
-                <span id="mypage_username">{name}</span>
+                <span id="mypage_username">{userName}</span>
                 <div className="setting-block">
                     <span id="mypage_total">Total <span>187</span></span>
                     <span id="mypage_today">Today <span>5</span></span>

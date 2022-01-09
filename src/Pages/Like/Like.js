@@ -6,18 +6,19 @@ function Like() {
 
     const [movieReviewList_S, setReviewList_S] = useState([]);
     const [movieReviewList_E, setReviewList_E] = useState([]);
-    const id = localStorage.getItem('userID');
-
+    const user = JSON.parse(sessionStorage.getItem('user'));
+    const userID = user.data.result[0].userID;
+    // const userID = localStorage.getItem('userID');
 
     useEffect(()=>{
         Axios.post("http://localhost:3002/Like/reviewS", {
-            userID: id
+            userID: userID
           }).then((response)=>{
           setReviewList_S(response.data);
         });
 
         Axios.post("http://localhost:3002/Like/reviewE", {
-            userID: id
+            userID: userID
           }).then((response)=>{
           setReviewList_E(response.data);
           //console.log(response);

@@ -7,7 +7,9 @@ import {withRouter} from 'react-router-dom';
 
 function ReviewECard({ history, id, writer, title, likeC, viewC, content, pubDate, movieCode, movieTitle }) {
 
-  const auth= localStorage.getItem('auth');
+  const user = JSON.parse(sessionStorage.getItem('user'));
+  const auth = user.data.auth;
+  // const auth= localStorage.getItem('auth');
   //localStorage.setItem('writerID', writer);
   //console.log(writer);
 

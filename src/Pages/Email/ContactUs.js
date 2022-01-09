@@ -4,10 +4,11 @@ import emailjs from 'emailjs-com';
 import './ContactUs.css';
 
 export default function ContactUs() {
-
-
-  const userNickname= localStorage.getItem('userNickname');
-  const userEmail = localStorage.getItem('userEmail');
+  const user = JSON.parse(sessionStorage.getItem('user'));
+  const userNickname = user.data.result[0].userNickname;
+  const userEmail = user.data.result[0].userEmail;
+  // const userNickname= localStorage.getItem('userNickname');
+  // const userEmail = localStorage.getItem('userEmail');
   const [title, setTitle] = useState("");
   const [contents, setContents] = useState("");
 

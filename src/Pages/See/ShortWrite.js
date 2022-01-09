@@ -10,7 +10,9 @@ function ShortWrite(){
     const [isFirst, setIsFirst] = useState(true);   //처음 작성 여부(처음이면 insert, 아니면 update)
     const [visibilityButton, setVisibilityButton] = useState('visible');
     const [displayDeleteButton, setDisplayDeleteButton] = useState('none');
-    const userID = localStorage.getItem('userID');
+    const user = JSON.parse(sessionStorage.getItem('user'));
+    const userID = user.data.result[0].userID;
+    // const userID = localStorage.getItem('userID');
     const reviewID = localStorage.getItem('reviewID');
     const edit = localStorage.getItem('edit');
     const dateInst = new Date();

@@ -8,8 +8,10 @@ import {withRouter} from 'react-router-dom';
 
 
 function ReviewCard({ history, id, writer, title, likeC, viewC, content }) {
-
-  const auth= localStorage.getItem('auth');
+  
+  const user = JSON.parse(sessionStorage.getItem('user'));
+  const auth = user.data.auth;
+  // const auth= localStorage.getItem('auth');
 
   const isAuth = ()=>{
     if(!auth){
