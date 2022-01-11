@@ -56,19 +56,11 @@ function Navi({history}) {
     history.push('/memberinfo');
   };
 
-  const[visibility, setVisibility] = useState('visible');
-
   useEffect(()=>{
     //sessionStorage에 user가 있는 경우 정보 가져오기
     if(user){
       setNickname(user.data.result[0].userNickname);
       setAuth(user.data.auth);
-    }
-
-    if(auth){
-      setVisibility('hidden')
-    }else{
-      setVisibility('visible')
     }
   });
 
@@ -100,8 +92,9 @@ function Navi({history}) {
             </ul>
             <div class = "user">
               <p id = "user_name" onClick={moveInfo}>{nickname}</p>
-              <button id="user_login" style={{visibility: visibility}} onClick={moveLogin}>Login</button>
-              <img id = "user_img" src={userimg} width="40" height="40"/>
+              {auth? <img id = "user_img" src={userimg} width="40" height="40"/> 
+              : <button id="user_login" onClick={moveLogin}>Login</button>}
+              
             </div>
           </div>
 
@@ -135,7 +128,8 @@ function Navi({history}) {
               </ul>
             </div>
             <div class="nav_bottom">
-              <button id = "logoutBtn" onClick={logout}>로그아웃</button>
+              {auth? <button id = "logoutBtn" onClick={logout}>로그아웃</button>
+              : <button id = "logoutBtn" onClick={moveLogin}>로그인</button>}
             </div>
           </nav>
         </IconContext.Provider>
