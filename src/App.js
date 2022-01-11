@@ -15,6 +15,7 @@ import Find from './Pages/Find/Find';
 import Login from './Components/Login/Login';
 import SignUp from './Pages/SignUp/Signup';
 import MemberInfo from './Pages/Memberinfo/MemberInfo';
+import Withdrawal from './Pages/Withdrawal/Withdrawal';
 import ContactUs from './Pages/Email/ContactUs';
 import MovieDetail from './Pages/See/MovieDetail';
 import ReviewDetail from './Pages/See/ReviewDetail';
@@ -45,6 +46,7 @@ const App = () =>{
           <Route path="/expressreviewcontent/:id" component={ExpressReviewContent}/>
           <Route path="/signup" component={SignUp}/>
           <Route path="/memberinfo" component={MemberInfo} />
+          <Route path="/withdrawal" component={Withdrawal} />
           <Route path="/contactUs" component={ContactUs} />
           <Route path="/login" component={Login}/>
           <Route path="/movie/:id" component={MovieDetail}/>
