@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import './MemberInfo.css';
 import Axios from 'axios';
 
@@ -10,11 +10,54 @@ function MemberInfo(){
     const localUserWebsite = localStorage.getItem('userWebsite');
     const localUserBaio = localStorage.getItem('userBaio');
 
+    const [profileReg, setProfileReg] = useState(null);
     const [passwordReg, setPasswordReg] = useState('');
     const [nicknameReg, setNicknameReg] = useState(localUsername);
     const [passwordCheck, setPasswordCheck] = useState('');
     const [websiteReg, setWebsiteReg] = useState(localUserWebsite);
     const [baioReg, setBaioReg] = useState(localUserBaio);
+
+    // 이미지 미리보기 onChange
+    const loadImage = (e) =>{
+        const file = e.target.files;
+        console.log(file);
+        setProfileReg(file);
+    };
+
+    // 프로필 이미지 저장 function
+    const handleClick = (e) =>{
+        const formdata = new FormData();
+        formdata.append('uploadImage', profileReg[0]);
+
+        const config = {
+            Headers:{
+                'content-type': 'multipart/form-data',
+            },
+        };
+
+        Axios.post('http://localhost:3002/profileUpload', formdata, config);
+    }
+
+    useEffect(() => {
+        preview();
+
+        return () => preview();
+    });
+
+    const preview = () =>{
+        if(!profileReg) return false;
+
+        const imgEl = document.querySelector('#profileImageEdit');
+        const reader = new FileReader();
+
+        reader.onload = () =>
+        (imgEl.style.backgroundImage = `url(${reader.result})`);
+
+        reader.readAsDataURL(profileReg[0]);
+        console.log(reader);
+    };
+
+    
 
     const modify = () =>{
         const password_check = /^[a-z0-9]{3,19}$/g;
@@ -46,6 +89,8 @@ function MemberInfo(){
         });
 
     }
+
+
     return(
         <>
              <div id="space"></div>
@@ -53,11 +98,14 @@ function MemberInfo(){
 
             <div class="accountEditBox">
                 <div id="profileBox">
-                <p id="profileImageEdit">이미지</p>
+                <p id="profileImageEdit"> </p>
+                <div className="img__box"></div>
                 </div>
                 <div id="accountBox">
                     <h2 id="accountId">{localUserID}</h2><br/>
                     <p id="changeImage">프로필 사진 바꾸기</p>
+                    <input type="file" id="image" accept="img/*" onChange={loadImage} />
+                    <button onClick={handleClick}>저장하기</button>
 
                     <div class="editInfoBox"> 
                         <div class="infoHeadDiv"><h3 class="editHead">닉네임</h3> </div>

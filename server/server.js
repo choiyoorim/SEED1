@@ -498,6 +498,21 @@ app.post("/api/see/movie/reviewListS", (req, res) => {
   )
 })
 
+// 프로필 이미지 수정
+app.post("/profileUpload", (req, res) => {
+
+  const profile = req.body.formData;
+  const sql = "UPDATE USER SET userImage=?";
+
+  db.query(sql, profile,
+    (err, result)=>{
+      if(result.length > 0){
+        
+      }
+    })
+
+})
+
 
 app.listen(3002, ()=>{
   console.log('running on port 3002');
