@@ -74,7 +74,7 @@ class ReviewDetail extends Component {
               <p><BsFillPersonFill/>  {review.userID}</p>
             </span>
             
-            <Subscribe/>
+            <Subscribe writerID = {review.userID}/>
 
             <div style={{display: (userID === review.userID) ? 'none' : 'block'}}>
               <Like reviewID = {review.reviewID}/>
