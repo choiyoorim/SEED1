@@ -24,16 +24,28 @@ function Login() {
             if(!response.data.auth){
                 setLoginStatus(response.data.message);
             }else{
-                localStorage.setItem('token', response.data.token)
-                localStorage.setItem('auth', response.data.auth)
-                localStorage.setItem('userID', response.data.result[0].userID)
-                localStorage.setItem('userNickname', response.data.result[0].userNickname)
-                localStorage.setItem('userEmail', response.data.result[0].userEmail)
+                //sessionStorage에 저장
+                sessionStorage.setItem('user', JSON.stringify(response));
+               
+                //인증 JWT
+                // localStorage.setItem('token', response.data.token)
+
+                // localStorage.setItem('auth', response.data.auth)
+                // localStorage.setItem('userID', response.data.result[0].userID)
+                // localStorage.setItem('userNickname', response.data.result[0].userNickname)
+                // localStorage.setItem('userEmail', response.data.result[0].userEmail)
 
                 setLoginStatus(response.data.message);
-                let nowUserID = localStorage.getItem('userID');
+                
+                //sessionStorage에서 uerNickname 가져오기
+                let user = JSON.parse(sessionStorage.getItem('user'));
+                let nowUserNname = user.data.result[0].userNickname;
                 window.location.replace("/see");
-                alert(nowUserID+'님, 환영합니다!');
+                alert(nowUserNname+'님, 환영합니다!');
+
+                // let nowUserID = localStorage.getItem('userID');
+                // window.location.replace("/see");
+                // alert(nowUserID+'님, 환영합니다!');
                 //history.push('/see');
             }
         });

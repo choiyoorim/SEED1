@@ -4,7 +4,9 @@ import './Subscribe.css';
 function Subscribe(props) {
   const [Subscribed, setSubscribed] = useState(false);
   const [subscribeNumber, setSubscribeNumber] = useState(0);
-  const userID = localStorage.getItem('userID');
+  // const userID = localStorage.getItem('userID');
+  const user = JSON.parse(sessionStorage.getItem('user'));
+  const userID = user.data.result[0].userID;
   const writerID = localStorage.getItem('writerID');
 
   useEffect(() => {

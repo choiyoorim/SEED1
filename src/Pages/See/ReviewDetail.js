@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import './ReviewDetail.css';
 import axios from 'axios';
 import Button from "../../Components/Button";
@@ -9,7 +9,8 @@ import Subscribe from '../../Components/views/Sections/Subscribe';
 import Like from '../../Components/views/Sections/Like';
 import Modification from '../../Components/views/Sections/Modification';
 
-const userID = localStorage.getItem('userID');
+const user = JSON.parse(sessionStorage.getItem('user'));
+// const userID = localStorage.getItem('userID');
 
 class ReviewDetail extends Component {
   state = {
@@ -29,6 +30,10 @@ class ReviewDetail extends Component {
     const { location, history } = this.props;
     if(location.state === undefined) {
         history.push("/");
+    }
+    //sessionStorage에 user가 있는 경우 정보 가져오기
+    if(user){
+      this.setState({userID: user.data.result[0].userID});
     }
     this.getReview();
   }
