@@ -554,23 +554,39 @@ app.post("/api/see/movie/reviewListS", (req, res) => {
   )
 });
 
+//ReviewListCard : 링크 클릭 시 조회수 증가
+app.post("/api/see/review/reviewE/view", (req, res) => {
+  const reviewID = req.body.id;
+  const view = req.body.view;
+  const sql = "UPDATE REVIEW_E SET viewCount = (?) WHERE reviewID = (?)";
+  db.query(sql, [view, reviewID], (err, result) => {
+      if(err){
+        console.log(err);
+      }else {
+        res.send(result);
+      }
+    }
+  )
+});
+
 //ReviewDetail: reviewID로 리뷰 가져오기
-app.post("api/see/reviewE/info", (req, res) => {
+app.post("/api/see/review/reviewE/info", (req, res) => {
   const reviewID = req.body.reviewID;
   const sql = "SELECT * FROM REVIEW_E WHERE reviewID = (?)";
   db.query(sql, [reviewID], (err, result) => {
-    if(err){
-      console.log(err);
-    }else {
-      res.send(result);
+      if(err){
+        console.log(err);
+      }else {
+        res.send(result);
+      }
     }
-  })
-})
+  )
+});
 
 //ReviewDetail / Like : reviewID로 좋아요 수 가져오기
-app.post("api/see/reviewE/like/count", (req, res) => {
+app.post("/api/see/review/reviewE/like/count", (req, res) => {
   const reviewID = req.body.reviewID;
-  const sql = "SELECT count(*) FROM LIKE_E WHERE reviewID = (?)";
+  const sql = "SELECT * FROM LIKE_E WHERE reviewID = (?)";
   db.query(sql, [reviewID], (err, result) => {
     if(err){
       console.log(err);
@@ -581,7 +597,7 @@ app.post("api/see/reviewE/like/count", (req, res) => {
 })
 
 //ReviewDetail / Like : reviewID & usreID로 좋아요 여부 확인
-app.post("api/see/reviewE/like/check", (req, res) => {
+app.post("/api/see/review/reviewE/like/check", (req, res) => {
   const reviewID = req.body.reviewID;
   const userID = req.body.userID;
   const sql = "SELECT * FROM LIKE_E WHERE reviewID = (?) AND userID = (?)";
@@ -595,7 +611,7 @@ app.post("api/see/reviewE/like/check", (req, res) => {
 })
 
 //ReviewDetail / Like : reviewID & usreID로 좋아요 삭제
-app.post("api/see/reviewE/like/delete", (req, res) => {
+app.post("/api/see/review/reviewE/like/delete", (req, res) => {
   const reviewID = req.body.reviewID;
   const userID = req.body.userID;
   const sql = "DELETE FROM LIKE_E WHERE reviewID = (?) AND userID = (?)";
@@ -609,7 +625,7 @@ app.post("api/see/reviewE/like/delete", (req, res) => {
 })
 
 //ReviewDetail / Like : reviewID & usreID로 좋아요 생성
-app.post("api/see/reviewE/like/create", (req, res) => {
+app.post("/api/see/review/reviewE/like/create", (req, res) => {
   const reviewID = req.body.reviewID;
   const userID = req.body.userID;
   const sql = "INSERT INTO LIKE_E (reviewID, userID) VALUES (?, ?)";
