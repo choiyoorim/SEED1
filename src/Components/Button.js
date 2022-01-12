@@ -19,10 +19,10 @@ const SIZES={
     `,
 };
 
-function Button({disabled,size,children}){
+function Button({click,disabled,size,children}){
     const sizeStyle = SIZES[size];
     return (
-        <StyledButton disabled={disabled} sizeStyle={sizeStyle}>
+        <StyledButton onClick={click} disabled={disabled} sizeStyle={sizeStyle}>
             {children}
         </StyledButton>
     ); //disabled라는 매개변수 -> disabled에 담아 -> true면 children 실행
