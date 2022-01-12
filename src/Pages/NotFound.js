@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from './../Components/Button';
 
 const NotFound = ({history}) => {
 
@@ -23,14 +24,7 @@ const NotFound = ({history}) => {
         }}>
           존재하지 않는 페이지입니다.
         </h2>
-        <button onClick={onGoBack} style={{
-          background: '#FFBB00',
-          borderRadius: '8px',
-          padding: '12px 16px',
-          fontSize: '1rem'
-        }}>
-          돌아가기
-        </button>
+        <Button click={onGoBack} size="md">돌아가기</Button>
       </div>
   );
 };
