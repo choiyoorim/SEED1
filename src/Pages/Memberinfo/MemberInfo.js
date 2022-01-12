@@ -3,18 +3,19 @@ import './MemberInfo.css';
 import Axios from 'axios';
 
 function MemberInfo(){
-    const localUserID = localStorage.getItem('userID');
-    const localUsername = localStorage.getItem('userNickname');
-    // const localUserPW = localStorage.getItem('userPW');
-    const localUserEmail = localStorage.getItem('userEmail');
+    const user = JSON.parse(sessionStorage.getItem('user'));
+    const userID = user.data.result[0].userID;
+    const userName = user.data.result[0].userNickname;
+    const userEmail = user.data.result[0].userEmail;
+    // const localUserID = localStorage.getItem('userID');
+    // const localUsername = localStorage.getItem('userNickname');
+    // const localUserEmail = localStorage.getItem('userEmail');
 
     const [passwordReg, setPasswordReg] = useState('');
     const [nicknameReg, setNicknameReg] = useState('');
     const [passwordCheck, setPasswordCheck] = useState('');
 
     const modify = () =>{
-
-        
         const password_check = /^[a-z0-9]{3,19}$/g;
         if(!password_check.test(passwordReg)){
             return alert('비밀번호는 4자 이상 20자 이하여야 합니다.')
@@ -27,18 +28,22 @@ function MemberInfo(){
         }
 
         Axios.post('http://localhost:3002/modify', {
-          userID: localUserID,
+          userID: userID,
           userPW: passwordReg,
           userNickname: nicknameReg
         }).then((response)=>{
           console.log(response);
           if(response.data.modified){
-            localStorage.setItem('userNickname', nicknameReg);
+            //변경된 내용 session에 저장
+            user.data.result[0].userID = userID;
+            user.data.result[0].userPW = response.data.userPW;
+            user.data.result[0].userNickname = nicknameReg;
+            sessionStorage.setItem('user', JSON.stringify(user));
+            // localStorage.setItem('userNickname', nicknameReg);
             alert('회원정보 수정 완료!');
             window.location.replace("/memberInfo");
           }
         });
-
     }
     return(
         <>
@@ -49,11 +54,11 @@ function MemberInfo(){
                  <div id="firstTitle"><p>필수 정보</p></div>
              <div id="firstDiv">
                     <h2 id="idinfo">ID</h2>
-                    <p class="infopara" id="IDpara">{localUserID}</p>
+                    <p class="infopara" id="IDpara">{userID}</p>
                     <br/>
                     <h2 id="nickinfo">Nickname</h2>
                     <input id="nicknameModify" 
-                        placeholder={localUsername} 
+                        placeholder={userName} 
                         onChange={(e)=>{setNicknameReg(e.target.value);}}>
                     </input>
                     <br/>
@@ -73,7 +78,7 @@ function MemberInfo(){
 
                     <br/><br/>
                     <h2 id="emailinfo">Email</h2>
-                    <p class="infopara" id="emailtitle">{localUserEmail}</p>
+                    <p class="infopara" id="emailtitle">{userEmail}</p>
                     <br/>
              </div>
 

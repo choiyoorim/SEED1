@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { SideBar } from './SideBar';
 import '../Components/Navi.css';
 import '../Components/color.css';
-import user from '../Components/img/googleLogin.png';
+import userimg from '../Components/img/googleLogin.png';
 import Axios from 'axios';
 import { MicNone } from '@material-ui/icons';
 import {withRouter} from 'react-router-dom';
@@ -15,22 +15,28 @@ function Navi({history}) {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () =>setSidebar(!sidebar);
   const closeSidebar = () =>setSidebar(false);
-
-  const nickname = localStorage.getItem('userNickname');  
-  const auth= localStorage.getItem('auth');
+  const user = JSON.parse(sessionStorage.getItem('user'));
+  const [nickname, setNickname] = useState('');
+  const [auth, setAuth] = useState(false);
+  // const nickname = localStorage.getItem('userNickname');  
+  // const auth= localStorage.getItem('auth');
 
 
   const logout = () =>{
-    localStorage.removeItem('token')
-    localStorage.removeItem('auth')
-    localStorage.removeItem('userID')
-    localStorage.removeItem('userEmail')
-    localStorage.removeItem('userNickname')
-    localStorage.removeItem('userName')
+    //인증 JWT
+    // localStorage.removeItem('token')
+
+    // localStorage.removeItem('auth')
+    // localStorage.removeItem('userID')
+    // localStorage.removeItem('userEmail')
+    // localStorage.removeItem('userNickname')
+    // localStorage.removeItem('userName')
     localStorage.removeItem('reviewID')
     localStorage.removeItem('edit')
     localStorage.removeItem('writerID')
-
+    
+    //session에서 user정보 삭제
+    sessionStorage.removeItem('user');
 
     Axios.get('http://localhost:3002/user/logout')
     window.location.replace("/")
@@ -50,13 +56,11 @@ function Navi({history}) {
     history.push('/memberinfo');
   };
 
-  const[visibility, setVisibility] = useState('visible');
-
   useEffect(()=>{
-    if(auth){
-      setVisibility('hidden')
-    }else{
-      setVisibility('visible')
+    //sessionStorage에 user가 있는 경우 정보 가져오기
+    if(user){
+      setNickname(user.data.result[0].userNickname);
+      setAuth(user.data.auth);
     }
   });
 
@@ -88,8 +92,9 @@ function Navi({history}) {
             </ul>
             <div class = "user">
               <p id = "user_name" onClick={moveInfo}>{nickname}</p>
-              <button id="user_login" style={{visibility: visibility}} onClick={moveLogin}>Login</button>
-              <img id = "user_img" src={user} width="40" height="40"/>
+              {auth? <img id = "user_img" src={userimg} width="40" height="40"/> 
+              : <button id="user_login" onClick={moveLogin}>Login</button>}
+              
             </div>
           </div>
 
@@ -102,7 +107,7 @@ function Navi({history}) {
             </Link>
             </div>
             <div class="nav_user_info">
-              <img id = "sideBar_user_img" src={user} width="50" height="50"/>
+              <img id = "sideBar_user_img" src={userimg} width="50" height="50"/>
               <div className="sideBar_user_name"><p>{nickname}</p></div>
               <span className ="sideBar_sub user-info"><p>구독자 <b>23</b></p></span>
               <span className="sideBar_like user-info"><p>좋아요 <b>103</b></p></span>
@@ -123,7 +128,8 @@ function Navi({history}) {
               </ul>
             </div>
             <div class="nav_bottom">
-              <button id = "logoutBtn" onClick={logout}>로그아웃</button>
+              {auth? <button id = "logoutBtn" onClick={logout}>로그아웃</button>
+              : <button id = "logoutBtn" onClick={moveLogin}>로그인</button>}
             </div>
           </nav>
         </IconContext.Provider>

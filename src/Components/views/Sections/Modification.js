@@ -5,8 +5,10 @@ import {withRouter} from 'react-router-dom';
 
 function Modification({history}) {
   const [isModification, setIsModification] = useState(false);
+  const user = JSON.parse(sessionStorage.getItem('user'));
+  const userID = user.data.result[0].userID;
   const reviewID = localStorage.getItem('seeReviewID');
-  const isUser = (localStorage.getItem('writerID') === localStorage.getItem('userID'));
+  const isUser = (localStorage.getItem('writerID') === userID);
 
   useEffect(() => {
 
