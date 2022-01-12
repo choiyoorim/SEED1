@@ -75,13 +75,13 @@ class ReviewDetail extends Component {
             
             <Subscribe/>
 
-            <div style={{display: (userID === review.userID) ? 'none' : 'block'}}>
+            <div style={{display: (user === review.userID) ? 'none' : 'block'}}>
               <Like reviewID = {review.reviewID}/>
             </div>
 
             {review.title === undefined ? <></> : <Modification/>}
 
-            {(review.writer === userID && review.title === undefined) ? 
+            {(review.writer === user && review.title === undefined) ? 
             <div className="delete-button" onClick={()=>this.deleteShortReview(review.id)}>
             <Button size="sm" type="delete">삭제</Button>
           </div>
