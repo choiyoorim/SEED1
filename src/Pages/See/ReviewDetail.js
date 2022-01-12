@@ -10,6 +10,7 @@ import Like from '../../Components/views/Sections/Like';
 import Modification from '../../Components/views/Sections/Modification';
 
 const user = JSON.parse(sessionStorage.getItem('user'));
+const userID = user.data.result[0].userID;
 // const userID = localStorage.getItem('userID');
 
 class ReviewDetail extends Component {
@@ -75,13 +76,13 @@ class ReviewDetail extends Component {
             
             <Subscribe/>
 
-            <div style={{display: (user === review.userID) ? 'none' : 'block'}}>
+            <div style={{display: (userID === review.userID) ? 'none' : 'block'}}>
               <Like reviewID = {review.reviewID}/>
             </div>
 
             {review.title === undefined ? <></> : <Modification/>}
 
-            {(review.writer === user && review.title === undefined) ? 
+            {(review.writer === userID && review.title === undefined) ? 
             <div className="delete-button" onClick={()=>this.deleteShortReview(review.id)}>
             <Button size="sm" type="delete">삭제</Button>
           </div>
