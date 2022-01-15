@@ -10,12 +10,12 @@ import Like from '../../Components/views/Sections/Like';
 import Modification from '../../Components/views/Sections/Modification';
 
 const user = JSON.parse(sessionStorage.getItem('user'));
-const userID = user.data.result[0].userID;
 // const userID = localStorage.getItem('userID');
 
 class ReviewDetail extends Component {
   state = {
-    review: []
+    review: [],
+    userID:''
   };
 
   //리뷰E 가져오기
@@ -76,13 +76,13 @@ class ReviewDetail extends Component {
             
             <Subscribe writerID = {review.userID}/>
 
-            <div style={{display: (userID === review.userID) ? 'none' : 'block'}}>
+            <div style={{display: (this.state.userID === review.userID) ? 'none' : 'block'}}>
               <Like reviewID = {review.reviewID}/>
             </div>
 
             {review.title === undefined ? <></> : <Modification/>}
 
-            {(review.writer === userID && review.title === undefined) ? 
+            {(review.writer === this.state.userID && review.title === undefined) ? 
             <div className="delete-button" onClick={()=>this.deleteShortReview(review.id)}>
             <Button size="sm" type="delete">삭제</Button>
           </div>
