@@ -80,7 +80,7 @@ class ReviewDetail extends Component {
               <Like reviewID = {review.reviewID}/>
             </div>
 
-            {review.title === undefined ? <></> : <Modification/>}
+            {review.reviewTitle === undefined ? <></> : <Modification writerID={review.userID} reviewID={review.reviewID}/>}
 
             {(review.writer === this.state.userID && review.title === undefined) ? 
             <div className="delete-button" onClick={()=>this.deleteShortReview(review.id)}>
