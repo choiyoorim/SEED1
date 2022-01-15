@@ -29,7 +29,6 @@ function Subscribe(props) {
         } else {
           alert('정보를 받아오지 못했습니다.');
         }
-        console.log(Subscribed);
       }
     );
   }, []);
