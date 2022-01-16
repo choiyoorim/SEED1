@@ -174,6 +174,43 @@ app.get('/user/logout', (req,res)=>{
     .json({ auth: false, });
 })
 
+//회원탈퇴
+app.post("/user/withdrawal", (req, res)=>{
+  const userID = req.body.userID;
+  const userPW = req.body.userPW;
+
+  db.query(
+    "SELECT userPW FROM USER WHERE userID = ?",
+    userID, 
+    (err, result) =>{
+      if(err){
+        res.send({err: err})
+      }
+      if(result.length > 0){
+        bcrypt.compare(userPW, result[0].userPW, (error, response)=>{
+          if(response){
+            //비밀번호가 일치하는 경우
+            db.query("DELETE FROM USER WHERE userID = ? AND userPW = ?", 
+            [userID, result[0].userPW],
+            (err2, result2) =>{
+              if(err2){
+                res.send({err: err2})
+              }else {
+                req.session.destroy();
+              }
+            });
+            res.json({success: true});
+          } else{
+            res.json({success: false, message: "비밀번호가 일치하지 않습니다."});
+          }
+        })
+      } else{
+        res.json({success: false, message: "존재하지 않는 사용자입니다." });
+      }
+    }
+  );
+});
+
 //좋아요 개수 SELECT
 
 
