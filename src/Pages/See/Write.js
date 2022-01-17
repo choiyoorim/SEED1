@@ -16,7 +16,7 @@ function Write(){
     const [visibilityButton, setVisibilityButton] = useState('visible');
     const [displayDeleteButton, setDisplayDeleteButton] = useState('none');
     const user = JSON.parse(sessionStorage.getItem('user'));
-    const [userID, setUserID] = useState();
+    const [userID, setUserID] = useState('');
     // const userID = localStorage.getItem('userID');
     // const reviewID = localStorage.getItem('reviewID');
     const reviewID = localStorage.getItem('seeReviewID');
@@ -111,7 +111,7 @@ function Write(){
 
     useEffect(()=>{
         if(user){
-            setUserID(user.data.resulrt[0].userID);
+            setUserID(user.data.result[0].userID);
         }
 
         if(edit==='true'){
