@@ -9,8 +9,8 @@ import userimg from '../../Components/Movie_poster/movie1.png';
 
 function Mypage(){
     const user = JSON.parse(sessionStorage.getItem('user'));
-    const userID = user.data.result[0].userID;
-    const userName = user.data.result[0].userNickname;
+    const [userID, setUserID] = useState('');
+    const [userNickname, setNickname] = useState('');
     // const name = localStorage.getItem('userNickname');
     // const id= localStorage.getItem('userID');
     const[shortOrExpressDisplay, setShortOrExpressDisplay] = useState('none');
@@ -79,6 +79,10 @@ function Mypage(){
     };
 
     useEffect(()=>{
+        if(user){
+            setUserID(user.data.result[0].userID);
+            setNickname(user.data.result[0].userNickname);
+        }
         openShortList();
     }, []);
 
@@ -88,7 +92,7 @@ function Mypage(){
                 <span>
                     <img id = "mypage_user_img" src={userimg} width="50" height="50"/>
                 </span>
-                <span id="mypage_username">{userName}</span>
+                <span id="mypage_username">{userNickname}</span>
                 <div className="setting-block">
                     <span id="mypage_total">Total <span>187</span></span>
                     <span id="mypage_today">Today <span>5</span></span>
