@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import './ReviewListCard.css'
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
@@ -23,6 +24,13 @@ function ReviewListCard({ history, id, writer, title, likeC, viewC, content, pub
     localStorage.setItem('edit', false);
   }
 
+  const viewCount = async()=> {
+    let view = viewC + 1;
+    await axios.post('http://localhost:3002/api/see/review/reviewE/view', {id, view})
+    .then((res)=>{
+    });
+  }
+  
   useEffect(()=>{
     if(user){
       setAuth(user.data.auth);
@@ -46,6 +54,7 @@ function ReviewListCard({ history, id, writer, title, likeC, viewC, content, pub
                 movieCode
               }
             }}
+            onClick={viewCount}
           >
             <td className="mdTitle">{title}</td>
           </Link>

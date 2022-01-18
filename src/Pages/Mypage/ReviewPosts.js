@@ -4,20 +4,10 @@ import React from "react";
 import './Mypage.css';
 import ReviewECard from './ReivewECard';
 
-const getmovieCode = (title) =>{
-  Axios.post("http://localhost:3002/getMovieCode", {
-      title: title
-    }).then((response)=>{
-      return response.data;
-  });
-};
 
-const ReviewPosts = ({ posts, loading }) => {
-    return (
-        <>
-      { loading &&
-        <div> loading... </div>
-      }
+const ReviewPosts = ({ posts }) => {
+  return (
+    <>
       <div className="writtenUl">
         { posts.map(list=>(
           React.createElement(ReviewECard,
@@ -30,16 +20,14 @@ const ReviewPosts = ({ posts, loading }) => {
               viewC: list.viewCount,
               content: list.reviewContent,
               pubDate: list.date,
-              movieCode: getmovieCode(list.title),
+              movieCode: list.movieCODE,
               movieTitle: list.title
-              //list에 movieCode가 없음
             }
         )
-
-        ))}
+      ))}
       </div>
-      </>
-      );
+    </>
+  );
 
 };
 export default ReviewPosts;

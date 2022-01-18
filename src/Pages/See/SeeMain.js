@@ -24,9 +24,7 @@ class SeeMain extends Component  {
   //영화 검색
   searchMovies = async () => {
     const search = queryString.parse(this.props.location.search);
-    console.log(search);
     const res = await axios.post('//localhost:3002/api/see/searchMovie', search);
-    console.log(res);
     this.setState({ searchMovies : res.data, isLoading: false });
   };
 
@@ -34,14 +32,12 @@ class SeeMain extends Component  {
   //좋아요 수 많은 리뷰E 2개
   getTopLikeReviewsE = async () => {
     const res = await axios.get('//localhost:3002/api/see/topLikeReviewsE');
-    console.log(res);
     this.setState({ topLikeReviewsE : res.data });
   };
 
   //좋아요 수 많은 리뷰S 2개
   getTopLikeReviewsS = async () => {
     const res = await axios.get('//localhost:3002/api/see/topLikeReviewsS');
-    console.log(res);
     this.setState({ topLikeReviewsS : res.data });
   };
 

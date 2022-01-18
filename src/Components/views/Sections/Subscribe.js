@@ -7,7 +7,8 @@ function Subscribe(props) {
   // const userID = localStorage.getItem('userID');
   const user = JSON.parse(sessionStorage.getItem('user'));
   const userID = user.data.result[0].userID;
-  const writerID = localStorage.getItem('writerID');
+  // const writerID = localStorage.getItem('writerID');
+  const writerID = props.writerID;
 
   useEffect(() => {
 
@@ -28,7 +29,6 @@ function Subscribe(props) {
         } else {
           alert('정보를 받아오지 못했습니다.');
         }
-        console.log(Subscribed);
       }
     );
   }, []);
