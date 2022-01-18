@@ -5,14 +5,20 @@ import './ContactUs.css';
 
 export default function ContactUs() {
   const user = JSON.parse(sessionStorage.getItem('user'));
-  const userNickname = user.data.result[0].userNickname;
-  const userEmail = user.data.result[0].userEmail;
+  const [userEmail, setEmail] = useState('');
+  const [userNickname, setNickname] = useState('');
   // const userNickname= localStorage.getItem('userNickname');
   // const userEmail = localStorage.getItem('userEmail');
   const [title, setTitle] = useState("");
   const [contents, setContents] = useState("");
 
   function sendEmail(e) {
+
+    if(user){
+      setEmail(user.data.result[0].userEmail);
+      setNickname(user.data.result[0].userNickname);
+    }
+    
     e.preventDefault(); //제출 시 내용 사라지지 않게 함
 
     if(title.length === 0){
