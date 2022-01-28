@@ -6,6 +6,10 @@ import {BrowserRouter} from 'react-router-dom';
 import {createMuiTheme, ThemeProvider}
  from "@material-ui/core";
 import React from 'react';
+import { Provider } from "react-redux";
+import { applyMiddleware, createStore } from "redux";
+import promiseMiddlerware from "redux-promise";
+import reduxThunk from "redux-thunk";
 
 const theme = createMuiTheme({
   palette:{
@@ -20,12 +24,23 @@ const theme = createMuiTheme({
   
 })
 
+const createStoreWidthMiddleware = applyMiddleware(
+  promiseMiddlerware,
+  reduxThunk
+)(createStore);
+
 ReactDOM.render(
+  <Provider 
+    store={createStoreWidthMiddleware(
+        window.__REDUX_DEVTOOLS_EXTENSION__ &&
+          window.__REDUX_DEVTOOLS_EXTENSION__()
+    )}>
    <ThemeProvider theme={theme}>
      <BrowserRouter> 
      <App/>
      </BrowserRouter>
-   </ThemeProvider>,
+   </ThemeProvider>
+  </Provider>,
  document.getElementById('root')
 );
 // If you want to start measuring performance in your app, pass a function

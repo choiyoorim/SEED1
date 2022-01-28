@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const cors = require("cors");
 const app = express();
+const router = express.Router();
 
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
@@ -11,6 +12,7 @@ const saltRounds = 10;
 const jwt = require('jsonwebtoken');
 
 var db = require('./db');
+
 
 app.use(express.json())
 app.use(cors({
@@ -219,7 +221,7 @@ app.post("/reviewE/edit",(req,res)=>{
   })
 });
 
-//리뷰Short
+//리뷰S
 app.post("/shortsubmit",(req,res)=>{
   const title = req.body.title
   console.log(title);

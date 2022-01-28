@@ -21,13 +21,29 @@ import ReviewDetail from './Pages/See/ReviewDetail';
 import ShortReview from './Pages/See/ShortReview'
 import ExpressReview from './Pages/See/ExpressReview';
 import ExpressReviewContent from './Pages/See/ExpressReviewContent';
+import ChatRoom from './Pages/Chat/ChatRoom';
+import ChatHome from './Pages/Chat/ChatHome';
 
 const App = () =>{
+  const [userName,setUserName] = useState();
+  const [roomName,setRoomName] = useState();
   return(
     <>
     <BrowserRouter>
         <Navi/>
         <Route exact path ="/" component={Home}/>
+        <Route path="/chatroom">
+          <ChatRoom userName={userName} 
+                    roomName={roomName}
+          />
+        </Route>
+        <Route path="/chathome"> 
+          <ChatHome userName={userName}
+                    roomName={roomName}
+                    setUserName={setUserName}
+                    setRoomName={setRoomName}
+          />          
+        </Route>
         <Route path="/see" component={See}/>
         <Route path="/like" component={Like}/>
         <Route path="/mypage" component={Mypage}/>

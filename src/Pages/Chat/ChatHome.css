@@ -1,0 +1,93 @@
+@import url('../../Components/color.css');
+
+.container{
+    max-width:1100px;
+    background:#fff;
+    margin:30px auto;
+    overflow:hidden;
+    margin-top: 100px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.header{
+    background:var(--seed-backCover);
+    color:var(--seed-text-black);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding:10px;
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+}
+
+.room-main{
+    display:grid;
+    grid-template-columns: 3fr 3fr;
+}
+
+.roomList-container{
+    background:var(--seed-backgroundColor);
+    color:#fff;
+    padding: 20px 20px 100px;
+    overflow-y: scroll;
+}
+
+.roomListPrint ul{
+    padding: 0;
+}
+
+.roomListPrint li{
+    height:60px;
+    margin: 6px 6px;
+    border-top: 1px solid var(--seed-main-color);
+    list-style: none;
+    overflow:hidden;
+    align-items: center;
+}
+
+.roomListPrint li:hover{
+    background-color: var(--seed-backCover);
+}
+
+#roomName{
+    float:left;
+    margin: 0 20px 0 0;
+    width:90px;
+    text-align:left;
+}
+
+#roomInfo{
+    margin-top:20px;
+    float: left;
+    margin: 0 16px;
+    width: 150px;
+    text-align: center;
+}
+
+.EnterRoom{
+    margin-top:5px;
+    text-align: right;
+}
+
+.newRoom-create-container{
+    background-color: var(--seed-backgroundColor);
+}
+
+.newRoom-info{
+    margin:60px 30px;
+    margin-right:50px;
+}
+
+.newRoom-info li{
+    list-style: none;
+    display:grid;
+    grid-template-columns: 2fr 2fr;
+    margin-top:20px;
+}
+
+.enterNewRoom{
+    position:relative;
+    top:25px;
+    right:-200px;
+}

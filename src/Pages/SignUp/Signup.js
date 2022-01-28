@@ -3,6 +3,8 @@ import Axios from 'axios';
 import {Link} from 'react-router-dom';
 import './Signup.css';
 import googleIcon from '../../Components/img/googleLogin.png';
+import e from 'cors';
+import { registerUser } from '../../_actions/userAction';
 
 function Signup(){
     const [idReg, setIdReg] = useState('')
@@ -11,8 +13,10 @@ function Signup(){
     const [nicknameReg, setNicknameReg] = useState('')
     const [passwordCheck, setPasswordCheck] = useState('')
     const [policyagree, setPolicyagree] = useState(false);
+    const dispatch = useDispatch();
 
-    const register = () => {
+    const register = (e) => {
+        e.preventDefault();
 
         // 유효성 검사
         const eng_check = /^[a-z]+[a-z0-9]{3,15}$/g;
@@ -40,6 +44,16 @@ function Signup(){
             return alert('SEED 정책에 동의하셔야 합니다.');
         }
 
+        let body = {
+            userID: idReg, 
+            userPW: passwordReg,
+            userEmail: emailReg,
+            userNickname: nicknameReg
+        };
+        dispatch(registerUser(body)).then((res) =>{
+            alert("가입이 정상적으로 완료되었습니다.");
+            
+        })
         Axios.post('http://localhost:3002/register', {
           userID: idReg, 
           userPW: passwordReg,
