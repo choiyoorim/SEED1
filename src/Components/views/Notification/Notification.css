@@ -21,3 +21,9 @@
 .noti-list li:hover{
     color: #ffbb00;
 }
+
+#noti-icon{
+    position: absolute;
+    right: 150px;
+    top: 28px;
+  }
