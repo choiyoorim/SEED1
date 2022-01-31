@@ -1,0 +1,23 @@
+@import url('../../../Components/color.css');
+
+.noti-componemt{
+    float: right;
+    margin: 80px 20px 0 0;
+    width: 230px;
+    height: 500px;
+    background-color: var(--seed-backgroundColor);
+}
+
+.noti-list{
+    margin: 10px;
+    padding: 0;
+}
+.noti-list li{
+    font-size: 12px;
+    border-bottom: 1px solid white;
+    padding: 10px 2px;
+    list-style: none;
+}
+.noti-list li:hover{
+    color: #ffbb00;
+}

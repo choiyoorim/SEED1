@@ -10,6 +10,9 @@ import userimg from '../Components/img/googleLogin.png';
 import Axios from 'axios';
 import { MicNone } from '@material-ui/icons';
 import {withRouter} from 'react-router-dom';
+import Notification from '../Components/views/Notification/Notification';
+import { IoNotifications } from "react-icons/io5";
+
 
 function Navi({history}) {
   const [sidebar, setSidebar] = useState(false);
@@ -18,6 +21,8 @@ function Navi({history}) {
   const user = JSON.parse(sessionStorage.getItem('user'));
   const [nickname, setNickname] = useState('');
   const [auth, setAuth] = useState(false);
+  const [notiDisplay, setNotiDisplay] = useState(false);
+  const showNoti = () =>setNotiDisplay(!notiDisplay);
   // const nickname = localStorage.getItem('userNickname');  
   // const auth= localStorage.getItem('auth');
 
@@ -94,8 +99,13 @@ function Navi({history}) {
               <p id = "user_name" onClick={moveInfo}>{nickname}</p>
               {auth? <img id = "user_img" src={userimg} width="40" height="40"/> 
               : <button id="user_login" onClick={moveLogin}>Login</button>}
-              
+              {/* <button id="user_login" onClick={showNoti}>소식</button> */}
             </div>
+            <IoNotifications id="noti-icon" onClick={showNoti}/>
+          </div>
+
+          <div style={{display: `${notiDisplay ? "block": "none"}`}}>
+            <Notification/>
           </div>
 
 

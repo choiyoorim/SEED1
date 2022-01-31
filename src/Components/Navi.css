@@ -130,6 +130,11 @@ font-weight: 700;
   border: 1px solid #ababab;
 }
 
+#noti-icon{
+  position: absolute;
+  right: 150px;
+  top: 28px;
+}
 
 #user_name:hover{
   cursor: pointer;
