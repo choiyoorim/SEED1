@@ -742,6 +742,20 @@ app.post("/modification/isModification", (req, res) => {
   });
 });
 
+//소식(알림) 리스트
+app.post("/notification",(req, res)=>{
+  const userID =  req.body.userID;
+  db.query("SELECT * FROM noti WHERE userID = ?", [userID] , (err, result)=>{
+    if (err) res.status(400).send(err);
+
+    let list = false;
+    if (result.length !== 0) {
+        list = true;
+    }
+    res.status(200).json({ noti: result, list: list });
+  })
+});
+
 app.listen(3002, ()=>{
   console.log('running on port 3002');
 });
