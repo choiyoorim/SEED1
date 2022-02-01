@@ -743,7 +743,7 @@ app.post("/modification/isModification", (req, res) => {
 });
 
 //소식(알림) 리스트
-app.post("/notification",(req, res)=>{
+app.post("/notification/get",(req, res)=>{
   const userID =  req.body.userID;
   db.query("SELECT * FROM noti WHERE userID = ?", [userID] , (err, result)=>{
     if (err) res.status(400).send(err);
@@ -753,6 +753,19 @@ app.post("/notification",(req, res)=>{
         list = true;
     }
     res.status(200).json({ noti: result, list: list });
+  })
+});
+
+//소식(알림) 삭제
+app.post("/notification/delete",(req, res)=>{
+  const notID =  req.body.notID;
+  db.query("DELETE FROM noti WHERE notID = ?", [notID] , (err, result)=>{
+    if(err){
+      console.log(err);
+      res.json({success:false, err})
+    } else{
+      res.status(200).json({success:true})
+    }
   })
 });
 

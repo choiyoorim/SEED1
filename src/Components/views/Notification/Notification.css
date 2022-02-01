@@ -3,9 +3,8 @@
 .noti-componemt{
     float: right;
     margin: 80px 20px 0 0;
-    width: 230px;
+    width: 280px;
     height: 500px;
-    background-color: var(--seed-backgroundColor);
 }
 
 .noti-list{
@@ -13,17 +12,32 @@
     padding: 0;
 }
 .noti-list li{
+    width: 100%;
     font-size: 12px;
-    border-bottom: 1px solid white;
-    padding: 10px 2px;
+    font-weight: 100;
+    padding: 10px 6px;
+    margin: 10px 0;
     list-style: none;
+    background-color: var(--seed-backgroundColor);
 }
-.noti-list li:hover{
-    color: #ffbb00;
-}
-
 #noti-icon{
     position: absolute;
     right: 150px;
     top: 28px;
-  }
+}
+.meaasge{
+    width: 210px;
+    display: inline-block;
+    margin: 0 10px;
+}
+.meaasge:hover{
+    color: #ffbb00;
+}
+.no_message{
+    width: 210px;
+    display: inline-block;
+    margin: 0 10px;
+}
+.del-btn{
+    display: inline-block;
+}
