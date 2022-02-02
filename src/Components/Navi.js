@@ -21,6 +21,11 @@ function Navi({history}) {
   const [userID, setUserID] = useState('');
   const [nickname, setNickname] = useState('');
   const [auth, setAuth] = useState(false);
+  const userInfo = {
+    userID: userID,
+    userNickname: nickname,
+    
+  };
   // const nickname = localStorage.getItem('userNickname');  
   // const auth= localStorage.getItem('auth');
 
@@ -62,6 +67,7 @@ function Navi({history}) {
   useEffect(()=>{
     //sessionStorage에 user가 있는 경우 정보 가져오기
     if(user){
+      setUserID(user.data.result[0].userID);
       setNickname(user.data.result[0].userNickname);
       setAuth(user.data.auth);
     }
@@ -102,7 +108,7 @@ function Navi({history}) {
             
           </div>
 
-          <Notification user={user.data.result[0]} auth={user.data.auth}/>
+          <Notification user={userInfo} auth={auth}/>
 
           {/* 사이드바 */}
           <nav className={sidebar ? 'nav-menu active' : 'nav-menu'} onClick={showSidebar}>
