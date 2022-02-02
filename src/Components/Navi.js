@@ -18,6 +18,7 @@ function Navi({history}) {
   const showSidebar = () =>setSidebar(!sidebar);
   const closeSidebar = () =>setSidebar(false);
   const user = JSON.parse(sessionStorage.getItem('user'));
+  const [userID, setUserID] = useState('');
   const [nickname, setNickname] = useState('');
   const [auth, setAuth] = useState(false);
   // const nickname = localStorage.getItem('userNickname');  
@@ -101,7 +102,7 @@ function Navi({history}) {
             
           </div>
 
-          <Notification/>
+          <Notification user={user.data.result[0]} auth={user.data.auth}/>
 
           {/* 사이드바 */}
           <nav className={sidebar ? 'nav-menu active' : 'nav-menu'} onClick={showSidebar}>
