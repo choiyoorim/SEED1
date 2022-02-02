@@ -769,6 +769,39 @@ app.post("/notification/delete",(req, res)=>{
   })
 });
 
+//구독 시 알림 메시지 삽입
+app.post("/notification/subscribe", (req, res)=>{
+  const userID =  req.body.userID;
+  const writerID = req.body.writerID;
+  const nickname = req.body.userNickname;
+
+  db.query(
+    //같은 메시지 중복을 막기 위한 학인 절차
+    "SELECT notID FROM noti WHERE userID = ? AND targetUserID = ? AND notType = 'subscribe'",
+    [writerID, userID], 
+    (err, result) =>{
+      if(err){
+        res.send({err: err})
+      }
+      if(result.length === 0){  //메시지가 없는 경우 삽입
+        const sqlInsert =  `INSERT INTO noti (userID, targetUserID, notType, message, datetime) VALUES (?,?, 'subscribe', '${nickname}님이 회원님을 구독했습니다.', NOW())`;
+        db.query(sqlInsert, [writerID, userID], (err, result) => {
+          if (err) return res.json({ success: false, err });
+          res.status(200).json({ success: true});
+        })
+      } else{ //이미 메시지가 있는 경우 시간만 업데이트
+        const sqlupdate = "UPDATE noti SET datetime = NOW()";
+        db.query(sqlupdate, (err, result) => {
+            if(err){
+              console.log(err);
+            }else {
+              res.send(result);
+            }
+          }
+        )}
+    });
+});
+
 app.listen(3002, ()=>{
   console.log('running on port 3002');
 });
