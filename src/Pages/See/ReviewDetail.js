@@ -28,10 +28,6 @@ class ReviewDetail extends Component {
   };
 
   componentDidMount(){
-    const { location, history } = this.props;
-    if(location.state === undefined) {
-        history.push("/");
-    }
     //sessionStorage에 user가 있는 경우 정보 가져오기
     if(user){
       this.setState({userID: user.data.result[0].userID});
@@ -77,7 +73,7 @@ class ReviewDetail extends Component {
             <Subscribe writerID = {review.userID}/>
 
             <div style={{display: (this.state.userID === review.userID) ? 'none' : 'block'}}>
-              <Like reviewID = {review.reviewID}/>
+              <Like reviewID = {review.reviewID} writerID = {review.userID}/>
             </div>
 
             {review.reviewTitle === undefined ? <></> : <Modification writerID={review.userID} reviewID={review.reviewID}/>}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
+import { Link } from 'react-router-dom';
 import { IoNotifications, IoRemoveCircleOutline } from "react-icons/io5";
 import './Notification.css';
 
@@ -26,7 +27,7 @@ function Notification(props) {
             setIsMessage(response.data.list);
         }
     )};
-
+    
     const delMessage = (notID) =>{
         //소식 정보 삭제
         Axios.post('http://localhost:3002/notification/delete', {
@@ -41,11 +42,6 @@ function Notification(props) {
     )};
 
 
-    useEffect(() => {
-
-    }, []);
-
-
 {/* 구독자가 글 올리면 알림, 좋아요 받으면 알림, 댓글 알림, 대댓글 알림 */}
   return (
 <div>
@@ -57,7 +53,8 @@ function Notification(props) {
                     return (
                         <li key={index} id={item.notID}>  
                             <div>
-                                <div className='meaasge'>{item.message}</div>
+                                { item.url === null ? <div className='meaasge'>{item.message}</div>
+                                : <Link to={item.url}><div className='meaasge'>{item.message}</div></Link> }
                                 <div className='del-btn' onClick={()=>delMessage(item.notID)}><IoRemoveCircleOutline/></div>
                             </div>
                         </li>

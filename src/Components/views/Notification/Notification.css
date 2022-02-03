@@ -29,6 +29,7 @@
     width: 210px;
     display: inline-block;
     margin: 0 10px;
+    color: white;
 }
 .meaasge:hover{
     color: #ffbb00;
