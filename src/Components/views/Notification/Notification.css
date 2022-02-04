@@ -3,20 +3,31 @@
 .noti-componemt{
     float: right;
     margin: 80px 20px 0 0;
-    width: 280px;
-    height: 500px;
+    width: 300px;
 }
 
 .noti-list{
+    height: 500px;
     margin: 10px;
     padding: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
+.noti-list::-webkit-scrollbar{
+    width: 3px;
+    background-color: black;
+}
+.noti-list::-webkit-scrollbar-thumb{
+    width: 5px;
+    background-color: #ffbb00;
+}
+
 .noti-list li{
     width: 100%;
     font-size: 12px;
     font-weight: 100;
-    padding: 10px 6px;
-    margin: 10px 0;
+    padding: 10px 0;
+    margin: 10px 3px 10px 0;
     list-style: none;
     background-color: var(--seed-backgroundColor);
 }
@@ -28,7 +39,7 @@
 .meaasge{
     width: 210px;
     display: inline-block;
-    margin: 0 10px;
+    margin: 0 10px 0 0;
     color: white;
 }
 .meaasge:hover{
