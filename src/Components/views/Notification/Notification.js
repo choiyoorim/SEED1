@@ -16,6 +16,10 @@ function Notification(props) {
         getNoti();
     }
 
+    const goURL = (url) => {
+        window.location.replace(url);
+    }
+
     const getNoti = () =>{
         //소식 정보 가져옴
         Axios.post('http://localhost:3002/notification/get', {
@@ -54,7 +58,7 @@ function Notification(props) {
                         <li key={index} id={item.notID}>  
                             <div>
                                 { item.url === null ? <div className='meaasge'>{item.message}</div>
-                                : <Link to={item.url}><div className='meaasge'>{item.message}</div></Link> }
+                                : <div className='meaasge' onClick={()=>goURL(item.url)}>{item.message}</div> }
                                 <div className='del-btn' onClick={()=>delMessage(item.notID)}><IoRemoveCircleOutline/></div>
                             </div>
                         </li>

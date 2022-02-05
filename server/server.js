@@ -776,7 +776,7 @@ app.post("/notification/subscribe", (req, res)=>{
   const nickname = req.body.userNickname;
 
   db.query(
-    //같은 메시지 중복을 막기 위한 학인 절차
+    //같은 메시지 중복을 막기 위한 확인 절차
     "SELECT notID FROM noti WHERE userID = ? AND targetUserID = ? AND notType = 'subscribe'",
     [writerID, userID], 
     (err, result) =>{
@@ -810,7 +810,7 @@ app.post("/notification/like", (req, res)=>{
   const reviewID = req.body.reviewID;
 
   db.query(
-    //같은 메시지 중복을 막기 위한 학인 절차
+    //같은 메시지 중복을 막기 위한 확인 절차
     "SELECT notID FROM noti WHERE userID = ? AND targetUserID = ? AND notType = 'like' AND reviewID = ?",
     [writerID, userID, reviewID], 
     (err, result) =>{
