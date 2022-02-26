@@ -7,6 +7,7 @@ function Subscribe(props) {
   // const userID = localStorage.getItem('userID');
   const user = JSON.parse(sessionStorage.getItem('user'));
   const userID = user.data.result[0].userID;
+  const userNickname = user.data.result[0].userNickname;
   // const writerID = localStorage.getItem('writerID');
   const writerID = props.writerID;
 
@@ -48,11 +49,23 @@ function Subscribe(props) {
           }
         }
       );
-    } else {  //구독중이 아닌 경우 구독
+    } else {  //구독중이 아닌 경우
+      //구독 설정
       Axios.post('http://localhost:3002/subscribe/Subscribe', subscribedVariable).then(
         (response) => {
           if(response.data.success) {
             setSubscribed(!Subscribed);
+            //구독 알림 메시지 DB에 저장
+            Axios.post('http://localhost:3002/notification/subscribe', {userID, writerID, userNickname}).then(
+              (response) => {
+                if(response.data.success) {
+                  // console.log("메시지 저장")
+                } else {
+                  // console.log("메시지 저장 실패")
+                  // console.log(response.data.err)
+                }
+              }
+            );
           } else {
             alert('구독 실패');
           }

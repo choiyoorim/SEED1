@@ -742,6 +742,104 @@ app.post("/modification/isModification", (req, res) => {
   });
 });
 
+//소식(알림) 리스트
+app.post("/notification/get",(req, res)=>{
+  const userID =  req.body.userID;
+  db.query("SELECT * FROM noti WHERE userID = ?", [userID] , (err, result)=>{
+    if (err) res.status(400).send(err);
+
+    let list = false;
+    if (result.length !== 0) {
+        list = true;
+    }
+    res.status(200).json({ noti: result, list: list });
+  })
+});
+
+//소식(알림) 삭제
+app.post("/notification/delete",(req, res)=>{
+  const notID =  req.body.notID;
+  db.query("DELETE FROM noti WHERE notID = ?", [notID] , (err, result)=>{
+    if(err){
+      console.log(err);
+      res.json({success:false, err})
+    } else{
+      res.status(200).json({success:true})
+    }
+  })
+});
+
+//구독 시 알림 메시지 삽입
+app.post("/notification/subscribe", (req, res)=>{
+  const userID =  req.body.userID;
+  const writerID = req.body.writerID;
+  const nickname = req.body.userNickname;
+
+  db.query(
+    //같은 메시지 중복을 막기 위한 확인 절차
+    "SELECT notID FROM noti WHERE userID = ? AND targetUserID = ? AND notType = 'subscribe'",
+    [writerID, userID], 
+    (err, result) =>{
+      if(err){
+        res.send({err: err})
+      }
+      if(result.length === 0){  //메시지가 없는 경우 삽입
+        const sqlInsert =  `INSERT INTO noti (userID, targetUserID, notType, message, datetime) VALUES (?,?, 'subscribe', '${nickname}님이 회원님을 구독했습니다.', NOW())`;
+        db.query(sqlInsert, [writerID, userID], (err, result2) => {
+          if (err) return res.json({ success: false, err });
+          res.status(200).json({ success: true});
+        })
+      } else{ //이미 메시지가 있는 경우 시간만 업데이트
+        const sqlupdate = "UPDATE noti SET datetime = NOW()";
+        db.query(sqlupdate, (err, result3) => {
+            if(err){
+              console.log(err);
+            }else {
+              res.send(result3);
+            }
+          }
+        )}
+    });
+});
+
+//좋아요 시 알림 메시지 삽입
+app.post("/notification/like", (req, res)=>{
+  const userID =  req.body.userID;
+  const writerID = req.body.writerID;
+  const nickname = req.body.userNickname;
+  const reviewID = req.body.reviewID;
+
+  db.query(
+    //같은 메시지 중복을 막기 위한 확인 절차
+    "SELECT notID FROM noti WHERE userID = ? AND targetUserID = ? AND notType = 'like' AND reviewID = ?",
+    [writerID, userID, reviewID], 
+    (err, result) =>{
+      if(err){
+        res.send({err: err})
+      }
+      if(result.length === 0){  //메시지가 없는 경우 삽입
+        const search = "SELECT reviewTitle FROM LIKE_E JOIN REVIEW_E ON LIKE_E.reviewID = REVIEW_E.reviewID WHERE LIKE_E.reviewID = ?"
+        db.query(search, [reviewID], (err, title) => {
+          const sqlInsert =  `INSERT INTO noti (userID, targetUserID, notType, message, url, reviewType, reviewID, datetime) VALUES (?,?, 'like', "${nickname}님이 '${title[0].reviewTitle}' 글에 공감했습니다.", '/review/${reviewID}', 'express', ?, NOW())`;
+          db.query(sqlInsert, [writerID, userID, reviewID], (err, result2) => {
+            if (err) return res.json({ success: false, err });
+            res.status(200).json({ success: true});
+          })
+        })
+      } else{ //이미 메시지가 있는 경우 시간만 업데이트
+        const sqlupdate = "UPDATE noti SET datetime = NOW()";
+        db.query(sqlupdate, (err, result3) => {
+            if(err){
+              console.log(err);
+            }else {
+              res.send(result3);
+            }
+          }
+        )}
+    });
+});
+
+
 app.listen(3002, ()=>{
   console.log('running on port 3002');
 });

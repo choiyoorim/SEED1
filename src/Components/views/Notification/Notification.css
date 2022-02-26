@@ -1,0 +1,55 @@
+@import url('../../../Components/color.css');
+
+.noti-componemt{
+    float: right;
+    margin: 80px 20px 0 0;
+    width: 300px;
+}
+
+.noti-list{
+    height: 500px;
+    margin: 10px;
+    padding: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.noti-list::-webkit-scrollbar{
+    width: 3px;
+    background-color: black;
+}
+.noti-list::-webkit-scrollbar-thumb{
+    width: 5px;
+    background-color: #ffbb00;
+}
+
+.noti-list li{
+    width: 100%;
+    font-size: 12px;
+    font-weight: 100;
+    padding: 10px 0;
+    margin: 10px 3px 10px 0;
+    list-style: none;
+    background-color: var(--seed-backgroundColor);
+}
+#noti-icon{
+    position: absolute;
+    right: 150px;
+    top: 28px;
+}
+.meaasge{
+    width: 210px;
+    display: inline-block;
+    margin: 0 10px 0 0;
+    color: white;
+}
+.meaasge:hover{
+    color: #ffbb00;
+}
+.no_message{
+    width: 210px;
+    display: inline-block;
+    margin: 0 10px;
+}
+.del-btn{
+    display: inline-block;
+}

@@ -10,14 +10,22 @@ import userimg from '../Components/img/googleLogin.png';
 import Axios from 'axios';
 import { MicNone } from '@material-ui/icons';
 import {withRouter} from 'react-router-dom';
+import Notification from '../Components/views/Notification/Notification';
+
 
 function Navi({history}) {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () =>setSidebar(!sidebar);
   const closeSidebar = () =>setSidebar(false);
   const user = JSON.parse(sessionStorage.getItem('user'));
+  const [userID, setUserID] = useState('');
   const [nickname, setNickname] = useState('');
   const [auth, setAuth] = useState(false);
+  const userInfo = {
+    userID: userID,
+    userNickname: nickname,
+    
+  };
   // const nickname = localStorage.getItem('userNickname');  
   // const auth= localStorage.getItem('auth');
 
@@ -59,6 +67,7 @@ function Navi({history}) {
   useEffect(()=>{
     //sessionStorage에 user가 있는 경우 정보 가져오기
     if(user){
+      setUserID(user.data.result[0].userID);
       setNickname(user.data.result[0].userNickname);
       setAuth(user.data.auth);
     }
@@ -94,10 +103,12 @@ function Navi({history}) {
               <p id = "user_name" onClick={moveInfo}>{nickname}</p>
               {auth? <img id = "user_img" src={userimg} width="40" height="40"/> 
               : <button id="user_login" onClick={moveLogin}>Login</button>}
-              
+              {/* <button id="user_login" onClick={showNoti}>소식</button> */}
             </div>
+            
           </div>
 
+          <Notification user={userInfo} auth={auth}/>
 
           {/* 사이드바 */}
           <nav className={sidebar ? 'nav-menu active' : 'nav-menu'} onClick={showSidebar}>

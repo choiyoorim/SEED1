@@ -7,8 +7,12 @@ import {FiHeart} from "react-icons/fi";
 function Like(props) {
   const [Liked, setLiked] = useState(false);
   const [LikedCount, setLikedCount] = useState(0);
-  const userID = localStorage.getItem('userID');
+  const user = JSON.parse(sessionStorage.getItem('user'));
+  const userID = user.data.result[0].userID;
+  const userNickname = user.data.result[0].userNickname;
+  // const userID = localStorage.getItem('userID');
   const reviewID = props.reviewID;
+  const writerID = props.writerID;
 
   useEffect(() => {
     //좋아요 수 가져오기
@@ -42,6 +46,18 @@ function Like(props) {
         (res) => {
           setLiked(true);
           setLikedCount(LikedCount + 1) //좋아요 버튼 눌러도 새로고침 x -> 변경해줘야함
+
+          //좋아요 알림 메시지 DB에 저장
+          Axios.post('http://localhost:3002/notification/like', {userID, writerID, userNickname, reviewID}).then(
+            (response) => {
+              if(response.data.success) {
+                // console.log("메시지 저장")
+              } else {
+                // console.log("메시지 저장 실패")
+                // console.log(response.data.err)
+              }
+            }
+          );
         }
       );
     }
